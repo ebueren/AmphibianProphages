@@ -1,0 +1,17 @@
+"","Genus","Source","Isolation","DetailedIsolation","Genus.size","Source.size","Isolation.size","DetailedIsolation.size"
+"1","Janthinobacterium","Amphibian","Amphibian","Amphibian",24,5,5,5
+"2","Janthinobacterium","NCBI","Enviro","CookedRice_CA",24,19,15,1
+"3","Janthinobacterium","NCBI","Enviro","Enviro_NA",24,19,15,1
+"4","Janthinobacterium","NCBI","Enviro","FreshwaterBiofilm_Idaho",24,19,15,1
+"5","Janthinobacterium","NCBI","Enviro","Glacier_India",24,19,15,1
+"6","Janthinobacterium","NCBI","Host_non","LubomirskiaBaikalensis_SpongeRussia",24,19,4,2
+"7","Janthinobacterium","NCBI","Enviro","Pond_Germany",24,19,15,2
+"8","Janthinobacterium","NCBI","Enviro","PondShore_CA",24,19,15,1
+"9","Janthinobacterium","NCBI","Host_non","RootEndophyte_NA",24,19,4,1
+"10","Janthinobacterium","NCBI","Enviro","Sediment_SouthKorea",24,19,15,3
+"11","Janthinobacterium","NCBI","Enviro","Soil_Japan",24,19,15,1
+"12","Janthinobacterium","NCBI","Enviro","Soil_MI_ATCC_TypeStrain",24,19,15,1
+"13","Janthinobacterium","NCBI","Enviro","SoilPlantMaybe_Michigan",24,19,15,1
+"14","Janthinobacterium","NCBI","Enviro","TapwaterTofu_CA",24,19,15,1
+"15","Janthinobacterium","NCBI","Enviro","WetSoil_Chile",24,19,15,1
+"16","Janthinobacterium","NCBI","Host_non","Willow_NY",24,19,4,1

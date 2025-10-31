@@ -1,0 +1,15 @@
+"","Phylum","Class","Order","Family","Genus","Phylum.size","Class.size","Order.size","Family.size","Genus.size"
+"1","Proteobacteria","Alphaproteobacteria","Hyphomicrobiales","Rhizobiaceae","Agrobacterium",28,8,3,3,3
+"2","Firmicutes","Bacilli","Bacillales","Bacillaceae","Bacillus",4,4,4,4,4
+"3","Bacteroidetes","Flavobacteriia","Flavobacteriales","Flavobacteriaceae","Flavobacterium",8,3,3,3,3
+"4","Proteobacteria","Gammaproteobacteria","Enterobacteriales","Enterobacteriaceae","Hafnia",28,11,7,7,5
+"5","Proteobacteria","Betaproteobacteria","Burkholderiales","Oxalobacteraceae","Janthinobacterium",28,9,9,9,5
+"6","Proteobacteria","Betaproteobacteria","Burkholderiales","Oxalobacteraceae","Massilia",28,9,9,9,4
+"7","Actinobacteria","Actinobacteria","Actinomycetales","Microbacteriaceae","Microbacterium",8,8,8,4,4
+"8","Bacteroidetes","Sphingobacteriia","Sphingobacteriales","Sphingobacteriaceae","Pedobacter",8,5,5,5,5
+"9","Proteobacteria","Gammaproteobacteria","Pseudomonadales","Pseudomonadaceae","Pseudomonas",28,11,2,2,2
+"10","Proteobacteria","Gammaproteobacteria","Enterobacteriales","Enterobacteriaceae","Serratia",28,11,7,7,2
+"11","Proteobacteria","Alphaproteobacteria","Sphingomonadales","Sphingomonadaceae","Sphingomonas",28,8,5,5,5
+"12","Proteobacteria","Gammaproteobacteria","Xanthomonadales","Xanthomonadaceae","Stenotrophomonas",28,11,2,2,2
+"13","Actinobacteria","Actinobacteria","Actinomycetales","Streptomycetaceae","Streptomyces",8,8,8,3,3
+"14","Actinobacteria","Actinobacteria","Actinomycetales","Cellulomonadaceae","Unknown Cellulomonadaceae",8,8,8,1,1

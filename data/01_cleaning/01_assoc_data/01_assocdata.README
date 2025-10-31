@@ -1,0 +1,9 @@
+README 01_assoc_data
+
+amphall_rd1_vs2_trimmed.fna: original phage sequences, before filtering or renaming
+amphall_rd3_dc068_ognames.fna: high confidence phage sequences after filtering, before renaming.
+amphall_rd3_dc068_ognames_renamed.fna: high confidence phage sequences after filtering and with amPh_ rename scheme.
+
+rename_fasta_headers.py: script used to rename amphall_rd3_dc068_ognames.fna into amphall_rd3_dc068_ognames_renamed.fna.
+
+amphall_rd3_dc068_renamed.txt : renaming key for high confidence filtered phages. 

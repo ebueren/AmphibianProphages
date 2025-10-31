@@ -1,0 +1,524 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(dplyr)
+library(tidyverse)
+library(here)
+
+
+## set directory and paths
+here::here()
+raw_dir <- here("data", "03_funcCleaning", "03_raw")  ## raw output from programs like vs2, vibrant, checkv
+out_dir <- here("data", "03_funcCleaning", "03_out") ## output from R
+
+## load files
+
+read_and_combine.csv <- function(file1, file2) {
+  df1 <- read.csv(file1)
+  df2 <- read.csv(file2)
+  combined_df <- rbind(df1, df2)
+  return(combined_df)
+}
+
+read_and_combine.delim <- function(file1, file2) {
+  df1 <- read.delim(file1)
+  df2 <- read.delim(file2)
+  combined_df <- rbind(df1, df2)
+  return(combined_df)
+}
+
+
+```
+
+```{r}
+
+### load  COG ID metadata
+cog.def <- read.table(here(raw_dir, "cog-20.def.tab"), header = FALSE, sep = "\t", quote = "", comment.char = "")
+colnames(cog.def) <- c("COGnum.def", "COGlet", "COGdesc.def", "COGprot.def", "COGpath.def","blank", "COGidk.def")
+cog.def <- cog.def[,-c(6,4)]
+##classify these COG IDs as comming from the COG 2020 version
+cog.def$source <- "COG2020"
+
+
+### load table of COG letter ID ("COGlet") to COG functional category ("COG.cat")
+cat <- read.table(here(raw_dir, "fun-20.tab"), header = FALSE, sep = "\t", quote = "", comment.char = "")
+cat <- cat[,-c(2)]
+colnames(cat) <- c("COGlet", "COG.cat")
+
+
+
+
+## load all possible eggnog annotations from eggnog database
+eggmap <- read.delim(here(raw_dir, "1_EGGNOGannotations.tsv"), header=FALSE)
+eggmap <- eggmap[,-c(1)]
+
+### filter out COG/KOG hits (already in cog.def), rename columns to match cog.df, and note that the source is from emapper (eggnog)
+eggmap <- eggmap %>%
+  filter(!grepl('COG|KOG', V2))
+colnames(eggmap) <- c("COGnum.def", "COGlet", "COGdesc.def")
+eggmap$source <- "emapper"
+
+
+
+## combine cog and eggnog sources
+cog.def <- bind_rows(cog.def, eggmap)
+
+
+
+
+### load eggnog hits
+hmm <- read_and_combine.delim(here(raw_dir,"dc068_rd3_eggnogmapper.tsv"), here(raw_dir,"janthino_eggnogannot.tsv"))
+
+### find COG root1 (top level hits)
+hmm <- separate(data = hmm, col = eggNOG_OGs , into = c("root1", "root2", "root3", "root4", "root5", "root6", "roo7"), sep = ",", extra = "merge", remove=FALSE)
+
+find_root1 <- function(cell) {
+  if (endsWith(cell, "@1|root")) {
+    return(gsub("@\\|root1", "", cell))
+  } else {
+    return(0)
+  }
+}
+hmm[is.na(hmm)] <- "NA" 
+
+# Specify the range of columns
+cols_to_process <- 6:12
+
+# Apply the function to the specified columns
+hmm[cols_to_process] <- lapply(hmm[cols_to_process], function(col) sapply(col, find_root1))
+
+clean_root <- function(cell) {
+    return(gsub("@1\\|root","", cell))
+}
+
+
+hmm[cols_to_process] <- lapply(hmm[cols_to_process], clean_root)
+
+hmm <- hmm[c(1:5, 13:28, 6:9)]
+
+hmm <- pivot_longer(hmm, cols = starts_with("root"), names_to = "root", values_to = "COG")
+hmm <- subset(hmm, hmm$COG!=0)
+
+cog.un <- distinct(hmm, query)
+
+cog.dv <- as.data.frame(hmm$query[duplicated(hmm$query)])
+colnames(cog.dv) = "query"
+cog.dv$mult <- "multiple_COG"
+
+### merge any cog hits which have multiple root1 hits
+cog <- merge(cog.dv, cog.un, by="query", all=TRUE)
+cog$mult[is.na(cog$mult)] <- "single_COG" 
+
+hmm<- merge(hmm, cog, by="query", all=TRUE)
+
+##setting any multiple cog hits to UNKNOWN
+hmm <- hmm %>% group_by(query)%>%
+  mutate(the_rank  = rank(-score, ties.method = "random")) %>%
+  filter(the_rank == 1) %>% select(-the_rank)
+
+hmm$COG <- ifelse(hmm$mult=="multiple_COG", "", hmm$COG)
+
+hmm <- merge(hmm, cog.def, by.x="COG", by.y="COGnum.def", all.x=TRUE, all.y=FALSE)
+
+hmm <- hmm[,c(1:5, 23:28)]
+
+
+
+```
+
+```{r}
+
+## load prokka with PHROGS database output
+phrogs <- read_and_combine.delim(here(raw_dir,"dc068_rd3_prokkaOUT.tsv"), here(raw_dir,"amph_janthino_rd3_prokkaOUT.tsv"))
+
+phrogs <- subset(phrogs, phrogs$locus_tag!="locus_tag") ##remove extra headers
+phrogs <- separate(data = phrogs, col = EC_number, into = c("phrog_name", "phrog_num"), sep = "_")
+## NOTE: COG column is a prokka/phrogs category, REMOVING this column here so when merging occurs, it will just  be the Eggnog mapper COG #.
+phrogs <- phrogs[,-c(7,8)]
+phrogs <- separate(data = phrogs, col = locus_tag, into = c("prefix", "phage_num", "prot_num"), sep = "_", remove = FALSE)
+phrogs <- unite(data = phrogs, phage_seq, prefix, phage_num, sep = "_", remove = TRUE)
+
+## load phrogs database metadata + combine with output
+phrog_key <-read.delim(here(raw_dir, "phrog_annot_v4.tsv"))
+phrogs <- merge(phrogs, phrog_key, by="phrog_num", all.x=TRUE, all.y=FALSE) ##3794 hits (includes tRNA but not as actual proteins in .faa file)
+
+### combine phrogs and emapper hits 
+hmm <- merge(phrogs, hmm, by.x="locus_tag", by.y="query", all=TRUE)  
+hmm <- hmm %>% rename(protein=locus_tag, nogname=COGdesc.def)
+
+
+## load dRep phage metadata
+phage  <- read.csv(here("data", "02_drep", "02_output", "dRep_phagelist.csv"), row.names=1)
+##create list of bac isos with no phages later for reference
+no_phage <- subset(phage, phage$phage_seq=="no_phage")
+no_phage.list <- as.data.frame(no_phage[,c(7)])
+colnames(no_phage.list) <- "Sequencing.ID"
+
+
+phage <- subset(phage, phage$phage_seq!="no_phage")
+phage.list <- as.data.frame(phage[,c(1)])
+colnames(phage.list) <- "phage_seq"
+
+hmm <- merge(hmm, phage.list, by="phage_seq", all.x=FALSE, all.y=FALSE) ## keep only hits from phage_seqs that are from the high qual list 
+
+
+hmm.og <- hmm ##create back up clean hmm file to reference if things get weird
+
+```
+
+
+
+```{r}
+
+hmm <- hmm.og ##create working hmm file from original hmm file
+
+
+## classify ORFs without hits to phrogs or COG as not viral / NA / 0
+hmm$phrog_num[is.na(hmm$phrog_num)] <- "not_viral" 
+hmm$phrog_annot[is.na(hmm$phrog_annot)] <- "not_viral" 
+hmm$phrog_category[is.na(hmm$phrog_category)] <- "not_viral" 
+hmm$COG[is.na(hmm$COG)] <- "NA" 
+
+hmm$COGlet[is.na(hmm$COGlet)] <- 0 
+hmm$COGlet <- ifelse(hmm$COGlet=="-", 0, hmm$COGlet)
+```
+
+
+```{r}
+### search eggnog hits for any references to phage genes/proteins, and if so, identify them as Ph via COGlet
+
+phagehits2 <- hmm %>%
+  filter(grepl('phage|Phage|Baseplate|baseplate|Capsid|capsid|Integrase|integrase|Tail|tail|tape|Tape|lysozyme|Lysozyme|Porta|portal|holin|Holin|N-Acetylmuramoyl-L-alanine amidase|virus|Virus|viral|Viral|transposase|Transposase|Caudo|caudo', nogname) | grepl('X', COGlet))
+
+
+phagehits2$phagenog <- "Ph_nog"
+phagehits2 <- select(phagehits2, protein, phagenog)
+hmm <- merge(hmm, phagehits2, by="protein", all=TRUE)
+hmm$phagenog[is.na(hmm$phagenog)] <- "0" 
+### if hit to phrog that is not other or unknown, classify this as a phrog (phage-associated protein) hit and change COGlet to Ph
+hmm$COGlet <- ifelse(hmm$phrog_name=="phrog" & hmm$phrog_category!="other" & hmm$phrog_category!="unknown function", "Ph", hmm$COGlet)
+#hmm$COGlet <- ifelse(hmm$phrog_name=="phrog" & hmm$phrog_category!="other" & hmm$phrog_category!="unknown function" & hmm$phrog_category!="moron, auxiliary metabolic gene and host takeover", "Ph", hmm$COGlet)
+
+
+hmm$COGlet <- ifelse(hmm$phagenog=="Ph_nog", "Ph", hmm$COGlet)
+
+```
+
+```{r}
+
+### table of COG letters and categories 
+cogkey <- read.csv(here(raw_dir, "mastercog.csv"))
+cogkey <- cogkey[,c(1:3,6:7)]
+### combine data with COG category IDs
+hmm <- merge(hmm, cogkey, by="COGlet", all.x=TRUE, all.y=FALSE)
+
+##identify which viral hits are from eggnog, not phrog
+hmm$phrog_category <- ifelse(hmm$phrog_name=="not_viral" & hmm$phagenog=="Ph_nog", "EggnogPhageHit", hmm$phrog_category)
+
+## create a column of these most detailed category ORF is assigned, combining both COG and PHROG categories
+hmm$xtremedeets <- ifelse(hmm$COGlet=="Ph", hmm$phrog_category, hmm$Nog.abbrev)
+hmm$deets <- ifelse(hmm$COGlet=="Ph", hmm$Cog.cat, hmm$Nog.new)
+hmm$deets <- ifelse(hmm$phrog_category=="moron, auxiliary metabolic gene and host takeover", "Phage_moron, auxiliary metabolic gene and host takeover", hmm$deets)
+
+
+```
+
+```{r}
+##double letter COGlets
+
+##if a COG category is not a typical group, but instead a combined group (ex: AE instead of just A or E), mark this as unknown.
+hmm$COG.broad[is.na(hmm$COG.broad)] <- "POORLY CHARACTERIZED" 
+hmm$xtremedeets[is.na(hmm$xtremedeets)] <- "Unknown (S, No Hits)" 
+hmm$Cog.cat[is.na(hmm$Cog.cat)] <- "Function Unknown" 
+hmm$deets[is.na(hmm$deets)] <- "Unknown (S, No Hits)" 
+hmm$Nog.new[is.na(hmm$Nog.new)] <- "Unknown (S, No Hits)" 
+hmm$Nog.abbrev[is.na(hmm$Nog.abbrev)] <- "No hits (0)" 
+#hmm$Test <- hmm$COGlet
+hmm$COGlet <- ifelse(hmm$COG.broad=="POORLY CHARACTERIZED" & hmm$COGlet!="S" & hmm$COGlet!="0" & hmm$COGlet!="Ph", "S", hmm$COGlet)
+
+```
+
+###Find Bd-assoc prot
+
+```{r}
+
+
+##search for proteins associated with bd / fungal inhibition
+inhib.hits <- hmm %>%
+   filter(rowSums(across(everything(), ~grepl("fungal|fungi|chitin|zinc|metal|m36|serine|aspartyl|ABC|superoxide|violacein|prodigiosin| indole-3-carboxaldehyde|indole|tryptophan|peptidyl-nucleosides|zn|COG0726|COG3179|COG3325|COG3469",  .x, ignore.case=TRUE))) > 0) #139
+
+### subset hits (only hits to chitinase, serine, metal protease, and abc transporters were ID'd)
+
+serine_proteases <-inhib.hits %>%
+   filter(rowSums(across(everything(), ~grepl("serine",  .x, ignore.case=TRUE))) > 0) #139
+serine_proteases$interest <- "interest"
+serine_proteases$int.class <- "Serine protease"
+
+metal_proteases <-inhib.hits %>%
+   filter(rowSums(across(everything(), ~grepl("metal|zinc|zn peptidase",  .x, ignore.case=TRUE))) > 0) #139
+metal_proteases$interest <- "interest"
+metal_proteases$int.class <- "Metal protease"
+
+abc_trans <- inhib.hits %>%
+   filter(rowSums(across(everything(), ~grepl("ABC transporter|ABC-t",  .x, ignore.case=TRUE))) > 0) #139
+abc_trans$interest <- "interest"
+abc_trans$int.class <- "ABC Transporters"
+
+chit <- inhib.hits %>%
+   filter(rowSums(across(everything(), ~grepl("chit|COG0726|COG3179|COG3325|COG3469",  .x, ignore.case=TRUE))) > 0) #139
+chit$interest <- "interest"
+chit$int.class <- "Chitinase"
+```
+
+```{r}
+interesting <- rbind(serine_proteases, metal_proteases, abc_trans, chit)
+interesting <- select(interesting, protein, interest, int.class)
+
+##write.csv(interesting, here(here(out_dir, "putative_antifungal_hits.csv"))
+
+
+###add "interesting" putative antifungal classes back in, make any proteins not putative antifungals labeled as "typical"
+hmm.all <- merge(hmm, interesting, by="protein", all=TRUE)
+hmm.all$interest[is.na(hmm.all$interest)] <- "typical"
+hmm.all$int.class[is.na(hmm.all$int.class)] <- "typical"
+
+```
+
+
+
+```{r}
+
+##Create category to incorporate metabolic Aux genes identified by PHROGs
+hmm.all$comp <- "other" ##dummy category
+hmm.all$comp <- ifelse(hmm.all$COG.broad=="METABOLISM", "Metabolism", hmm.all$comp)
+
+###Reclassify all aux genes as just takeover (will identify metabolism next line of code)
+hmm.all$comp <- ifelse(hmm.all$phrog_category=="moron, auxiliary metabolic gene and host takeover", "Phage_Takeover", hmm.all$comp)
+## Reclassify metabolic-associated genes as Predicted_AMGs
+hmm.all$comp <- ifelse(hmm.all$phrog_num %in% c(61,249,293,424,883,887,1238,1601,1975,9240,12882,33262), "Predicted_AMG", hmm.all$comp) 
+
+## Create second comp column which has interesting proteins overwritting metabolism
+hmm.all$comp2 <- hmm.all$comp
+hmm.all$comp2 <- ifelse(hmm.all$interest=="interest", hmm.all$int.class, hmm.all$comp2)
+
+
+###create column highlighting auxillary genes
+hmm.all$aux <- hmm.all$deets
+
+## rename moron_hosttakeover_aux
+hmm.all$aux <- ifelse(hmm.all$comp=="Phage_Takeover", "Phage_Takeover", hmm.all$aux)
+hmm.all$aux <- ifelse(hmm.all$comp=="Predicted_AMG", hmm.all$comp, hmm.all$aux)
+hmm.all$aux <- ifelse(hmm.all$interest=="interest", hmm.all$int.class, hmm.all$aux)
+
+
+
+hmm.all$nogname[is.na(hmm.all$nogname)] <- "" 
+hmm.all$aux <- ifelse(hmm.all$nogname=="Chitinase, GH19 family", "Chitinase, GH19 family", hmm.all$aux)
+hmm.all$aux <- ifelse(hmm.all$nogname=="Chitinase, GH18 family", "Chitinase, GH18 family", hmm.all$aux)
+
+hmm.all$aux <- ifelse(hmm.all$COG=="COG0726", "Chitin deacetylase", hmm.all$aux)
+
+
+ipr <- read.csv(here(raw_dir, "ipr_chit_confirmed.csv"), row.names=1)
+ipr <- unique(ipr)
+hmm.all <- merge(hmm.all, ipr, by.x="protein", by.y="prot", all.x=TRUE, all.y=FALSE)  ##remove control chitinases
+
+hmm.all$ipr.confirm[is.na(hmm.all$ipr.confirm)] <- "none" 
+
+```
+
+
+##INTACT ESTIMATE
+
+```{r}
+## load dRep phage metadata
+phage  <- read.csv(here("data", "02_drep", "02_output", "dRep_phagelist.csv"), row.names=1)
+phage <- subset(phage, phage$phage_seq!="no_phage")
+
+hmmtal <- merge(hmm.all, phage, by="phage_seq", all.x=FALSE, all.y=FALSE) ## keep only proteins that 
+
+
+hmmtal$tally <-1
+
+hmmlist <- hmmtal %>%
+  group_by(Genus, Sequencing.ID, phage_seq) %>%
+  summarise(ignore = sum(tally))
+
+### identify hits to hallmark proteins 
+
+integrase <- hmmtal %>%
+   filter(rowSums(across(everything(), ~grepl("integrase|transposase|integration and excision|excisionase", .x, ignore.case=TRUE))) > 0) #139
+
+phage_int <- integrase %>%
+  group_by(phage_seq) %>%
+  summarise(Integrase.numi.iso = sum(tally))
+phage_int$inthit <-1
+
+
+tail <- hmmtal %>%
+   filter(rowSums(across(everything(), ~grepl("tail", .x, ignore.case=TRUE))) > 0) #139
+
+phage_tail <- tail %>%
+  group_by(phage_seq) %>% summarise(Tailnum.periso = sum(tally))
+
+phage_tail$tailhit <- 1
+
+
+
+head <- hmmtal %>%
+   filter(rowSums(across(everything(), ~grepl("head", .x, ignore.case=TRUE))) > 0) #139
+
+phage_head <- head %>%
+  group_by(phage_seq) %>% summarise(Headnum.periso = sum(tally))
+
+phage_head$headhit <- 1
+
+
+capsid <- hmmtal %>%
+   filter(rowSums(across(everything(), ~grepl("capsid", .x, ignore.case=TRUE))) > 0) #139
+phage_capsid <- capsid %>%
+  group_by(phage_seq) %>% summarise(Capsidnum.periso = sum(tally))
+phage_capsid$capsidhit <- 1
+
+
+portal <- hmmtal %>%
+   filter(rowSums(across(everything(), ~grepl("portal", .x, ignore.case=TRUE))) > 0) #139
+phage_portal <- portal %>%
+  group_by(phage_seq) %>% summarise(Portalnum.periso = sum(tally))
+phage_portal$portalhit <- 1
+
+
+plate <- hmmtal %>%
+   filter(rowSums(across(everything(), ~grepl("plate", .x, ignore.case=TRUE))) > 0) #139
+phage_plate <- plate %>%
+  group_by(phage_seq) %>% summarise(Platenum.periso = sum(tally))
+phage_plate$platehit <- 1
+
+terminase <- hmmtal %>%
+   filter(rowSums(across(everything(), ~grepl("terminase", .x, ignore.case=TRUE))) > 0) #139
+phage_terminase <- plate %>%
+  group_by(phage_seq) %>% summarise(Platenum.termiso = sum(tally))
+phage_plate$termhit <- 1
+
+coat <- hmmtal %>%
+   filter(rowSums(across(everything(), ~grepl("coat", .x, ignore.case=TRUE))) > 0) #139
+phage_coat <- coat %>%
+  group_by(phage_seq) %>% summarise(Platenum.coatiso = sum(tally))
+phage_coat$coathit <- 1
+
+Phage_assoc <- hmmtal %>%
+   filter(rowSums(across(everything(), ~grepl("Phage-associated", .x, ignore.case=TRUE))) > 0) #139
+phage_assoc1 <- Phage_assoc %>%
+  group_by(Genus, Sequencing.ID, phage_seq) %>% summarise(PhageHit = sum(tally))
+phage_assoc1$phhit <- 1
+
+##dplyr errors can be ignored, it is a string issue with "helicase subunit RecB of the DNA repair enzyme RecBCD (exonuclease V)" which does not contain relevant keywords
+
+vlphits <- merge(hmmlist, phage_tail, by="phage_seq", all=TRUE) %>%
+          merge(phage_int, by="phage_seq", all=TRUE) %>%
+          merge(phage_head, by="phage_seq", all=TRUE) %>%
+          merge(phage_capsid, by="phage_seq", all=TRUE) %>%
+          merge(phage_portal, by="phage_seq", all=TRUE) %>%
+          merge(phage_terminase, by="phage_seq", all=TRUE) %>%
+          merge(phage_coat, by="phage_seq", all=TRUE) %>%
+          merge(phage_plate, by="phage_seq", all=TRUE)
+
+vlphits$phage_seq[is.na(vlphits$phage_seq)] <- "no_phage"
+vlphits <- subset(vlphits, vlphits$phage_seq!="no_phage")
+
+
+vlphits[is.na(vlphits)] <- 0
+
+vlphits$total.vlp <- vlphits$tailhit + vlphits$headhit + vlphits$capsidhit + vlphits$portalhit + vlphits$platehit + vlphits$termhit + vlphits$coathit
+```
+
+
+```{r}
+
+vlphits$intact_est <- ifelse(vlphits$total.vlp>=3 & vlphits$inthit>=1, "Intact", "Degraded")
+#vlphits$intact_est <- ifelse(vlphits$total.vlp>=4, "Intact", "Degraded")
+
+vlphits.check <- vlphits[,c(1,22)]
+colnames(vlphits.check)[2] = c("VLP3intact_est")  #orig: intact_est
+
+phage.og <- select(phage, phage_seq, og_phage_seq)
+vlphits.check <- merge(vlphits.check, phage.og, by="phage_seq", all=TRUE)
+
+```
+
+
+```{r}
+### load phaster data 
+
+phaster <- read_and_combine.csv(here(raw_dir,"amphall_rd3_dc0608_PHASTER_SUM_FINAL.csv"), here(raw_dir,"janthino_NCBI_pha_PHASTER_SUM_FINAL.csv"))
+
+
+colnames(phaster)[21] = c("phage_seqname")
+
+#phaster <- phaster[, -c(24:40)]
+
+phaster.check <- phaster[,c(4,5,21)]
+colnames(phaster.check)[1:2] = c("PHAintact_est", "PHA_score")  #orig: complete, score 
+phaster.check$phage_seqname <- gsub("\\:.*$", "", phaster.check$phage_seqname)
+## if phaster SPLITS any of my phage into more than one contig, i take the top score as rep
+library(dplyr)
+
+phaster.check <- phaster.check %>% group_by(phage_seqname)%>%
+  mutate(the_rank  = rank(-PHA_score, ties.method = "random")) %>%
+  filter(the_rank == 1) %>% select(-the_rank)
+
+
+## compare phaster output to eggnog hallmark intact estimate
+
+phaster.vs.vlp <- merge(phaster.check, vlphits.check, by.x="phage_seqname", by.y="og_phage_seq", all.x=FALSE, all.y=TRUE)
+phaster.vs.vlp$PHAintact_est[is.na(phaster.vs.vlp$PHAintact_est)] <- "no.phaster.hit"
+
+phaster.vs.vlp$intact_est2 <- 0
+
+## if either phaster or vlp estimate calls a phage as intact, classify as intact
+phaster.vs.vlp$intact_est2 <- ifelse(phaster.vs.vlp$VLP3intact_est=="Intact" | phaster.vs.vlp$PHAintact_est=="intact", "Intact", "Degraded")
+
+
+phaster.vs.vlp <- phaster.vs.vlp[,c(4,6)]
+
+phage  <- read.csv(here("data", "02_drep", "02_output", "dRep_phagelist.csv"), row.names=1)
+
+phage.intact <- merge(phage, phaster.vs.vlp, by.x="phage_seq", by.y="phage_seq", all.x=TRUE, all.y=FALSE)
+phage.intact$BD.Inhibition[is.na(phage.intact$BD.Inhibition)] <- "NA"
+phage.intact[is.na(phage.intact)] <- "no_phage"
+
+#write.csv(phage.intact, here(out_dir,"final_phagelist.csv"))
+```
+
+```{r}
+### add in intact estimates
+hmm.final <- merge(hmm.all, phage.intact, by.x="phage_seq", by.y="phage_seq", all.x=TRUE, all.y=TRUE)
+
+hmm.final[is.na(hmm.final)] <- "NA"
+
+#write.csv(hmm.final, here(out_dir,"rd3_hmm_FINAL_with_nophage.csv"))
+
+```
+
+```{r}
+### create .fna and .faa output list of chitinases
+chit.hit <- subset(hmm.final, hmm.final$int.class=="Chitinase")
+chit.hit$out <- "fna"
+chit.hit$out2 <- "faa"
+chit.hit <- select(chit.hit, Source, phage_seq, protein, phrog_num, phrog_category, COG, nogname, Genus, Sequencing.ID, BD.Inhibition, out, out2)
+
+
+chit.hit <- chit.hit %>% unite(fullname.FNA, protein, out, sep=".", remove=FALSE)
+chit.hit <- chit.hit %>% unite(fullname.FAA, protein, out2, sep=".", remove=FALSE)
+
+chit.fna <-as.data.frame(chit.hit[,c(2)])
+chit.faa <-as.data.frame(chit.hit[,c(3)])
+
+##write.table(chit.fna, here(out_dir, "amphChitFNAlist.txt"), sep="\t", quote= FALSE, row.names=FALSE, col.names=FALSE)
+##write.table(chit.faa, here(out_dir, "amphChitFAAlist.txt") , sep="\t", quote= FALSE, row.names=FALSE, col.names=FALSE)
+##write.csv(chit.hit, here(out_dir, "detailed_chithits.csv"))
+```
+

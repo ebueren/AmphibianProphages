@@ -1,0 +1,84 @@
+---
+title: "2_drep"
+output: html_notebook
+---
+
+```{r}
+library(dplyr)
+library(tidyverse)
+library(here)
+
+
+## set directory and paths
+here::here()
+
+#setwd(here()) 
+
+raw_dir <- here("data", "02_drep", "02_raw")  ## raw output from programs like vs2, vibrant, checkv
+out_dir <- here("data", "02_drep", "02_output") ## output from R
+
+## load phage metadata
+phage  <- read.csv(here("data", "01_cleaning", "01_output", "all_phagelist.csv"), row.names=1)
+
+
+
+## load dRep output for amphibian phage, identify reference/representative strains
+clusters.a <- read.csv(here(raw_dir, "amph_Cdbvs2vib-95-95-85.csv"))
+clusters.a <- clusters.a[,c(1,2)]
+
+
+rep.a <- read.csv(here(raw_dir, "amph_Wdbvs2vib-95-95-85.csv"))
+rep.a$representative <- "reference_phage" 
+rep.a <- rep.a[,c(1,4)]
+
+merge.a <- merge(clusters.a, rep.a, by="genome", all=TRUE)
+
+
+## load dRep output for NCBI phage, identify reference/representative strains
+clusters.j <- read.csv(here(raw_dir, "Cdb-janthino-rd3-95-95-85.csv"))
+clusters.j <- clusters.j[,c(1,2)]
+
+rep.j <- read.csv(here(raw_dir, "Widb-janthino-rd3-95-95-85.csv"))
+rep.j$representative <- "reference_phage" 
+rep.j <- rep.j[,c(1,16)]
+
+merge.j <- merge(clusters.j, rep.j, by="genome", all=TRUE)
+
+
+## combine dRep datasets, identify any duplicate phage sequences, merge with phage metadata
+drep <- rbind(merge.a, merge.j)
+drep$representative[is.na(drep$representative)] <- "NO"
+drep$phage_seq <- sub(".[^.]+$", "", drep$genome)
+
+
+dRep <- merge(phage, drep, by="phage_seq", all.x=TRUE, all.y=FALSE)
+
+#write.csv(dRep, here(out_dir, "dRep_phagelist.csv"))
+
+```
+
+
+```{r}
+### track clustering / uniqueness of phages.
+
+## remove isolates without phages
+drep.count <- subset(dRep, dRep$phage_seq!="no_phage")
+
+## add a counter variable
+drep.count$tally <- 1
+
+### checking to see if any amphibian phages cluster across multiple genera
+amph.count <- subset(drep.count, drep.count$Source=="Amphibian")
+amph.count <- select(amph.count, Genus, secondary_cluster, tally) 
+
+drep.ag <- aggregate(amph.count[,c(3)], by=list(amph.count$secondary_cluster, amph.count$Genus), FUN=sum) 
+
+
+drep.solo <- subset(drep.ag, drep.ag$x==1) ## 74 phage clusters contain only one species of phage
+drep.group <- subset(drep.ag, drep.ag$x>1) ## 5 hafnia phage clusters contain 3 phage per cluster (15 total phage), 
+
+## 79 UNIQUE PHAGES
+
+dups <- as.data.frame(drep.ag$Group.1[duplicated(drep.ag$Group.1)]) ##no phage clusters overlap between genus.
+colnames(dups)[1] = c("dup_ref") 
+```

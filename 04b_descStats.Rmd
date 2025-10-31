@@ -1,0 +1,481 @@
+---
+title: "4b_DescStats for Janthinobacterium isolates"
+output: html_notebook
+---
+```{r}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+#library(hrbrthemes)
+library(viridis)
+library(ggpubr)
+#library(broom)
+library(here)
+
+
+## set directory and paths
+here::here()
+raw_dir <- here("data", "04_descStats", "04_raw")  ## raw output from programs like vs2, vibrant, checkv
+out_dir <- here("data", "04_descStats", "04_out") ## output from R
+
+
+
+### if you don't want to run all the code below and just want the final tables for reference:
+all.jstats <- read.csv(here(out_dir, "SD_DescStats_dc068_ALLJanthino.csv"), row.names=1)
+int.jstats <- read.csv(here(out_dir, "SD_DescStats_dc068_IntJanthino.csv"), row.names=1)
+deg.jstats <- read.csv(here(out_dir, "SD_DescStats_dc068_DegJanthino.csv"), row.names=1)
+
+#IntDegFract <- read.csv(here(out_dir, "IntactDeg_Fraction.csv"), row.names=1)
+AmphIsoCount <- read.csv(here(out_dir, "Janth_IsoCount.csv"))
+```
+
+
+
+```{r}
+##subset out just amphibian phages for this portion of descriptive analysis
+phage <- read.csv(here("data", "03_funcCleaning", "03_out","final_phagelist.csv"), row.names=1)
+phage <- subset(phage, phage$Genus=="Janthinobacterium")
+
+phage.clean <- phage
+
+
+```
+
+#### Desc stats for all janthino phages
+```{r}
+phage$tally <- ifelse(phage$phage_seq=="no_phage", 0, 1)
+```
+
+```{r}
+
+numphage.ag <- aggregate(phage[, c(26,12)], by=list(phage$Sequencing.ID, phage$Genus, phage$Source, phage$Isolation, phage$DetailedIsolation, phage$Bac.size), FUN=sum)
+
+colnames(numphage.ag)[1:8] = c("iso_name","Genus", "Source", "Isolation", "DetailedIsolation", "bac.size", "Num_of_phage", "phage.length.sum" )
+
+isolate.num = numphage.ag %>% group_by(Genus) %>%  mutate(Genus.size=n()) %>% group_by(Source) %>%  mutate(Source.size=n()) %>% group_by(Isolation) %>%  mutate(Isolation.size=n()) %>% group_by(DetailedIsolation) %>%  mutate(DetailedIsolation.size=n()) 
+
+isolate.num_ex <- aggregate(isolate.num[, 9:12], by=list(isolate.num$Genus, isolate.num$Source, isolate.num$Isolation, isolate.num$DetailedIsolation), FUN=mean)
+colnames(isolate.num_ex)[1:4] = c("Genus", "Source", "Isolation", "DetailedIsolation")
+
+isolate.num <- isolate.num[,-c(5,12)]
+isolate.num <- aggregate(isolate.num[, 8:10], by=list(isolate.num$Genus, isolate.num$Source, isolate.num$Isolation), FUN=mean)
+colnames(isolate.num)[1:3] = c("Genus", "Source", "Isolation")
+
+
+#write.csv(isolate.num_ex, here(out_dir, "Janth_IsoCount_ex.csv"))
+#write.csv(isolate.num, here(out_dir, "Janth_IsoCount.csv"))
+
+
+
+numphage.ag <- numphage.ag[,c(-5)]
+```
+
+```{r}
+##calculate phage percent
+
+numphage.ag$percent <- numphage.ag$phage.length.sum/numphage.ag$bac.size*100
+
+##calc min/max/median
+MedPerc_numphage.ag <- aggregate(numphage.ag[, 8], by=list(numphage.ag$Isolation), FUN=median)
+colnames(MedPerc_numphage.ag)[1:2] = c("Isolation", "Med_PhagePercent")
+
+SDPerc_numphage.ag <- aggregate(numphage.ag[, 8], by=list(numphage.ag$Isolation), FUN=sd)
+colnames(SDPerc_numphage.ag)[1:2] = c("Isolation", "SD_PhagePercent")
+
+MinPerc_numphage.ag <- aggregate(numphage.ag[, 8], by=list(numphage.ag$Isolation), FUN=min)
+colnames(MinPerc_numphage.ag)[1:2] = c("Isolation", "Min_PhagePercent")
+
+MaxPerc_numphage.ag <- aggregate(numphage.ag[, 8], by=list(numphage.ag$Isolation), FUN=max)
+colnames(MaxPerc_numphage.ag)[1:2] = c("Isolation", "Max_PhagePercent")
+
+
+### calc min, median and max bac length
+MinBacLength <- aggregate(numphage.ag[, 5], by=list(numphage.ag$Isolation), FUN=min)
+colnames(MinBacLength)[1:2] = c("Isolation", "Min_BacterialGenome")
+
+MaxBacLength <- aggregate(numphage.ag[, 5], by=list(numphage.ag$Isolation), FUN=max)
+colnames(MaxBacLength)[1:2] = c("Isolation", "Max_BacterialGenome")
+
+MedBacLength <- aggregate(numphage.ag[, 5], by=list(numphage.ag$Isolation), FUN=median)
+
+colnames(MedBacLength)[1:2] = c("Isolation", "Median_BacterialGenome")
+
+SdBacLength <- aggregate(numphage.ag[, 5], by=list(numphage.ag$Isolation), FUN=sd)
+
+colnames(SdBacLength)[1:2] = c("Isolation", "Sd_baclength")
+```
+
+
+## Phage Lenth, Min/Max/Med ##
+```{r}
+
+##REMOVED all 0 samples so i could have just the smallest sized phage (instead of 0)
+
+phage.pos <- subset(phage, phage$tally==1)
+Min_phagelength.ag <- aggregate(phage.pos[, 12], by=list(phage.pos$Isolation), FUN=min)
+
+colnames(Min_phagelength.ag)[1:2] = c("Isolation", "MinPhageLength")
+
+Max_phagelength.ag <- aggregate(phage.pos[, 12], by=list(phage.pos$Isolation), FUN=max)
+
+colnames(Max_phagelength.ag)[1:2] = c("Isolation", "MaxPhageLength")
+
+Med_phagelength.ag <- aggregate(phage.pos[, 12], by=list(phage.pos$Isolation), FUN=median)
+
+colnames(Med_phagelength.ag)[1:2] = c("Isolation", "MedianPhageLength")
+
+SDphagelength_phage.ag <- aggregate(phage.pos[, 12], by=list(phage.pos$Isolation), FUN=sd)
+
+colnames(SDphagelength_phage.ag)[1:2] = c("Isolation", "SD_PhageLength")
+```
+
+
+##Phage Num, Min/Max##
+```{r}
+
+Min_numphage.ag <- aggregate(numphage.ag[, 6], by=list(numphage.ag$Isolation), FUN=min)
+
+colnames(Min_numphage.ag)[1:2] = c("Isolation", "MinNumPhage")
+
+Max_numphage.ag <- aggregate(numphage.ag[, 6], by=list(numphage.ag$Isolation), FUN=max)
+
+colnames(Max_numphage.ag)[1:2] = c("Isolation", "MaxNumPhage")
+
+Med_numphage.ag <- aggregate(numphage.ag[, 6], by=list(numphage.ag$Isolation), FUN=median)
+
+colnames(Med_numphage.ag)[1:2] = c("Isolation", "MedianNumPhage")
+
+SD_numphage.ag <- aggregate(numphage.ag[, 6], by=list(numphage.ag$Isolation), FUN=sd)
+
+colnames(SD_numphage.ag)[1:2] = c("Isolation", "SD_NumPhage")
+
+```
+
+
+```{r}
+
+##need to reorder these, but merges all the group data (number, percent, size min/median/max) into one table
+MergedDF <- merge(isolate.num, Min_numphage.ag, all=TRUE) %>%
+          merge(Med_numphage.ag, all=TRUE) %>%  # num of phage
+          merge(SD_numphage.ag, all=TRUE) %>%  
+          merge(Max_numphage.ag, all=TRUE) %>%
+            merge(MinPerc_numphage.ag, all=TRUE) %>% #phage percent
+            merge(MedPerc_numphage.ag, all=TRUE) %>%
+            merge(SDPerc_numphage.ag, all=TRUE) %>%
+            merge(MaxPerc_numphage.ag, all=TRUE) %>%
+                merge(Min_phagelength.ag, all=TRUE) %>% #phage length
+                merge(Med_phagelength.ag, all=TRUE) %>%
+                merge(SDphagelength_phage.ag, all=TRUE) %>%
+                merge(Max_phagelength.ag, all=TRUE) %>%
+                          merge(MinBacLength, all=TRUE) %>% #bac length
+                          merge(MedBacLength, all=TRUE) %>% 
+                          merge(SdBacLength, all=TRUE) %>% 
+                          merge(MaxBacLength, all=TRUE) 
+                    
+      
+
+
+#write.csv(MergedDF, here(out_dir, "SD_DescStats_dc068_AllJanthino.csv"))
+
+#write.csv(numphage.ag, here(out_dir, "Isolates_NumAllJanthino.csv"))
+
+```
+### Desc stats for intact janthino phages
+
+```{r}
+phage <- phage.clean
+
+phage$tally <- ifelse(phage$phage_seq=="no_phage" | phage$intact_est2=="Degraded", 0, 1)
+## make all degraded phages have lengths of 0
+phage$length.checkv <- ifelse(phage$phage_seq=="no_phage" | phage$intact_est2=="Degraded", 0, phage$length.checkv)
+```
+
+```{r}
+
+numphage.ag <- aggregate(phage[, c(26,12)], by=list(phage$Sequencing.ID, phage$Genus, phage$Source, phage$Isolation, phage$DetailedIsolation, phage$Bac.size), FUN=sum)
+
+colnames(numphage.ag)[1:8] = c("iso_name","Genus", "Source", "Isolation", "DetailedIsolation", "bac.size", "Num_of_phage", "phage.length.sum" )
+
+isolate.num = numphage.ag %>% group_by(Genus) %>%  mutate(Genus.size=n()) %>% group_by(Source) %>%  mutate(Source.size=n()) %>% group_by(Isolation) %>%  mutate(Isolation.size=n()) %>% group_by(DetailedIsolation) %>%  mutate(DetailedIsolation.size=n()) 
+
+isolate.num <- isolate.num[,-c(5,12)]
+isolate.num <- aggregate(isolate.num[, 8:10], by=list(isolate.num$Genus, isolate.num$Source, isolate.num$Isolation), FUN=mean)
+colnames(isolate.num)[1:3] = c("Genus", "Source", "Isolation")
+
+numphage.ag <- numphage.ag[,c(-5)]
+```
+
+```{r}
+##calculate phage percent
+
+numphage.ag$percent <- numphage.ag$phage.length.sum/numphage.ag$bac.size*100
+
+##calc min/max/median
+MedPerc_numphage.ag <- aggregate(numphage.ag[, 8], by=list(numphage.ag$Isolation), FUN=median)
+colnames(MedPerc_numphage.ag)[1:2] = c("Isolation", "Med_PhagePercent")
+
+SDPerc_numphage.ag <- aggregate(numphage.ag[, 8], by=list(numphage.ag$Isolation), FUN=sd)
+colnames(SDPerc_numphage.ag)[1:2] = c("Isolation", "SD_PhagePercent")
+
+MinPerc_numphage.ag <- aggregate(numphage.ag[, 8], by=list(numphage.ag$Isolation), FUN=min)
+colnames(MinPerc_numphage.ag)[1:2] = c("Isolation", "Min_PhagePercent")
+
+MaxPerc_numphage.ag <- aggregate(numphage.ag[, 8], by=list(numphage.ag$Isolation), FUN=max)
+colnames(MaxPerc_numphage.ag)[1:2] = c("Isolation", "Max_PhagePercent")
+
+
+### calc min, median and max bac length
+MinBacLength <- aggregate(numphage.ag[, 5], by=list(numphage.ag$Isolation), FUN=min)
+colnames(MinBacLength)[1:2] = c("Isolation", "Min_BacterialGenome")
+
+MaxBacLength <- aggregate(numphage.ag[, 5], by=list(numphage.ag$Isolation), FUN=max)
+colnames(MaxBacLength)[1:2] = c("Isolation", "Max_BacterialGenome")
+
+MedBacLength <- aggregate(numphage.ag[, 5], by=list(numphage.ag$Isolation), FUN=median)
+
+colnames(MedBacLength)[1:2] = c("Isolation", "Median_BacterialGenome")
+
+SdBacLength <- aggregate(numphage.ag[, 5], by=list(numphage.ag$Isolation), FUN=sd)
+
+colnames(SdBacLength)[1:2] = c("Isolation", "Sd_baclength")
+```
+
+
+## Phage Lenth, Min/Max/Med ##
+```{r}
+
+##REMOVED all 0 samples so i could have just the smallest sized phage (instead of 0)
+
+phage.pos <- subset(phage, phage$tally==1)
+Min_phagelength.ag <- aggregate(phage.pos[, 12], by=list(phage.pos$Isolation), FUN=min)
+
+colnames(Min_phagelength.ag)[1:2] = c("Isolation", "MinPhageLength")
+
+Max_phagelength.ag <- aggregate(phage.pos[, 12], by=list(phage.pos$Isolation), FUN=max)
+
+colnames(Max_phagelength.ag)[1:2] = c("Isolation", "MaxPhageLength")
+
+Med_phagelength.ag <- aggregate(phage.pos[, 12], by=list(phage.pos$Isolation), FUN=median)
+
+colnames(Med_phagelength.ag)[1:2] = c("Isolation", "MedianPhageLength")
+
+SDphagelength_phage.ag <- aggregate(phage.pos[, 12], by=list(phage.pos$Isolation), FUN=sd)
+
+colnames(SDphagelength_phage.ag)[1:2] = c("Isolation", "SD_PhageLength")
+```
+
+
+##Phage Num, Min/Max##
+```{r}
+
+Min_numphage.ag <- aggregate(numphage.ag[, 6], by=list(numphage.ag$Isolation), FUN=min)
+
+colnames(Min_numphage.ag)[1:2] = c("Isolation", "MinNumPhage")
+
+Max_numphage.ag <- aggregate(numphage.ag[, 6], by=list(numphage.ag$Isolation), FUN=max)
+
+colnames(Max_numphage.ag)[1:2] = c("Isolation", "MaxNumPhage")
+
+Med_numphage.ag <- aggregate(numphage.ag[, 6], by=list(numphage.ag$Isolation), FUN=median)
+
+colnames(Med_numphage.ag)[1:2] = c("Isolation", "MedianNumPhage")
+
+SD_numphage.ag <- aggregate(numphage.ag[, 6], by=list(numphage.ag$Isolation), FUN=sd)
+
+colnames(SD_numphage.ag)[1:2] = c("Isolation", "SD_NumPhage")
+
+```
+
+
+
+```{r}
+
+
+MergedDF <- merge(isolate.num, Min_numphage.ag, all=TRUE) %>%
+          merge(Med_numphage.ag, all=TRUE) %>%  # num of phage
+          merge(SD_numphage.ag, all=TRUE) %>%  
+          merge(Max_numphage.ag, all=TRUE) %>%
+            merge(MinPerc_numphage.ag, all=TRUE) %>% #phage percent
+            merge(MedPerc_numphage.ag, all=TRUE) %>%
+            merge(SDPerc_numphage.ag, all=TRUE) %>%
+            merge(MaxPerc_numphage.ag, all=TRUE) %>%
+                merge(Min_phagelength.ag, all=TRUE) %>% #phage length
+                merge(Med_phagelength.ag, all=TRUE) %>%
+                merge(SDphagelength_phage.ag, all=TRUE) %>%
+                merge(Max_phagelength.ag, all=TRUE) %>%
+                          merge(MinBacLength, all=TRUE) %>% #bac length
+                          merge(MedBacLength, all=TRUE) %>% 
+                          merge(SdBacLength, all=TRUE) %>% 
+                          merge(MaxBacLength, all=TRUE) 
+                    
+      
+
+
+#write.csv(MergedDF, here(out_dir, "SD_DescStats_dc068_IntJanthino.csv"))
+
+#write.csv(numphage.ag, here(out_dir, "Isolates_NumIntJanthino.csv"))
+
+```
+
+### Desc stats for degraded janthino phages
+
+```{r}
+phage <- phage.clean
+
+phage$tally <- ifelse(phage$phage_seq=="no_phage" | phage$intact_est2=="Intact", 0, 1)
+## make all degraded phages have lengths of 0
+phage$length.checkv <- ifelse(phage$phage_seq=="no_phage" | phage$intact_est2=="Intact", 0, phage$length.checkv)
+
+```
+
+```{r}
+
+numphage.ag <- aggregate(phage[, c(26,12)], by=list(phage$Sequencing.ID, phage$Genus, phage$Source, phage$Isolation, phage$DetailedIsolation, phage$Bac.size), FUN=sum)
+
+colnames(numphage.ag)[1:8] = c("iso_name","Genus", "Source", "Isolation", "DetailedIsolation", "bac.size", "Num_of_phage", "phage.length.sum" )
+
+isolate.num = numphage.ag %>% group_by(Genus) %>%  mutate(Genus.size=n()) %>% group_by(Source) %>%  mutate(Source.size=n()) %>% group_by(Isolation) %>%  mutate(Isolation.size=n()) %>% group_by(DetailedIsolation) %>%  mutate(DetailedIsolation.size=n()) 
+
+isolate.num <- isolate.num[,-c(5,12)]
+isolate.num <- aggregate(isolate.num[, 8:10], by=list(isolate.num$Genus, isolate.num$Source, isolate.num$Isolation), FUN=mean)
+colnames(isolate.num)[1:3] = c("Genus", "Source", "Isolation")
+
+numphage.ag <- numphage.ag[,c(-5)]
+```
+
+```{r}
+##calculate phage percent
+
+numphage.ag$percent <- numphage.ag$phage.length.sum/numphage.ag$bac.size*100
+
+##calc min/max/median
+MedPerc_numphage.ag <- aggregate(numphage.ag[, 8], by=list(numphage.ag$Isolation), FUN=median)
+colnames(MedPerc_numphage.ag)[1:2] = c("Isolation", "Med_PhagePercent")
+
+SDPerc_numphage.ag <- aggregate(numphage.ag[, 8], by=list(numphage.ag$Isolation), FUN=sd)
+colnames(SDPerc_numphage.ag)[1:2] = c("Isolation", "SD_PhagePercent")
+
+MinPerc_numphage.ag <- aggregate(numphage.ag[, 8], by=list(numphage.ag$Isolation), FUN=min)
+colnames(MinPerc_numphage.ag)[1:2] = c("Isolation", "Min_PhagePercent")
+
+MaxPerc_numphage.ag <- aggregate(numphage.ag[, 8], by=list(numphage.ag$Isolation), FUN=max)
+colnames(MaxPerc_numphage.ag)[1:2] = c("Isolation", "Max_PhagePercent")
+
+
+### calc min, median and max bac length
+MinBacLength <- aggregate(numphage.ag[, 5], by=list(numphage.ag$Isolation), FUN=min)
+colnames(MinBacLength)[1:2] = c("Isolation", "Min_BacterialGenome")
+
+MaxBacLength <- aggregate(numphage.ag[, 5], by=list(numphage.ag$Isolation), FUN=max)
+colnames(MaxBacLength)[1:2] = c("Isolation", "Max_BacterialGenome")
+
+MedBacLength <- aggregate(numphage.ag[, 5], by=list(numphage.ag$Isolation), FUN=median)
+
+colnames(MedBacLength)[1:2] = c("Isolation", "Median_BacterialGenome")
+
+SdBacLength <- aggregate(numphage.ag[, 5], by=list(numphage.ag$Isolation), FUN=sd)
+
+colnames(SdBacLength)[1:2] = c("Isolation", "Sd_baclength")
+```
+
+
+## Phage Lenth, Min/Max/Med ##
+```{r}
+
+##REMOVED all 0 samples so i could have just the smallest sized phage (instead of 0)
+
+phage.pos <- subset(phage, phage$tally==1)
+Min_phagelength.ag <- aggregate(phage.pos[, 12], by=list(phage.pos$Isolation), FUN=min)
+
+colnames(Min_phagelength.ag)[1:2] = c("Isolation", "MinPhageLength")
+
+Max_phagelength.ag <- aggregate(phage.pos[, 12], by=list(phage.pos$Isolation), FUN=max)
+
+colnames(Max_phagelength.ag)[1:2] = c("Isolation", "MaxPhageLength")
+
+Med_phagelength.ag <- aggregate(phage.pos[, 12], by=list(phage.pos$Isolation), FUN=median)
+
+colnames(Med_phagelength.ag)[1:2] = c("Isolation", "MedianPhageLength")
+
+SDphagelength_phage.ag <- aggregate(phage.pos[, 12], by=list(phage.pos$Isolation), FUN=sd)
+
+colnames(SDphagelength_phage.ag)[1:2] = c("Isolation", "SD_PhageLength")
+```
+
+
+##Phage Num, Min/Max##
+```{r}
+
+Min_numphage.ag <- aggregate(numphage.ag[, 6], by=list(numphage.ag$Isolation), FUN=min)
+
+colnames(Min_numphage.ag)[1:2] = c("Isolation", "MinNumPhage")
+
+Max_numphage.ag <- aggregate(numphage.ag[, 6], by=list(numphage.ag$Isolation), FUN=max)
+
+colnames(Max_numphage.ag)[1:2] = c("Isolation", "MaxNumPhage")
+
+Med_numphage.ag <- aggregate(numphage.ag[, 6], by=list(numphage.ag$Isolation), FUN=median)
+
+colnames(Med_numphage.ag)[1:2] = c("Isolation", "MedianNumPhage")
+
+SD_numphage.ag <- aggregate(numphage.ag[, 6], by=list(numphage.ag$Isolation), FUN=sd)
+
+colnames(SD_numphage.ag)[1:2] = c("Isolation", "SD_NumPhage")
+
+```
+
+
+
+```{r}
+MergedDF <- merge(isolate.num, Min_numphage.ag, all=TRUE) %>%
+          merge(Med_numphage.ag, all=TRUE) %>%  # num of phage
+          merge(SD_numphage.ag, all=TRUE) %>%  
+          merge(Max_numphage.ag, all=TRUE) %>%
+            merge(MinPerc_numphage.ag, all=TRUE) %>% #phage percent
+            merge(MedPerc_numphage.ag, all=TRUE) %>%
+            merge(SDPerc_numphage.ag, all=TRUE) %>%
+            merge(MaxPerc_numphage.ag, all=TRUE) %>%
+                merge(Min_phagelength.ag, all=TRUE) %>% #phage length
+                merge(Med_phagelength.ag, all=TRUE) %>%
+                merge(SDphagelength_phage.ag, all=TRUE) %>%
+                merge(Max_phagelength.ag, all=TRUE) %>%
+                          merge(MinBacLength, all=TRUE) %>% #bac length
+                          merge(MedBacLength, all=TRUE) %>% 
+                          merge(SdBacLength, all=TRUE) %>% 
+                          merge(MaxBacLength, all=TRUE) 
+                    
+      
+
+
+#write.csv(MergedDF, here(out_dir, "SD_DescStats_dc068_DegJanthino.csv"))
+
+#write.csv(numphage.ag, here(out_dir, "Isolates_NumDegJanthino.csv"))
+
+```
+
+
+```{r}
+
+Int <- select(phage, phage_seq, Sequencing.ID, Genus, Source, Isolation, intact_est2) 
+Int$int.present <- 0
+Int$int.present <- ifelse(Int$intact_est2=="Intact", 1, 0)
+Int$deg.present <- ifelse(Int$intact_est2=="Degraded", 1, 0)
+Int <- aggregate(Int[c(7,8)], by=list(Int$Isolation, Int$Sequencing.ID), FUN=max)
+Int <- aggregate(Int[c(3,4)], by=list(Int$Group.1), FUN=sum)
+
+
+colnames(Int)[1:3] = c("Isolation","Num_Isolates_with_Intact", "Num_Isolates_With_Degraded")
+
+iso.num <- read.csv(here(out_dir, "Janth_IsoCount.csv"), row.names=1)
+iso.num <- iso.num[,c(3,6)]
+
+IntFract <- merge(iso.num, Int, by="Isolation", all=TRUE)
+IntFract$PercentIntGenome <- IntFract$Num_Isolates_with_Intact/IntFract$Isolation.size*100
+IntFract$PercentDegGenome <- IntFract$Num_Isolates_With_Degraded/IntFract$Isolation.size*100
+
+
+
+#write.csv(IntFract, here(out_dir, "Janth_IntactDeg_Fraction.csv"))
+
+
+```

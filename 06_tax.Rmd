@@ -1,0 +1,336 @@
+---
+title: "06_taxonomy"
+output: html_notebook
+---
+
+```{r}
+##clear working environment
+rm(list=ls())
+
+
+##load packages
+library(tidyr)
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(ggpubr)
+library(PNWColors)
+#library(microshades)
+
+pal <- pnw_palette('Sailboat', 6)
+
+
+          
+here::here()
+
+fig_dir <- here("figs") 
+supp_dir <- here("figs", "supp") 
+raw_dir <- here("data", "06_tax", "06_raw")  ## raw output from programs like vs2, vibrant, checkv
+out_dir <- here("data", "06_tax", "06_out") ## output from R
+
+
+theme1 <- theme_classic() + 
+  theme(
+      legend.position="left", 
+      plot.title = element_text(size=11),
+      axis.text.x = element_text(angle = 270, size= 12, vjust=1, hjust=0),
+      axis.text.y = element_text(size=11),
+      axis.title.y = element_text(size=11),
+      legend.text=element_text(size=10),
+      axis.ticks.length = unit(.3, "cm")
+    ) 
+
+
+theme_set(theme_classic(base_family = "sans"))
+ 
+
+theme_set(theme1)
+
+##### Load and Clean Data ##
+
+##tax: output of the top hits between phage and dereplicated caudovirales phage from inphared 
+tax<-read.delim(here(raw_dir, "py3_topfam_dc068.tsv"), header=FALSE)
+colnames(tax)[1:6]=c("phage", "ref_tax", "top_phage_fam", "fam_aai", "hit_prot", "prot_frac")
+
+### Inphared database from March 2023
+March <-read.csv(here(raw_dir, "1Mar2023_data.csv"))
+
+
+##phage.out: list of all high confident phage with bacterial host information
+phage.out <- read.csv(here("data", "03_funcCleaning", "03_out", "final_phagelist.csv"), row.names=1)
+
+phage.out <- rename(phage.out, BacterialHost=Genus)
+
+
+
+phage.out <-phage.out[,c(1:5,7,24,25)] ##keep relevant columns
+
+## combine phage metadata with tax results
+gvog.base <- merge(phage.out, tax, by.x="phage_seq", by.y="phage", all.x=TRUE, all.y=FALSE)
+
+##any phage with NA for top_phage_fam had no top hit
+gvog.base$top_phage_fam[is.na(gvog.base$top_phage_fam)] <- "unclassified_nohit"
+gvog.base[is.na(gvog.base)] <- 0
+
+### add in INPHARED database metadata
+gvog.base <- merge(gvog.base, March, by.x="ref_tax", by.y="Accession", all.x=TRUE, all.y=FALSE)
+
+### set up dataframe to be filled with tax information
+gvog.base$finalClass <- "tbd"
+gvog.base$finalClass <- ifelse(gvog.base$top_phage_fam=="unclassified_nohit", "Unclassified", gvog.base$Class)
+
+gvog.base$finalfam<- "tbd"
+gvog.base$finalfam <- ifelse(gvog.base$fam_aai>=30 & gvog.base$prot_frac>0.5, gvog.base$Family, "Unclassified")
+gvog.base$finalfam <- ifelse(gvog.base$top_phage_fam=="unclassified_nohit", "Unclassified", gvog.base$Family)
+
+gvog.base$finalsubfam <- "tbd"
+gvog.base$finalsubfam <- ifelse(gvog.base$fam_aai>=50 & gvog.base$prot_frac>0.675, gvog.base$Sub.family, "Unclassified")
+
+gvog.base$finalgenus <- "tbd"
+gvog.base$finalgenus <- ifelse(gvog.base$fam_aai>=70 & gvog.base$prot_frac>0.85, gvog.base$Genus, "Unclassified")
+
+gvog.base$best <- gvog.base$finalClass
+gvog.base$best <- ifelse(gvog.base$finalfam!="Unclassified", gvog.base$finalfam, gvog.base$best)
+gvog.base$best <- ifelse(gvog.base$finalgenus!="Unclassified", gvog.base$finalgenus, gvog.base$best)
+
+
+
+```
+
+
+### Identify taxa for derepped phages at host genus level
+```{r}
+
+##create tally
+gvog.base$tally <-1
+
+### identify which phage taxa are present
+unique(gvog.base$best)  
+# "Unclassified"     "Peduoviridae"     "Caudoviricetes"   "Simpcentumvirus"  "Helgolandviridae"
+
+##tally up phage taxonomy hits to the above classes
+
+  hit.count <- gvog.base 
+
+  #create columns  
+  hit.count$Peduoviridae <- 0
+  hit.count$Simpcentumvirus <- 0
+  hit.count$Helgolandviridae <- 0
+  hit.count$Caudoviricetes <-0
+  hit.count$Unclassified <- 0
+
+  hit.count$total.class <-0
+  hit.count$total.all <-0
+
+  #count  
+  hit.count$Peduoviridae <- ifelse(hit.count$best=="Peduoviridae", 1, 0)
+  hit.count$Simpcentumvirus <- ifelse(hit.count$best=="Simpcentumvirus", 1, 0)
+  hit.count$Helgolandviridae <- ifelse(hit.count$best=="Helgolandviridae", 1, 0)
+  
+  hit.count$Caudoviricetes <- ifelse(hit.count$best =="Caudoviricetes", 1, 0)
+  hit.count$Unclassified <- ifelse(hit.count$best =="Unclassified", 1, 0)
+  
+  hit.count$total.class <- hit.count$Peduoviridae + hit.count$Simpcentumvirus + hit.count$Helgolandviridae + hit.count$Caudoviricetes ##count how many are strongly classified
+  hit.count$total.all <- hit.count$total.class + hit.count$Unclassified ##count how many total classified/weak/unclassified
+
+  
+  hit.count$all_placeholder <- "all!"
+
+final_tax <- select(hit.count, phage_seq, best)  
+colnames(final_tax) <-c("phage_seq", "lowest.tax")
+
+#write.csv(final_tax, here(out_dir, "phage_tax_IDs.csv"))
+```
+
+
+```{r}
+
+### for tax analysis, only use representative phages
+hit.count <- subset(hit.count, hit.count$representative=="reference_phage")
+  
+##split dataset for taxa viz of amphibian prophages and janthino (amphibian + NCBI phages)
+amph <- subset(hit.count, hit.count$Sour=="Amphibian")  
+janth <- subset(hit.count, hit.count$BacterialHost=="Janthinobacterium")  
+  
+```
+
+
+### Amphibian phage taxa
+```{r}
+group.tax <- aggregate(amph[, 45:52], by=list(amph$all_placeholder, amph$BacterialHost), FUN=sum)
+colnames(group.tax)[1:2] = c("All", "BacterialHost")
+
+#sum up the number of each phage family across all phage (not accounting for bacterial host)
+all.tax <- aggregate(amph[,45:52], by=list(amph$all_placeholder), FUN=sum)
+colnames(all.tax)[1] = c("all_phage")
+
+
+
+##pivot dataframes to graph
+
+all.piv <- all.tax  %>%
+  pivot_longer(
+     cols = c("Caudoviricetes", ends_with("dae"),ends_with("nae"), ends_with("us"), "Unclassified"),
+    names_to = "Tax", 
+    names_prefix = "wk",
+    values_to = "NumPhage",
+    values_drop_na = TRUE
+  )
+
+all.piv$percent <- all.piv$NumPhage/all.piv$total.all*100
+
+group.piv <- group.tax %>%
+  pivot_longer(
+    cols = c("Caudoviricetes", ends_with("dae"),ends_with("nae"), ends_with("us"), "Unclassified"),
+    names_to = "Tax", 
+    names_prefix = "wk",
+    values_to = "NumPhage",
+    values_drop_na = TRUE
+  )
+group.piv$percent <- group.piv$NumPhage/group.piv$total.all*100
+
+#create a taxonomy bar graph divided by bacterial hosts
+group.piv$Tax <- factor(group.piv$Tax,levels = c('Simpcentumvirus', 'Helgolandviridae','Peduoviridae', 'Caudoviricetes', 'Unclassified'))
+
+
+
+
+stack50.50 <- ggplot(group.piv, aes(fill=Tax, y=NumPhage, x=BacterialHost)) + 
+    geom_bar(position="stack", stat="identity") +
+    xlab("") + ylab("Number of Prophages per Bacterial Host")  + xlab("") + scale_fill_manual(values=pal, labels=c(
+      'Genus: Simpcentumvirus', 'Family: Helgolandviridae','Family: Peduoviridae', 'Class: Caudoviricetes', expression(plain("Unclassified"))),  ) +theme(axis.text.y = element_text(face = "italic"), legend.text = element_text(face="italic"), legend.text.align = 0)+ theme(legend.title = element_blank(), legend.position = "inside",
+                legend.position.inside = c(0.75, 0.80))
+## to give legend a pop out gray outline
+#, legend.background = element_rect(fill = alpha("white", 0.7), color = "darkgrey") )
+
+
+stack50.50 + coord_flip()
+
+
+ggsave(here(fig_dir, "F2.pdf"), width=7, height=5)
+ggsave(here(fig_dir, "F2.png"), width=7, height=5)
+
+```
+### Individual phage taxa for all Janthinobacterium isolates (same methods as above but for Isolate instead of host genus)
+```{r}
+##create tally
+gvog.base$tally <-1
+
+
+unique(gvog.base$best)  
+# "Unclassified"     "Peduoviridae"     "Caudoviricetes"   "Simpcentumvirus"  "Helgolandviridae"
+
+##tally up phage taxonomy hits 
+
+  hit.count <- gvog.base 
+
+  #create columns  
+  hit.count$Peduoviridae <- 0
+  hit.count$Simpcentumvirus <- 0
+  hit.count$Helgolandviridae <- 0
+  hit.count$Caudoviricetes <-0
+  hit.count$Unclassified <- 0
+
+  hit.count$total.class <-0
+  hit.count$total.all <-0
+
+  #count  
+  hit.count$Peduoviridae <- ifelse(hit.count$best=="Peduoviridae", 1, 0)
+  hit.count$Simpcentumvirus <- ifelse(hit.count$best=="Simpcentumvirus", 1, 0)
+  hit.count$Helgolandviridae <- ifelse(hit.count$best=="Helgolandviridae", 1, 0)
+  
+  hit.count$Caudoviricetes <- ifelse(hit.count$best =="Caudoviricetes", 1, 0)
+  hit.count$Unclassified <- ifelse(hit.count$best =="Unclassified", 1, 0)
+  
+  hit.count$total.class <- hit.count$Peduoviridae + hit.count$Simpcentumvirus + hit.count$Helgolandviridae + hit.count$Caudoviricetes ##count how many are strongly classified
+  hit.count$total.all <- hit.count$total.class + hit.count$Unclassified ##count how many total classified/weak/unclassified
+
+  
+  hit.count$all_placeholder <- "all!"
+
+  
+
+ 
+
+##sum up the number of each phage family per bacterial host
+group.tax <- aggregate(janth[, 45:52], by=list(janth$all_placeholder, janth$Isolation, janth$Sequencing.ID), FUN=sum)
+colnames(group.tax)[1:3] = c("All", "Iso.Source", "BacterialHost")
+
+#sum up the number of each phage family across all phage (not accounting for bacterial host)
+all.tax <- aggregate(janth[,45:52], by=list(janth$all_placeholder), FUN=sum)
+colnames(all.tax)[1] = c("all_phage")
+
+
+
+##pivot dataframes to graph
+
+all.piv <- all.tax  %>%
+  pivot_longer(
+     cols = c("Caudoviricetes", ends_with("dae"),ends_with("nae"), ends_with("us"), "Unclassified"),
+    names_to = "Tax", 
+    names_prefix = "wk",
+    values_to = "NumPhage",
+    values_drop_na = TRUE
+  )
+
+all.piv$percent <- all.piv$NumPhage/all.piv$total.all*100
+
+group.piv <- group.tax %>%
+  pivot_longer(
+    cols = c("Caudoviricetes", ends_with("dae"),ends_with("nae"), ends_with("us"), "Unclassified"),
+    names_to = "Tax", 
+    names_prefix = "wk",
+    values_to = "NumPhage",
+    values_drop_na = TRUE
+  )
+group.piv$percent <- group.piv$NumPhage/group.piv$total.all*100
+
+#create a taxonomy bar graph divided by bacterial hosts
+
+# "Unclassified"     "Peduoviridae"     "Caudoviricetes"   "Simpcentumvirus"  ""
+
+group.piv$Iso.Source <- ifelse(group.piv$Iso.Source=="Host_non", "Other Host", group.piv$Iso.Source)
+group.piv$Iso.Source <- ifelse(group.piv$Iso.Source=="Enviro", "Environment", group.piv$Iso.Source)
+group.piv$Tax <- factor(group.piv$Tax,levels = c('Simpcentumvirus', 'Helgolandviridae','Peduoviridae', 'Caudoviricetes', 'Unclassified'))
+
+
+group.piv <- group.piv %>%
+  group_by(Iso.Source) %>%
+  mutate(BacterialHost = fct_reorder2(BacterialHost, Iso.Source, NumPhage))
+
+```
+
+
+```{r}
+
+library(ggplot2)
+library(dplyr)
+library(ggh4x)
+library(forcats)
+
+
+n_bars <- group.piv %>%
+  distinct(Iso.Source, BacterialHost) %>%
+  count(Iso.Source) %>%
+  arrange(factor(Iso.Source, levels = levels(group.piv$Iso.Source))) %>%
+  pull(n)
+
+
+width_per_bar_cm <- 1  
+
+
+panel_widths_cm <- n_bars * width_per_bar_cm
+
+ggplot(group.piv, aes(x = BacterialHost, y = NumPhage, fill = Tax)) +
+  geom_bar(stat = "identity", position = "stack", width = 0.9) +
+  scale_fill_manual(values = pal, labels = c(
+    'Genus: Simpcentumvirus','Family: Helgolandviridae','Family: Peduoviridae',
+    'Class: Caudoviricetes', expression(plain("Unclassified")))) +
+  theme(axis.text.x = element_text(face = "italic", size = 12, angle = 45, hjust = 1),
+        legend.text = element_text(face = "italic")) +
+  ggh4x::facet_wrap2(~ Iso.Source, ncol = 3, scales = "free_x") +
+  ggh4x::force_panelsizes(cols = grid::unit(panel_widths_cm, "cm")) + xlab("") + ylab("Number of Phage Taxa")+ theme(legend.title = element_blank())
+ggsave(here(supp_dir, "S2_jtax.pdf"), width=11, height=5)
+ggsave(here(supp_dir, "S2_jtax.png"), width=11, height=5)
+```
+

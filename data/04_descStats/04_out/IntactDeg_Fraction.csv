@@ -1,0 +1,15 @@
+"","Genus","Genus.size","Num_Isolates_with_Intact","Num_Isolates_With_Degraded","PercentIntGenome","PercentDegGenome"
+"1","Agrobacterium",3,1,2,33.3333333333333,66.6666666666667
+"2","Bacillus",4,0,1,0,25
+"3","Flavobacterium",3,1,1,33.3333333333333,33.3333333333333
+"4","Hafnia",5,5,4,100,80
+"5","Janthinobacterium",5,4,4,80,80
+"6","Massilia",4,1,2,25,50
+"7","Microbacterium",4,2,0,50,0
+"8","Pedobacter",5,0,3,0,60
+"9","Pseudomonas",2,2,2,100,100
+"10","Serratia",2,2,1,100,50
+"11","Sphingomonas",5,3,1,60,20
+"12","Stenotrophomonas",2,2,1,100,50
+"13","Streptomyces",3,3,2,100,66.6666666666667
+"14","Unknown Cellulomonadaceae",1,0,0,0,0

@@ -1,0 +1,4 @@
+"","Isolation","Genus","Source","Genus.size","Source.size","Isolation.size","MinNumPhage","MedianNumPhage","SD_NumPhage","MaxNumPhage","Min_PhagePercent","Med_PhagePercent","SD_PhagePercent","Max_PhagePercent","MinPhageLength","MedianPhageLength","SD_PhageLength","MaxPhageLength","Min_BacterialGenome","Median_BacterialGenome","Sd_baclength","Max_BacterialGenome"
+"1","Amphibian","Janthinobacterium","Amphibian",24,5,5,0,1,1.14017542509914,3,0,0.550303693842449,0.872266639373963,2.19201173482867,18665,34541,17756.6040082208,66515,6081024,6276716,702453.139231864,7787708
+"2","Enviro","Janthinobacterium","NCBI",24,19,15,0,1,1.35224680756563,4,0,0.710918134194094,1.03807123353479,3.09739615117453,12900,40592,16989.5433180866,84884,6235214,6381259,180390.29083597,6760367
+"3","Host_non","Janthinobacterium","NCBI",24,19,4,0,1,0.5,1,0,0.63747129047354,0.323936844410281,0.666364887912047,38995,41866,1968.6884805203,42764,6212741,6359028,115125.011396308,6467981

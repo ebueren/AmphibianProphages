@@ -1,0 +1,2188 @@
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_10_00001	CDS	1002	fbp	3.1.3.11	COG0158	Fructose-1,6-bisphosphatase class 1
+janth_10_00002	tRNA	76				tRNA-Thr(cgt)
+janth_10_00003	CDS	969		phrog_1		integrase
+janth_10_00004	CDS	258		phrog_4996		hypothetical protein
+janth_10_00005	CDS	231				hypothetical protein
+janth_10_00006	CDS	177				hypothetical protein
+janth_10_00007	CDS	642				hypothetical protein
+janth_10_00008	CDS	2118		phrog_4715		ParB-like partition protein
+janth_10_00009	CDS	204				hypothetical protein
+janth_10_00010	CDS	333				hypothetical protein
+janth_10_00011	CDS	144				hypothetical protein
+janth_10_00012	CDS	480				hypothetical protein
+janth_10_00013	CDS	255				hypothetical protein
+janth_10_00014	CDS	693		phrog_4		transcriptional repressor
+janth_10_00015	CDS	468		phrog_101		CII-like transcriptional activator
+janth_10_00016	CDS	447				hypothetical protein
+janth_10_00017	CDS	2811		phrog_2249		DNA primase
+janth_10_00018	CDS	297				hypothetical protein
+janth_10_00019	CDS	645		phrog_17923		hypothetical protein
+janth_10_00020	CDS	426		phrog_2323		HNH endonuclease
+janth_10_00021	CDS	567		phrog_83		terminase small subunit
+janth_10_00022	CDS	1737		phrog_9		terminase large subunit
+janth_10_00023	CDS	1314		phrog_12		portal protein
+janth_10_00024	CDS	708		phrog_94		head maturation protease
+janth_10_00025	CDS	1221		phrog_10		major head protein
+janth_10_00026	CDS	384				hypothetical protein
+janth_10_00027	CDS	1746				hypothetical protein
+janth_10_00028	CDS	156				hypothetical protein
+janth_10_00029	CDS	555		phrog_442		head-tail adaptor
+janth_10_00030	CDS	351		phrog_25		head closure Hc1
+janth_10_00031	CDS	510		phrog_5		tail completion or Neck1 protein
+janth_10_00032	CDS	396		phrog_347		tail terminator
+janth_10_00033	CDS	408				hypothetical protein
+janth_10_00034	CDS	171				hypothetical protein
+janth_10_00035	CDS	942		phrog_290		minor tail protein
+janth_10_00036	CDS	399				hypothetical protein
+janth_10_00037	CDS	330				hypothetical protein
+janth_10_00038	CDS	3216		phrog_8125		tail length tape measure protein
+janth_10_00039	CDS	1725		phrog_24709		tail length tape measure protein
+janth_10_00040	CDS	903		phrog_8917		hypothetical protein
+janth_10_00041	CDS	1011				hypothetical protein
+janth_10_00042	CDS	285				hypothetical protein
+janth_10_00043	CDS	738				hypothetical protein
+janth_10_00044	CDS	831		phrog_8610		hypothetical protein
+janth_10_00045	CDS	1185		phrog_4492		tail fiber protein
+janth_10_00046	CDS	192		phrog_20370		hypothetical protein
+janth_10_00047	CDS	429		phrog_1024		hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_11_00001	CDS	1029				hypothetical protein
+janth_11_00002	CDS	1032		phrog_1		integrase
+janth_11_00003	CDS	246		phrog_8896		excisionase
+janth_11_00004	CDS	213				hypothetical protein
+janth_11_00005	CDS	153				hypothetical protein
+janth_11_00006	CDS	1839		phrog_91		nicking at origin of replication
+janth_11_00007	CDS	354				hypothetical protein
+janth_11_00008	CDS	402				hypothetical protein
+janth_11_00009	CDS	264		phrog_603		transcriptional regulator
+janth_11_00010	CDS	189		phrog_9850		hypothetical protein
+janth_11_00011	CDS	204		phrog_4113		hypothetical protein
+janth_11_00012	CDS	204				hypothetical protein
+janth_11_00013	CDS	1704		phrog_4740		hypothetical protein
+janth_11_00014	CDS	1272		phrog_52		tail protein
+janth_11_00015	CDS	609		phrog_76		tail protein
+janth_11_00016	CDS	2871		phrog_5690		hypothetical protein
+janth_11_00017	CDS	309		phrog_103		tail protein
+janth_11_00018	CDS	510		phrog_55		head closure
+janth_11_00019	CDS	1176		phrog_23		tail sheath
+janth_11_00020	CDS	489				hypothetical protein
+janth_11_00021	CDS	1545		phrog_327		tail protein
+janth_11_00022	CDS	621		phrog_48		tail protein
+janth_11_00023	CDS	912		phrog_4226		baseplate protein
+janth_11_00024	CDS	345		phrog_43		baseplate wedge subunit
+janth_11_00025	CDS	573		phrog_9992		baseplate assembly protein
+janth_11_00026	CDS	678		phrog_4646		transposase
+janth_11_00027	CDS	468		phrog_36427		hypothetical protein
+janth_11_00028	CDS	489		phrog_65		tail terminator
+janth_11_00029	CDS	513		phrog_2466		Rz-like spanin
+janth_11_00030	CDS	561		phrog_12853		hypothetical protein
+janth_11_00031	CDS	372		phrog_1024		hypothetical protein
+janth_11_00032	CDS	210		phrog_46		tail protein
+janth_11_00033	CDS	495		phrog_71		head-tail adaptor Ad1
+janth_11_00034	CDS	717		phrog_74		terminase small subunit
+janth_11_00035	CDS	1020		phrog_70		major head protein
+janth_11_00036	CDS	789		phrog_73		head scaffolding protein
+janth_11_00037	CDS	1905		phrog_5751		terminase large subunit
+janth_11_00038	CDS	1071		phrog_68		portal protein
+janth_11_00039	CDS	216		phrog_54		DksA-like zinc-finger protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_12_00001	CDS	1035		phrog_1		integrase
+janth_12_00002	CDS	336				hypothetical protein
+janth_12_00003	CDS	483				hypothetical protein
+janth_12_00004	CDS	684				hypothetical protein
+janth_12_00005	CDS	1335		phrog_1313		DNA helicase
+janth_12_00006	CDS	201				hypothetical protein
+janth_12_00007	CDS	228				hypothetical protein
+janth_12_00008	CDS	486				hypothetical protein
+janth_12_00009	CDS	1698		phrog_25788		tail fiber protein
+janth_12_00010	CDS	2151		phrog_3513		endolysin
+janth_12_00011	CDS	1947				hypothetical protein
+janth_12_00012	CDS	756		phrog_424		phosphoadenosine phosphosulfate reductase
+janth_12_00013	CDS	1536		phrog_6121		virion structural protein
+janth_12_00014	CDS	237				hypothetical protein
+janth_12_00015	CDS	480		phrog_4470		acyl-CoA N-acyltransferase
+janth_12_00016	CDS	1650		phrog_5107		amidase
+janth_12_00017	CDS	714		phrog_6013		tail protein
+janth_12_00018	CDS	693		phrog_20268		hypothetical protein
+janth_12_00019	CDS	633				hypothetical protein
+janth_12_00020	CDS	972		phrog_9953		major head protein
+janth_12_00021	CDS	228				hypothetical protein
+janth_12_00022	CDS	1023				hypothetical protein
+janth_12_00023	CDS	369				hypothetical protein
+janth_12_00024	CDS	2097		phrog_12082		portal protein
+janth_12_00025	CDS	1470		phrog_2		terminase large subunit
+janth_12_00026	CDS	402				hypothetical protein
+janth_12_00027	CDS	426				hypothetical protein
+janth_12_00028	CDS	315		phrog_10171		hypothetical protein
+janth_12_00029	CDS	891		phrog_29321		hypothetical protein
+janth_12_00030	CDS	771				hypothetical protein
+janth_12_00031	CDS	756		phrog_1305		DNA binding protein
+janth_12_00032	CDS	207				hypothetical protein
+janth_12_00033	CDS	423				hypothetical protein
+janth_12_00034	CDS	432				hypothetical protein
+janth_12_00035	CDS	189				hypothetical protein
+janth_12_00036	CDS	471				hypothetical protein
+janth_12_00037	CDS	693				hypothetical protein
+janth_12_00038	CDS	360				hypothetical protein
+janth_12_00039	CDS	483				hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_13_00001	CDS	2838				hypothetical protein
+janth_13_00002	CDS	2253		phrog_10401		ATPase
+janth_13_00003	CDS	537				Aspartyl/Asparaginyl beta-hydroxylase
+janth_13_00004	CDS	813		phrog_24927		hypothetical protein
+janth_13_00005	CDS	645		phrog_24927		hypothetical protein
+janth_13_00006	CDS	945				hypothetical protein
+janth_13_00007	CDS	3519		phrog_1980		tail fiber protein
+janth_13_00008	CDS	810				hypothetical protein
+janth_13_00009	CDS	978				hypothetical protein
+janth_13_00010	CDS	1122				hypothetical protein
+janth_13_00011	CDS	3063				hypothetical protein
+janth_13_00012	CDS	198				hypothetical protein
+janth_13_00013	CDS	390		phrog_261		baseplate wedge subunit
+janth_13_00014	CDS	414				PAAR motif protein
+janth_13_00015	CDS	597				Type VI secretion system/phage-baseplate injector OB domain protein
+janth_13_00016	CDS	1047		phrog_52		tail protein
+janth_13_00017	CDS	642				Contractile injection system tube protein
+janth_13_00018	CDS	1146				hypothetical protein
+janth_13_00019	CDS	513				T4-like virus tail tube protein gp19
+janth_13_00020	CDS	111				hypothetical protein
+janth_13_00021	CDS	384				hypothetical protein
+janth_13_00022	CDS	447		phrog_4542		tail tube protein
+janth_13_00023	CDS	1659		phrog_23		tail sheath
+janth_13_00024	CDS	579				hypothetical protein
+janth_13_00025	CDS	630				hypothetical protein
+janth_13_00026	CDS	849				hypothetical protein
+janth_13_00027	CDS	630				hypothetical protein
+janth_13_00028	CDS	387				hypothetical protein
+janth_13_00029	CDS	414				hypothetical protein
+janth_13_00030	CDS	741		phrog_3282		sigma factor
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_14_00001	CDS	216		phrog_54		DksA-like zinc-finger protein
+janth_14_00002	CDS	1065		phrog_68		portal protein
+janth_14_00003	CDS	1905		phrog_5751		terminase large subunit
+janth_14_00004	CDS	789		phrog_73		head scaffolding protein
+janth_14_00005	CDS	1020		phrog_70		major head protein
+janth_14_00006	CDS	717		phrog_74		terminase small subunit
+janth_14_00007	CDS	495		phrog_71		head-tail adaptor Ad1
+janth_14_00008	CDS	216		phrog_46		tail protein
+janth_14_00009	CDS	372		phrog_1024		hypothetical protein
+janth_14_00010	CDS	561		phrog_12853		hypothetical protein
+janth_14_00011	CDS	513		phrog_2466		Rz-like spanin
+janth_14_00012	CDS	489		phrog_65		tail terminator
+janth_14_00013	CDS	468		phrog_36427		hypothetical protein
+janth_14_00014	CDS	669		phrog_9992		baseplate assembly protein
+janth_14_00015	CDS	345		phrog_43		baseplate wedge subunit
+janth_14_00016	CDS	879		phrog_4226		baseplate protein
+janth_14_00017	CDS	1467		phrog_48		tail protein
+janth_14_00018	CDS	381				hypothetical protein
+janth_14_00019	CDS	915				hypothetical protein
+janth_14_00020	CDS	303				hypothetical protein
+janth_14_00021	CDS	1119		phrog_2889		hypothetical protein
+janth_14_00022	CDS	1176		phrog_23		tail sheath
+janth_14_00023	CDS	510		phrog_55		head closure
+janth_14_00024	CDS	309		phrog_103		tail protein
+janth_14_00025	CDS	3303		phrog_5690		hypothetical protein
+janth_14_00026	CDS	609		phrog_76		tail protein
+janth_14_00027	CDS	1278		phrog_52		tail protein
+janth_14_00028	CDS	240				hypothetical protein
+janth_14_00029	CDS	390				hypothetical protein
+janth_14_00030	CDS	198		phrog_4113		hypothetical protein
+janth_14_00031	CDS	264		phrog_603		transcriptional regulator
+janth_14_00032	CDS	402				hypothetical protein
+janth_14_00033	CDS	99				hypothetical protein
+janth_14_00034	CDS	354				hypothetical protein
+janth_14_00035	CDS	1839		phrog_91		nicking at origin of replication
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_15_00001	CDS	210		phrog_2790		excisionase and transcriptional regulator
+janth_15_00002	CDS	294				hypothetical protein
+janth_15_00003	CDS	603				hypothetical protein
+janth_15_00004	CDS	327				hypothetical protein
+janth_15_00005	CDS	393				hypothetical protein
+janth_15_00006	CDS	189				hypothetical protein
+janth_15_00007	CDS	393				hypothetical protein
+janth_15_00008	CDS	342				hypothetical protein
+janth_15_00009	CDS	609		phrog_518		Rha-like transcriptional regulator
+janth_15_00010	CDS	324				hypothetical protein
+janth_15_00011	CDS	579		phrog_2439		transcriptional regulator
+janth_15_00012	CDS	690		phrog_4		transcriptional repressor
+janth_15_00013	CDS	213		phrog_6831		transcriptional regulator
+janth_15_00014	CDS	222				hypothetical protein
+janth_15_00015	CDS	870		phrog_35		transcriptional repressor
+janth_15_00016	CDS	231				hypothetical protein
+janth_15_00017	CDS	471				hypothetical protein
+janth_15_00018	CDS	795		phrog_1701		DnaD-like helicase loader
+janth_15_00019	CDS	645		phrog_10105		hypothetical protein
+janth_15_00020	CDS	417				hypothetical protein
+janth_15_00021	CDS	504				hypothetical protein
+janth_15_00022	CDS	378		phrog_731		hypothetical protein
+janth_15_00023	CDS	207				hypothetical protein
+janth_15_00024	CDS	96				hypothetical protein
+janth_15_00025	CDS	207				hypothetical protein
+janth_15_00026	CDS	324				hypothetical protein
+janth_15_00027	CDS	393		phrog_2323		HNH endonuclease
+janth_15_00028	CDS	471		phrog_641		terminase small subunit
+janth_15_00029	CDS	1677		phrog_7622		terminase large subunit
+janth_15_00030	CDS	1215		phrog_12		portal protein
+janth_15_00031	CDS	684		phrog_80		head maturation protease
+janth_15_00032	CDS	1401		phrog_10		major head protein
+janth_15_00033	CDS	216				hypothetical protein
+janth_15_00034	CDS	513				hypothetical protein
+janth_15_00035	CDS	1503				hypothetical protein
+janth_15_00036	CDS	114				hypothetical protein
+janth_15_00037	CDS	555		phrog_442		head-tail adaptor
+janth_15_00038	CDS	336		phrog_25		head closure Hc1
+janth_15_00039	CDS	462		phrog_5		tail completion or Neck1 protein
+janth_15_00040	CDS	351		phrog_347		tail terminator
+janth_15_00041	CDS	435				hypothetical protein
+janth_15_00042	CDS	642		phrog_584		major tail protein
+janth_15_00043	CDS	318		phrog_569		tail length tape measure protein
+janth_15_00044	CDS	297		phrog_680		tail length tape measure protein
+janth_15_00045	CDS	6462		phrog_25966		tail length tape measure protein
+janth_15_00046	CDS	1470		phrog_8917		hypothetical protein
+janth_15_00047	CDS	2493		phrog_38044		hypothetical protein
+janth_15_00048	CDS	351				hypothetical protein
+janth_15_00049	CDS	825				hypothetical protein
+janth_15_00050	CDS	2070		phrog_5939		tail protein
+janth_15_00051	CDS	429		phrog_1024		hypothetical protein
+janth_15_00052	CDS	465		phrog_894		endolysin
+janth_15_00053	CDS	336		phrog_3362		hypothetical protein
+janth_15_00054	CDS	381				hypothetical protein
+janth_15_00055	CDS	267				hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_16_00001	CDS	273				hypothetical protein
+janth_16_00002	CDS	243				hypothetical protein
+janth_16_00003	CDS	255				hypothetical protein
+janth_16_00004	CDS	345				hypothetical protein
+janth_16_00005	CDS	345		phrog_1599		hypothetical protein
+janth_16_00006	CDS	1566		phrog_14259		hypothetical protein
+janth_16_00007	CDS	570				hypothetical protein
+janth_16_00008	CDS	243				hypothetical protein
+janth_16_00009	CDS	396				hypothetical protein
+janth_16_00010	CDS	438		phrog_894		endolysin
+janth_16_00011	CDS	261				hypothetical protein
+janth_16_00012	CDS	366				hypothetical protein
+janth_16_00013	CDS	2070		phrog_5939		tail protein
+janth_16_00014	CDS	2967		phrog_38044		hypothetical protein
+janth_16_00015	CDS	1470		phrog_8917		hypothetical protein
+janth_16_00016	CDS	5694		phrog_7740		tail length tape measure protein
+janth_16_00017	CDS	339				hypothetical protein
+janth_16_00018	CDS	732		phrog_4792		anti-repressor
+janth_16_00019	CDS	1008		phrog_245		anti-repressor Ant
+janth_16_00020	CDS	159				hypothetical protein
+janth_16_00021	CDS	705		phrog_795		partition protein ATPase
+janth_16_00022	CDS	285		phrog_8224		hypothetical protein
+janth_16_00023	CDS	276				hypothetical protein
+janth_16_00024	CDS	333		phrog_4966		hypothetical protein
+janth_16_00025	CDS	474				hypothetical protein
+janth_16_00026	CDS	1203		phrog_290		minor tail protein
+janth_16_00027	CDS	402		phrog_179		tail terminator
+janth_16_00028	CDS	498		phrog_169		tail completion or Neck1 protein
+janth_16_00029	CDS	375		phrog_161		head closure Hc1
+janth_16_00030	CDS	372		phrog_17560		hypothetical protein
+janth_16_00031	CDS	513		phrog_477		head-tail adaptor Ad1
+janth_16_00032	CDS	459		phrog_32439		hypothetical protein
+janth_16_00033	CDS	993		phrog_15687		hypothetical protein
+janth_16_00034	CDS	831		phrog_784		hypothetical protein
+janth_16_00035	CDS	675				Lecithin retinol acyltransferase
+janth_16_00036	CDS	1221		phrog_241		head morphogenesis
+janth_16_00037	CDS	1365		phrog_145		portal protein
+janth_16_00038	CDS	1287		phrog_38319		hypothetical protein
+janth_16_00039	CDS	462		phrog_546		hypothetical protein
+janth_16_00040	CDS	642		phrog_513		transposase
+janth_16_00041	CDS	1131		phrog_29215		hypothetical protein
+janth_16_00042	CDS	543				hypothetical protein
+janth_16_00043	CDS	102				hypothetical protein
+janth_16_00044	CDS	348		phrog_18669		hypothetical protein
+janth_16_00045	CDS	360				hypothetical protein
+janth_16_00046	CDS	894		phrog_50		DnaC-like helicase loader
+janth_16_00047	CDS	1065		phrog_12767		hypothetical protein
+janth_16_00048	CDS	762		phrog_887		queuine tRNA-ribosyltransferase
+janth_16_00049	CDS	132				hypothetical protein
+janth_16_00050	CDS	1209		phrog_67		DNA methyltransferase
+janth_16_00051	CDS	447		phrog_131		HNH endonuclease
+janth_16_00052	CDS	843				hypothetical protein
+janth_16_00053	CDS	993		phrog_424		phosphoadenosine phosphosulfate reductase
+janth_16_00054	CDS	618				hypothetical protein
+janth_16_00055	CDS	426				hypothetical protein
+janth_16_00056	CDS	366				hypothetical protein
+janth_16_00057	CDS	2244		phrog_23072		DNA methyltransferase
+janth_16_00058	CDS	405				hypothetical protein
+janth_16_00059	CDS	789		phrog_129		transcriptional regulator
+janth_16_00060	CDS	150				hypothetical protein
+janth_16_00061	CDS	264				hypothetical protein
+janth_16_00062	CDS	216				hypothetical protein
+janth_16_00063	CDS	291				hypothetical protein
+janth_16_00064	CDS	336				hypothetical protein
+janth_16_00065	CDS	708		phrog_4		transcriptional repressor
+janth_16_00066	CDS	312				hypothetical protein
+janth_16_00067	CDS	483				hypothetical protein
+janth_16_00068	CDS	870		phrog_11186		hypothetical protein
+janth_16_00069	CDS	888		phrog_27972		hypothetical protein
+janth_16_00070	CDS	279				hypothetical protein
+janth_16_00071	CDS	90				hypothetical protein
+janth_16_00072	CDS	234				hypothetical protein
+janth_16_00073	CDS	180				hypothetical protein
+janth_16_00074	CDS	246		phrog_2201		hypothetical protein
+janth_16_00075	CDS	225				hypothetical protein
+janth_16_00076	CDS	135				hypothetical protein
+janth_16_00077	CDS	246				hypothetical protein
+janth_16_00078	CDS	939		phrog_561		RecT-like ssDNA annealing protein
+janth_16_00079	CDS	1776		phrog_7655		RecE-like recombination exonuclease
+janth_16_00080	CDS	711		phrog_25176		hypothetical protein
+janth_16_00081	CDS	249		phrog_9165		hypothetical protein
+janth_16_00082	CDS	639		phrog_4657		hypothetical protein
+janth_16_00083	CDS	414		phrog_72		NinB/ Orf homologous recombination mediator
+janth_16_00084	CDS	1320		phrog_724		exonuclease recombination-associated
+janth_16_00085	CDS	603				hypothetical protein
+janth_16_00086	CDS	390		phrog_3193		hypothetical protein
+janth_16_00087	CDS	639		phrog_8514		hypothetical protein
+janth_16_00088	CDS	123				hypothetical protein
+janth_16_00089	CDS	327		phrog_1372		hypothetical protein
+janth_16_00090	CDS	243				hypothetical protein
+janth_16_00091	CDS	588		phrog_8593		hypothetical protein
+janth_16_00092	CDS	336				hypothetical protein
+janth_16_00093	CDS	1110		phrog_1		integrase
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_17_00001	CDS	2046				Multicopper oxidase
+janth_17_00002	CDS	1149		phrog_1		integrase
+janth_17_00003	CDS	243				hypothetical protein
+janth_17_00004	CDS	396				hypothetical protein
+janth_17_00005	CDS	336		phrog_3362		hypothetical protein
+janth_17_00006	CDS	465		phrog_894		endolysin
+janth_17_00007	CDS	429		phrog_1024		hypothetical protein
+janth_17_00008	CDS	2070		phrog_5939		tail protein
+janth_17_00009	CDS	3144				hypothetical protein
+janth_17_00010	CDS	1470		phrog_8917		hypothetical protein
+janth_17_00011	CDS	4977		phrog_25966		tail length tape measure protein
+janth_17_00012	CDS	249		phrog_680		tail length tape measure protein
+janth_17_00013	CDS	318		phrog_569		tail length tape measure protein
+janth_17_00014	CDS	651		phrog_584		major tail protein
+janth_17_00015	CDS	351		phrog_347		tail terminator
+janth_17_00016	CDS	402				hypothetical protein
+janth_17_00017	CDS	336		phrog_25		head closure Hc1
+janth_17_00018	CDS	558		phrog_442		head-tail adaptor
+janth_17_00019	CDS	660				hypothetical protein
+janth_17_00020	CDS	1362				hypothetical protein
+janth_17_00021	CDS	198				hypothetical protein
+janth_17_00022	CDS	1206		phrog_10		major head protein
+janth_17_00023	CDS	747		phrog_94		head maturation protease
+janth_17_00024	CDS	1317		phrog_12		portal protein
+janth_17_00025	CDS	1707		phrog_9		terminase large subunit
+janth_17_00026	CDS	486		phrog_83		terminase small subunit
+janth_17_00027	CDS	414		phrog_2323		HNH endonuclease
+janth_17_00028	CDS	210				hypothetical protein
+janth_17_00029	CDS	192				hypothetical protein
+janth_17_00030	CDS	279				hypothetical protein
+janth_17_00031	CDS	576				hypothetical protein
+janth_17_00032	CDS	393				hypothetical protein
+janth_17_00033	CDS	291		phrog_5781		hypothetical protein
+janth_17_00034	CDS	579		phrog_954		DNA methyltransferase
+janth_17_00035	CDS	243				hypothetical protein
+janth_17_00036	CDS	1461		phrog_1		integrase
+janth_17_00037	CDS	768		phrog_109		P-like helicase loader
+janth_17_00038	CDS	738		phrog_10469		DnaD-like helicase loader
+janth_17_00039	CDS	444		phrog_101		CII-like transcriptional activator
+janth_17_00040	CDS	1065		phrog_4		transcriptional repressor
+janth_17_00041	CDS	315				hypothetical protein
+janth_17_00042	CDS	297				hypothetical protein
+janth_17_00043	CDS	726		phrog_3007		RusA-like Holliday junction resolvase
+janth_17_00044	CDS	1173		phrog_7674		hypothetical protein
+janth_17_00045	CDS	1998		phrog_23072		DNA methyltransferase
+janth_17_00046	CDS	411				hypothetical protein
+janth_17_00047	CDS	294				hypothetical protein
+janth_17_00048	CDS	219				Prophage CP4-57 regulatory protein (AlpA)
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_18_00001	CDS	1152		phrog_3694		hypothetical protein
+janth_18_00002	CDS	984		phrog_14650		hypothetical protein
+janth_18_00003	CDS	1155		phrog_1		integrase
+janth_18_00004	CDS	168				hypothetical protein
+janth_18_00005	CDS	240				hypothetical protein
+janth_18_00006	CDS	153				hypothetical protein
+janth_18_00007	CDS	1839		phrog_91		nicking at origin of replication
+janth_18_00008	CDS	354				hypothetical protein
+janth_18_00009	CDS	99				hypothetical protein
+janth_18_00010	CDS	408				hypothetical protein
+janth_18_00011	CDS	264		phrog_603		transcriptional regulator
+janth_18_00012	CDS	189		phrog_9850		hypothetical protein
+janth_18_00013	CDS	165		phrog_4113		hypothetical protein
+janth_18_00014	CDS	204		phrog_3431		Arc-like repressor
+janth_18_00015	CDS	414				hypothetical protein
+janth_18_00016	CDS	816				hypothetical protein
+janth_18_00017	CDS	690		phrog_6521		membrane protein
+janth_18_00018	CDS	243		phrog_25421		hypothetical protein
+janth_18_00019	CDS	1278		phrog_52		tail protein
+janth_18_00020	CDS	609		phrog_76		tail protein
+janth_18_00021	CDS	2904		phrog_5690		hypothetical protein
+janth_18_00022	CDS	309		phrog_103		tail protein
+janth_18_00023	CDS	510		phrog_55		head closure
+janth_18_00024	CDS	1176		phrog_23		tail sheath
+janth_18_00025	CDS	501				hypothetical protein
+janth_18_00026	CDS	1215		phrog_327		tail protein
+janth_18_00027	CDS	621		phrog_48		tail protein
+janth_18_00028	CDS	912		phrog_4226		baseplate protein
+janth_18_00029	CDS	345		phrog_43		baseplate wedge subunit
+janth_18_00030	CDS	672		phrog_9992		baseplate assembly protein
+janth_18_00031	CDS	861		phrog_116		DNA methyltransferase
+janth_18_00032	CDS	1794		phrog_3940		hypothetical protein
+janth_18_00033	CDS	474		phrog_36427		hypothetical protein
+janth_18_00034	CDS	489		phrog_65		tail terminator
+janth_18_00035	CDS	516		phrog_2466		Rz-like spanin
+janth_18_00036	CDS	561		phrog_12853		hypothetical protein
+janth_18_00037	CDS	387		phrog_1024		hypothetical protein
+janth_18_00038	CDS	210		phrog_46		tail protein
+janth_18_00039	CDS	507		phrog_71		head-tail adaptor Ad1
+janth_18_00040	CDS	717		phrog_74		terminase small subunit
+janth_18_00041	CDS	1017		phrog_70		major head protein
+janth_18_00042	CDS	792		phrog_73		head scaffolding protein
+janth_18_00043	CDS	1917		phrog_5751		terminase large subunit
+janth_18_00044	CDS	1062		phrog_68		portal protein
+janth_18_00045	CDS	216		phrog_54		DksA-like zinc-finger protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_19_00001	CDS	1056		phrog_19731		hypothetical protein
+janth_19_00002	CDS	936		phrog_4715		ParB-like partition protein
+janth_19_00003	CDS	318				putative KleE stable inheritance protein
+janth_19_00004	CDS	324		phrog_2790		excisionase and transcriptional regulator
+janth_19_00005	CDS	180				hypothetical protein
+janth_19_00006	CDS	600				hypothetical protein
+janth_19_00007	CDS	684		phrog_1599		hypothetical protein
+janth_19_00008	CDS	699				hypothetical protein
+janth_19_00009	CDS	255				hypothetical protein
+janth_19_00010	CDS	396				hypothetical protein
+janth_19_00011	CDS	438		phrog_894		endolysin
+janth_19_00012	CDS	429		phrog_1024		hypothetical protein
+janth_19_00013	CDS	1245		phrog_7121		tail fiber protein
+janth_19_00014	CDS	831		phrog_8610		hypothetical protein
+janth_19_00015	CDS	699				hypothetical protein
+janth_19_00016	CDS	1059				hypothetical protein
+janth_19_00017	CDS	1470		phrog_8917		hypothetical protein
+janth_19_00018	CDS	5577		phrog_7740		tail length tape measure protein
+janth_19_00019	CDS	141				hypothetical protein
+janth_19_00020	CDS	474				hypothetical protein
+janth_19_00021	CDS	1203		phrog_290		minor tail protein
+janth_19_00022	CDS	363		phrog_179		tail terminator
+janth_19_00023	CDS	498		phrog_169		tail completion or Neck1 protein
+janth_19_00024	CDS	375		phrog_161		head closure Hc1
+janth_19_00025	CDS	372		phrog_17560		hypothetical protein
+janth_19_00026	CDS	516		phrog_477		head-tail adaptor Ad1
+janth_19_00027	CDS	828				hypothetical protein
+janth_19_00028	CDS	1569				hypothetical protein
+janth_19_00029	CDS	423				hypothetical protein
+janth_19_00030	CDS	1368		phrog_283		major head protein
+janth_19_00031	CDS	810		phrog_784		hypothetical protein
+janth_19_00032	CDS	405				hypothetical protein
+janth_19_00033	CDS	1182		phrog_241		head morphogenesis
+janth_19_00034	CDS	1368		phrog_145		portal protein
+janth_19_00035	CDS	1281		phrog_38319		hypothetical protein
+janth_19_00036	CDS	462		phrog_546		hypothetical protein
+janth_19_00037	CDS	642		phrog_513		transposase
+janth_19_00038	CDS	1128		phrog_29215		hypothetical protein
+janth_19_00039	CDS	624				hypothetical protein
+janth_19_00040	CDS	426				hypothetical protein
+janth_19_00041	CDS	348		phrog_18669		hypothetical protein
+janth_19_00042	CDS	333				hypothetical protein
+janth_19_00043	CDS	816		phrog_6028		hypothetical protein
+janth_19_00044	CDS	873		phrog_16167		replication initiation protein
+janth_19_00045	CDS	192				hypothetical protein
+janth_19_00046	CDS	2628		phrog_16		DNA helicase
+janth_19_00047	CDS	480		phrog_2321		Ref-like RecA filament endonuclease
+janth_19_00048	CDS	618				hypothetical protein
+janth_19_00049	CDS	426				hypothetical protein
+janth_19_00050	CDS	303				hypothetical protein
+janth_19_00051	CDS	2235		phrog_23072		DNA methyltransferase
+janth_19_00052	CDS	696				hypothetical protein
+janth_19_00053	CDS	387				hypothetical protein
+janth_19_00054	CDS	708		phrog_63		anti-repressor Ant
+janth_19_00055	CDS	150				hypothetical protein
+janth_19_00056	CDS	264				hypothetical protein
+janth_19_00057	CDS	216				hypothetical protein
+janth_19_00058	CDS	288				hypothetical protein
+janth_19_00059	CDS	336				hypothetical protein
+janth_19_00060	CDS	495		phrog_4		transcriptional repressor
+janth_19_00061	CDS	318				hypothetical protein
+janth_19_00062	CDS	669				hypothetical protein
+janth_19_00063	CDS	279				hypothetical protein
+janth_19_00064	CDS	378				hypothetical protein
+janth_19_00065	CDS	363				hypothetical protein
+janth_19_00066	CDS	180				hypothetical protein
+janth_19_00067	CDS	432				hypothetical protein
+janth_19_00068	CDS	132				hypothetical protein
+janth_19_00069	CDS	234				hypothetical protein
+janth_19_00070	CDS	141				hypothetical protein
+janth_19_00071	CDS	900		phrog_561		RecT-like ssDNA annealing protein
+janth_19_00072	CDS	1923		phrog_7655		RecE-like recombination exonuclease
+janth_19_00073	CDS	753		phrog_25176		hypothetical protein
+janth_19_00074	CDS	261		phrog_9165		hypothetical protein
+janth_19_00075	CDS	414		phrog_72		NinB/ Orf homologous recombination mediator
+janth_19_00076	CDS	1221		phrog_724		exonuclease recombination-associated
+janth_19_00077	CDS	687				hypothetical protein
+janth_19_00078	CDS	690		phrog_874		hypothetical protein
+janth_19_00079	CDS	471				hypothetical protein
+janth_19_00080	CDS	372		phrog_5928		hypothetical protein
+janth_19_00081	CDS	1755		phrog_62		DNA helicase
+janth_19_00082	CDS	120				hypothetical protein
+janth_19_00083	CDS	234				hypothetical protein
+janth_19_00084	CDS	963		phrog_8593		hypothetical protein
+janth_19_00085	CDS	363				hypothetical protein
+janth_19_00086	CDS	819		phrog_1		integrase
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_1_00001	CDS	1164		phrog_1423		Reverse transcriptase
+janth_1_00002	CDS	375		phrog_3206		Avd protein of DGR
+janth_1_00003	CDS	363		phrog_4245		hypothetical protein
+janth_1_00004	CDS	558		phrog_4245		hypothetical protein
+janth_1_00005	CDS	297				hypothetical protein
+janth_1_00006	CDS	663		phrog_4245		hypothetical protein
+janth_1_00007	CDS	522				hypothetical protein
+janth_1_00008	CDS	702		phrog_4		transcriptional repressor
+janth_1_00009	CDS	213				hypothetical protein
+janth_1_00010	CDS	444		phrog_101		CII-like transcriptional activator
+janth_1_00011	CDS	627				hypothetical protein
+janth_1_00012	CDS	768		phrog_21423		hypothetical protein
+janth_1_00013	CDS	768		phrog_109		P-like helicase loader
+janth_1_00014	CDS	1131		phrog_1		integrase
+janth_1_00015	CDS	243				hypothetical protein
+janth_1_00016	CDS	228		phrog_9799		hypothetical protein
+janth_1_00017	CDS	366		phrog_801		endolysin; inhibits RNA polymerase
+janth_1_00018	CDS	252		phrog_4276		hypothetical protein
+janth_1_00019	CDS	504				hypothetical protein
+janth_1_00020	CDS	321				hypothetical protein
+janth_1_00021	CDS	162				hypothetical protein
+janth_1_00022	CDS	147				hypothetical protein
+janth_1_00023	CDS	330				hypothetical protein
+janth_1_00024	CDS	354		phrog_2323		HNH endonuclease
+janth_1_00025	CDS	456		phrog_12559		terminase small subunit
+janth_1_00026	CDS	1527		phrog_9		terminase large subunit
+janth_1_00027	CDS	1215		phrog_12		portal protein
+janth_1_00028	CDS	687		phrog_80		head maturation protease
+janth_1_00029	CDS	1404		phrog_10		major head protein
+janth_1_00030	CDS	186				hypothetical protein
+janth_1_00031	CDS	1779				hypothetical protein
+janth_1_00032	CDS	114				hypothetical protein
+janth_1_00033	CDS	555		phrog_442		head-tail adaptor
+janth_1_00034	CDS	336		phrog_25		head closure Hc1
+janth_1_00035	CDS	459		phrog_5		tail completion or Neck1 protein
+janth_1_00036	CDS	351		phrog_347		tail terminator
+janth_1_00037	CDS	435				hypothetical protein
+janth_1_00038	CDS	642		phrog_584		major tail protein
+janth_1_00039	CDS	318		phrog_569		tail length tape measure protein
+janth_1_00040	CDS	219		phrog_680		tail length tape measure protein
+janth_1_00041	tRNA	90				tRNA-Arg(cct)
+janth_1_00042	CDS	1476		phrog_8917		hypothetical protein
+janth_1_00043	CDS	1011				hypothetical protein
+janth_1_00044	CDS	285				hypothetical protein
+janth_1_00045	CDS	738				hypothetical protein
+janth_1_00046	CDS	831		phrog_8610		hypothetical protein
+janth_1_00047	CDS	1035		phrog_38424		hypothetical protein
+janth_1_00048	CDS	429		phrog_1024		hypothetical protein
+janth_1_00049	CDS	465		phrog_894		endolysin
+janth_1_00050	CDS	378				hypothetical protein
+janth_1_00051	CDS	270				hypothetical protein
+janth_1_00052	CDS	1236		phrog_1		integrase
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_20_00001	CDS	297				hypothetical protein
+janth_20_00002	CDS	327				hypothetical protein
+janth_20_00003	CDS	516		phrog_181		endolysin
+janth_20_00004	CDS	429		phrog_1024		hypothetical protein
+janth_20_00005	CDS	1863		phrog_34132		hypothetical protein
+janth_20_00006	CDS	831		phrog_8610		hypothetical protein
+janth_20_00007	CDS	2592				hypothetical protein
+janth_20_00008	CDS	1470		phrog_8917		hypothetical protein
+janth_20_00009	CDS	4572		phrog_339		tail length tape measure protein
+janth_20_00010	CDS	336		phrog_4966		hypothetical protein
+janth_20_00011	CDS	498				hypothetical protein
+janth_20_00012	CDS	1206		phrog_290		minor tail protein
+janth_20_00013	CDS	543				hypothetical protein
+janth_20_00014	CDS	417				hypothetical protein
+janth_20_00015	CDS	714		phrog_4		transcriptional repressor
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_21_00001	CDS	201				hypothetical protein
+janth_21_00002	CDS	291				hypothetical protein
+janth_21_00003	CDS	384				hypothetical protein
+janth_21_00004	CDS	177				hypothetical protein
+janth_21_00005	CDS	2139		phrog_23072		DNA methyltransferase
+janth_21_00006	CDS	696		phrog_4657		hypothetical protein
+janth_21_00007	CDS	297				hypothetical protein
+janth_21_00008	CDS	267				hypothetical protein
+janth_21_00009	CDS	381		phrog_8032		hypothetical protein
+janth_21_00010	CDS	753		phrog_4		transcriptional repressor
+janth_21_00011	CDS	621				hypothetical protein
+janth_21_00012	CDS	537				hypothetical protein
+janth_21_00013	CDS	180				hypothetical protein
+janth_21_00014	CDS	777		phrog_10469		DnaD-like helicase loader
+janth_21_00015	CDS	789		phrog_50		DnaC-like helicase loader
+janth_21_00016	CDS	1158		phrog_1		integrase
+janth_21_00017	CDS	660		phrog_874		hypothetical protein
+janth_21_00018	CDS	243				hypothetical protein
+janth_21_00019	CDS	609				hypothetical protein
+janth_21_00020	CDS	291		phrog_5781		hypothetical protein
+janth_21_00021	CDS	489				hypothetical protein
+janth_21_00022	CDS	213				hypothetical protein
+janth_21_00023	CDS	1974				hypothetical protein
+janth_21_00024	CDS	408		phrog_2323		HNH endonuclease
+janth_21_00025	CDS	471		phrog_641		terminase small subunit
+janth_21_00026	CDS	1689		phrog_2699		terminase large subunit
+janth_21_00027	CDS	1314		phrog_12		portal protein
+janth_21_00028	CDS	852		phrog_1684		head maturation protease
+janth_21_00029	CDS	1287		phrog_10		major head protein
+janth_21_00030	CDS	162		phrog_20183		hypothetical protein
+janth_21_00031	CDS	342		phrog_40		head-tail adaptor Ad1
+janth_21_00032	CDS	354		phrog_25		head closure Hc1
+janth_21_00033	CDS	486		phrog_5		tail completion or Neck1 protein
+janth_21_00034	CDS	255				hypothetical protein
+janth_21_00035	CDS	408				hypothetical protein
+janth_21_00036	CDS	453		phrog_158		major tail protein
+janth_21_00037	CDS	429				hypothetical protein
+janth_21_00038	CDS	417				hypothetical protein
+janth_21_00039	CDS	5142		phrog_3519		tail length tape measure protein
+janth_21_00040	CDS	1470		phrog_8917		hypothetical protein
+janth_21_00041	CDS	1593				hypothetical protein
+janth_21_00042	CDS	282				hypothetical protein
+janth_21_00043	CDS	708				hypothetical protein
+janth_21_00044	CDS	663		phrog_2837		tail protein
+janth_21_00045	CDS	855		phrog_8610		hypothetical protein
+janth_21_00046	CDS	1221		phrog_7121		tail fiber protein
+janth_21_00047	CDS	429		phrog_1024		hypothetical protein
+janth_21_00048	CDS	525		phrog_181		endolysin
+janth_21_00049	CDS	522				hypothetical protein
+janth_21_00050	CDS	435				hypothetical protein
+janth_21_00051	CDS	1254		phrog_1		integrase
+janth_21_00052	CDS	372				hypothetical protein
+janth_21_00053	CDS	189				hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_22_00001	CDS	1206		phrog_290		minor tail protein
+janth_22_00002	CDS	453				hypothetical protein
+janth_22_00003	CDS	330				hypothetical protein
+janth_22_00004	CDS	4566		phrog_339		tail length tape measure protein
+janth_22_00005	CDS	1470		phrog_8917		hypothetical protein
+janth_22_00006	CDS	2598				hypothetical protein
+janth_22_00007	CDS	831		phrog_8610		hypothetical protein
+janth_22_00008	CDS	1815		phrog_34132		hypothetical protein
+janth_22_00009	CDS	303				hypothetical protein
+janth_22_00010	CDS	855		phrog_8610		hypothetical protein
+janth_22_00011	CDS	1830		phrog_34132		hypothetical protein
+janth_22_00012	CDS	429		phrog_1024		hypothetical protein
+janth_22_00013	CDS	498		phrog_181		endolysin
+janth_22_00014	CDS	327				hypothetical protein
+janth_22_00015	CDS	309				hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_23_00001	CDS	2046		phrog_11823		hypothetical protein
+janth_23_00002	tRNA	90				tRNA-Ser(tga)
+janth_23_00003	CDS	1059		phrog_1		integrase
+janth_23_00004	CDS	252		phrog_4764		excisionase
+janth_23_00005	CDS	177				hypothetical protein
+janth_23_00006	CDS	240				hypothetical protein
+janth_23_00007	CDS	303				hypothetical protein
+janth_23_00008	CDS	153				hypothetical protein
+janth_23_00009	CDS	1839		phrog_91		nicking at origin of replication
+janth_23_00010	tRNA	81				tRNA-Lys(ttt)
+janth_23_00011	CDS	99				hypothetical protein
+janth_23_00012	CDS	402				hypothetical protein
+janth_23_00013	CDS	264		phrog_603		transcriptional regulator
+janth_23_00014	CDS	189		phrog_9850		hypothetical protein
+janth_23_00015	CDS	204		phrog_4113		hypothetical protein
+janth_23_00016	CDS	204				hypothetical protein
+janth_23_00017	CDS	135				hypothetical protein
+janth_23_00018	CDS	990				Endonuclease/Exonuclease/phosphatase family protein
+janth_23_00019	CDS	1272		phrog_52		tail protein
+janth_23_00020	CDS	609		phrog_76		tail protein
+janth_23_00021	CDS	3087		phrog_5690		hypothetical protein
+janth_23_00022	CDS	309		phrog_103		tail protein
+janth_23_00023	CDS	510		phrog_55		head closure
+janth_23_00024	CDS	1176		phrog_23		tail sheath
+janth_23_00025	CDS	486				hypothetical protein
+janth_23_00026	CDS	1659		phrog_327		tail protein
+janth_23_00027	CDS	621		phrog_48		tail protein
+janth_23_00028	CDS	912		phrog_4226		baseplate protein
+janth_23_00029	CDS	342		phrog_43		baseplate wedge subunit
+janth_23_00030	CDS	672		phrog_9992		baseplate assembly protein
+janth_23_00031	CDS	3642		phrog_10385		hypothetical protein
+janth_23_00032	CDS	468		phrog_36427		hypothetical protein
+janth_23_00033	CDS	489		phrog_65		tail terminator
+janth_23_00034	CDS	525		phrog_2466		Rz-like spanin
+janth_23_00035	CDS	561		phrog_12853		hypothetical protein
+janth_23_00036	CDS	387		phrog_1024		hypothetical protein
+janth_23_00037	CDS	210		phrog_46		tail protein
+janth_23_00038	CDS	507		phrog_71		head-tail adaptor Ad1
+janth_23_00039	CDS	717		phrog_74		terminase small subunit
+janth_23_00040	CDS	1017		phrog_70		major head protein
+janth_23_00041	CDS	807		phrog_73		head scaffolding protein
+janth_23_00042	CDS	1905		phrog_5751		terminase large subunit
+janth_23_00043	CDS	1065		phrog_68		portal protein
+janth_23_00044	CDS	216				hypothetical protein
+janth_23_00045	CDS	780		phrog_5322		hypothetical protein
+janth_23_00046	CDS	447		phrog_1599		hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_24_00001	CDS	1302		phrog_1268		DNA polymerase
+janth_24_00002	CDS	474		phrog_811		UmuD-like protein
+janth_24_00003	CDS	684		phrog_1599		hypothetical protein
+janth_24_00004	CDS	933		phrog_17460		hypothetical protein
+janth_24_00005	CDS	285				hypothetical protein
+janth_24_00006	CDS	396				hypothetical protein
+janth_24_00007	CDS	438		phrog_894		endolysin
+janth_24_00008	CDS	429		phrog_1024		hypothetical protein
+janth_24_00009	CDS	1215		phrog_7121		tail fiber protein
+janth_24_00010	CDS	855		phrog_8610		hypothetical protein
+janth_24_00011	CDS	741				hypothetical protein
+janth_24_00012	CDS	273				hypothetical protein
+janth_24_00013	CDS	2208				hypothetical protein
+janth_24_00014	CDS	1470		phrog_8917		hypothetical protein
+janth_24_00015	CDS	5202		phrog_25966		tail length tape measure protein
+janth_24_00016	CDS	216		phrog_4966		hypothetical protein
+janth_24_00017	CDS	468				hypothetical protein
+janth_24_00018	CDS	1203		phrog_290		minor tail protein
+janth_24_00019	CDS	402		phrog_179		tail terminator
+janth_24_00020	CDS	498		phrog_169		tail completion or Neck1 protein
+janth_24_00021	CDS	375		phrog_161		head closure Hc1
+janth_24_00022	CDS	372		phrog_17560		hypothetical protein
+janth_24_00023	CDS	516		phrog_477		head-tail adaptor Ad1
+janth_24_00024	CDS	1683				hypothetical protein
+janth_24_00025	CDS	375				hypothetical protein
+janth_24_00026	CDS	1170		phrog_283		major head protein
+janth_24_00027	CDS	810		phrog_784		hypothetical protein
+janth_24_00028	CDS	1089		phrog_241		head morphogenesis
+janth_24_00029	CDS	1368		phrog_145		portal protein
+janth_24_00030	CDS	1287		phrog_38319		hypothetical protein
+janth_24_00031	CDS	549				hypothetical protein
+janth_24_00032	CDS	249				hypothetical protein
+janth_24_00033	CDS	111				hypothetical protein
+janth_24_00034	CDS	291				hypothetical protein
+janth_24_00035	CDS	543				hypothetical protein
+janth_24_00036	CDS	426				hypothetical protein
+janth_24_00037	CDS	348		phrog_18669		hypothetical protein
+janth_24_00038	CDS	333				hypothetical protein
+janth_24_00039	CDS	645		phrog_10105		hypothetical protein
+janth_24_00040	CDS	813		phrog_12767		hypothetical protein
+janth_24_00041	CDS	2628		phrog_16		DNA helicase
+janth_24_00042	CDS	537		phrog_131		HNH endonuclease
+janth_24_00043	CDS	567				hypothetical protein
+janth_24_00044	CDS	1230		phrog_12882		phosphoadenosine phosphosulfate reductase
+janth_24_00045	CDS	426				hypothetical protein
+janth_24_00046	CDS	192				hypothetical protein
+janth_24_00047	CDS	2271		phrog_23072		DNA methyltransferase
+janth_24_00048	CDS	429				hypothetical protein
+janth_24_00049	CDS	783		phrog_129		transcriptional regulator
+janth_24_00050	CDS	165				hypothetical protein
+janth_24_00051	CDS	264				hypothetical protein
+janth_24_00052	CDS	216				hypothetical protein
+janth_24_00053	CDS	291				hypothetical protein
+janth_24_00054	CDS	138				hypothetical protein
+janth_24_00055	CDS	324		phrog_35		transcriptional repressor
+janth_24_00056	CDS	765		phrog_4		transcriptional repressor
+janth_24_00057	CDS	324				hypothetical protein
+janth_24_00058	CDS	885				hypothetical protein
+janth_24_00059	CDS	798				hypothetical protein
+janth_24_00060	CDS	279				hypothetical protein
+janth_24_00061	CDS	90				hypothetical protein
+janth_24_00062	CDS	225				hypothetical protein
+janth_24_00063	CDS	180				hypothetical protein
+janth_24_00064	CDS	132				hypothetical protein
+janth_24_00065	CDS	714		phrog_1934		hypothetical protein
+janth_24_00066	CDS	246				hypothetical protein
+janth_24_00067	CDS	117				hypothetical protein
+janth_24_00068	CDS	1014		phrog_10048		hypothetical protein
+janth_24_00069	CDS	657		phrog_149		exonuclease
+janth_24_00070	CDS	1275		phrog_21091		hypothetical protein
+janth_24_00071	CDS	711		phrog_25176		hypothetical protein
+janth_24_00072	CDS	243		phrog_9165		hypothetical protein
+janth_24_00073	CDS	687		phrog_4657		hypothetical protein
+janth_24_00074	CDS	414		phrog_72		NinB/ Orf homologous recombination mediator
+janth_24_00075	CDS	1470		phrog_724		exonuclease recombination-associated
+janth_24_00076	CDS	543				hypothetical protein
+janth_24_00077	CDS	669		phrog_874		hypothetical protein
+janth_24_00078	CDS	423		phrog_5928		hypothetical protein
+janth_24_00079	CDS	1755		phrog_62		DNA helicase
+janth_24_00080	CDS	1011		phrog_1		integrase
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_25_00001	CDS	312				hypothetical protein
+janth_25_00002	CDS	822				hypothetical protein
+janth_25_00003	CDS	615				hypothetical protein
+janth_25_00004	CDS	690		phrog_4657		hypothetical protein
+janth_25_00005	CDS	297				hypothetical protein
+janth_25_00006	CDS	267				hypothetical protein
+janth_25_00007	CDS	249		phrog_4		transcriptional repressor
+janth_25_00008	CDS	621				hypothetical protein
+janth_25_00009	CDS	534				hypothetical protein
+janth_25_00010	CDS	876		phrog_12196		hypothetical protein
+janth_25_00011	CDS	768		phrog_109		P-like helicase loader
+janth_25_00012	CDS	1158		phrog_1		integrase
+janth_25_00013	CDS	273				hypothetical protein
+janth_25_00014	CDS	243				hypothetical protein
+janth_25_00015	CDS	399				hypothetical protein
+janth_25_00016	CDS	291		phrog_5781		hypothetical protein
+janth_25_00017	CDS	489				hypothetical protein
+janth_25_00018	CDS	498				hypothetical protein
+janth_25_00019	CDS	192				hypothetical protein
+janth_25_00020	CDS	426				hypothetical protein
+janth_25_00021	CDS	411		phrog_2323		HNH endonuclease
+janth_25_00022	CDS	468		phrog_641		terminase small subunit
+janth_25_00023	CDS	1689		phrog_2699		terminase large subunit
+janth_25_00024	CDS	1314		phrog_12		portal protein
+janth_25_00025	CDS	849		phrog_1684		head maturation protease
+janth_25_00026	CDS	1287		phrog_10		major head protein
+janth_25_00027	CDS	162		phrog_20183		hypothetical protein
+janth_25_00028	CDS	342		phrog_40		head-tail adaptor Ad1
+janth_25_00029	CDS	348		phrog_25		head closure Hc1
+janth_25_00030	CDS	486		phrog_5		tail completion or Neck1 protein
+janth_25_00031	CDS	222				hypothetical protein
+janth_25_00032	CDS	408				hypothetical protein
+janth_25_00033	CDS	453		phrog_158		major tail protein
+janth_25_00034	CDS	429				hypothetical protein
+janth_25_00035	CDS	417				hypothetical protein
+janth_25_00036	CDS	5178		phrog_3519		tail length tape measure protein
+janth_25_00037	CDS	1470		phrog_8917		hypothetical protein
+janth_25_00038	CDS	1572				hypothetical protein
+janth_25_00039	CDS	351				hypothetical protein
+janth_25_00040	CDS	822				hypothetical protein
+janth_25_00041	CDS	855		phrog_8610		hypothetical protein
+janth_25_00042	CDS	1188		phrog_7121		tail fiber protein
+janth_25_00043	CDS	429		phrog_1024		hypothetical protein
+janth_25_00044	CDS	525		phrog_181		endolysin
+janth_25_00045	CDS	288				hypothetical protein
+janth_25_00046	CDS	789		phrog_56		DNA methyltransferase
+janth_25_00047	CDS	552				hypothetical protein
+janth_25_00048	CDS	702		phrog_1599		hypothetical protein
+janth_25_00049	CDS	675				hypothetical protein
+janth_25_00050	CDS	1242		phrog_1		integrase
+janth_25_00051	CDS	2052				Multicopper oxidase
+janth_25_00052	CDS	1818				Common central domain of tyrosinase
+janth_25_00053	CDS	360				hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_26_00001	CDS	582				hypothetical protein
+janth_26_00002	CDS	351				hypothetical protein
+janth_26_00003	CDS	498		phrog_181		endolysin
+janth_26_00004	CDS	429		phrog_1024		hypothetical protein
+janth_26_00005	CDS	1830		phrog_34132		hypothetical protein
+janth_26_00006	CDS	855		phrog_8610		hypothetical protein
+janth_26_00007	CDS	657		phrog_34132		hypothetical protein
+janth_26_00008	CDS	831		phrog_8610		hypothetical protein
+janth_26_00009	CDS	2568				hypothetical protein
+janth_26_00010	CDS	1470		phrog_8917		hypothetical protein
+janth_26_00011	CDS	4599		phrog_24		tail length tape measure protein
+janth_26_00012	CDS	204		phrog_4966		hypothetical protein
+janth_26_00013	CDS	444				hypothetical protein
+janth_26_00014	CDS	1206		phrog_290		minor tail protein
+janth_26_00015	CDS	543				hypothetical protein
+janth_26_00016	CDS	417				hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_27_00001	CDS	414				hypothetical protein
+janth_27_00002	CDS	387				hypothetical protein
+janth_27_00003	CDS	624				hypothetical protein
+janth_27_00004	CDS	849				hypothetical protein
+janth_27_00005	CDS	630				hypothetical protein
+janth_27_00006	CDS	579				hypothetical protein
+janth_27_00007	CDS	1659		phrog_23		tail sheath
+janth_27_00008	CDS	447		phrog_4542		tail tube protein
+janth_27_00009	CDS	384				hypothetical protein
+janth_27_00010	CDS	111				hypothetical protein
+janth_27_00011	CDS	513				T4-like virus tail tube protein gp19
+janth_27_00012	CDS	1146				hypothetical protein
+janth_27_00013	CDS	642				Contractile injection system tube protein
+janth_27_00014	CDS	1047		phrog_52		tail protein
+janth_27_00015	CDS	597				Type VI secretion system/phage-baseplate injector OB domain protein
+janth_27_00016	CDS	414				PAAR motif protein
+janth_27_00017	CDS	390		phrog_261		baseplate wedge subunit
+janth_27_00018	CDS	198				hypothetical protein
+janth_27_00019	CDS	3063				hypothetical protein
+janth_27_00020	CDS	1122				hypothetical protein
+janth_27_00021	CDS	978				hypothetical protein
+janth_27_00022	CDS	816				hypothetical protein
+janth_27_00023	CDS	3519		phrog_1980		tail fiber protein
+janth_27_00024	CDS	945				hypothetical protein
+janth_27_00025	CDS	645		phrog_24927		hypothetical protein
+janth_27_00026	CDS	813		phrog_24927		hypothetical protein
+janth_27_00027	CDS	537				Aspartyl/Asparaginyl beta-hydroxylase
+janth_27_00028	CDS	2253		phrog_10401		ATPase
+janth_27_00029	CDS	2790				hypothetical protein
+janth_27_00030	CDS	1203				hypothetical protein
+janth_27_00031	CDS	648				hypothetical protein
+janth_27_00032	CDS	504				hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_28_00001	CDS	1110		phrog_1		integrase
+janth_28_00002	CDS	336				hypothetical protein
+janth_28_00003	CDS	237				hypothetical protein
+janth_28_00004	CDS	327		phrog_1372		hypothetical protein
+janth_28_00005	CDS	123				hypothetical protein
+janth_28_00006	CDS	639		phrog_8514		hypothetical protein
+janth_28_00007	CDS	765		phrog_874		hypothetical protein
+janth_28_00008	CDS	618				hypothetical protein
+janth_28_00009	CDS	1470		phrog_724		exonuclease recombination-associated
+janth_28_00010	CDS	414		phrog_72		NinB/ Orf homologous recombination mediator
+janth_28_00011	CDS	261		phrog_9165		hypothetical protein
+janth_28_00012	CDS	714		phrog_25176		hypothetical protein
+janth_28_00013	CDS	1275		phrog_21091		hypothetical protein
+janth_28_00014	CDS	657		phrog_149		exonuclease
+janth_28_00015	CDS	1005		phrog_10048		hypothetical protein
+janth_28_00016	CDS	117				hypothetical protein
+janth_28_00017	CDS	246				hypothetical protein
+janth_28_00018	CDS	141				hypothetical protein
+janth_28_00019	CDS	180				hypothetical protein
+janth_28_00020	CDS	234				hypothetical protein
+janth_28_00021	CDS	90				hypothetical protein
+janth_28_00022	CDS	279				hypothetical protein
+janth_28_00023	CDS	873		phrog_21150		hypothetical protein
+janth_28_00024	CDS	885				hypothetical protein
+janth_28_00025	CDS	324				hypothetical protein
+janth_28_00026	CDS	312				hypothetical protein
+janth_28_00027	CDS	765		phrog_4		transcriptional repressor
+janth_28_00028	CDS	324		phrog_35		transcriptional repressor
+janth_28_00029	CDS	291				hypothetical protein
+janth_28_00030	CDS	216				hypothetical protein
+janth_28_00031	CDS	264				hypothetical protein
+janth_28_00032	CDS	168				hypothetical protein
+janth_28_00033	CDS	708		phrog_63		anti-repressor Ant
+janth_28_00034	CDS	405				hypothetical protein
+janth_28_00035	CDS	756				hypothetical protein
+janth_28_00036	CDS	792				hypothetical protein
+janth_28_00037	CDS	843		phrog_16528		DNA methyltransferase
+janth_28_00038	CDS	693				hypothetical protein
+janth_28_00039	CDS	426				hypothetical protein
+janth_28_00040	CDS	1059				hypothetical protein
+janth_28_00041	CDS	489		phrog_131		HNH endonuclease
+janth_28_00042	CDS	1530		phrog_67		DNA methyltransferase
+janth_28_00043	CDS	1599		phrog_50		DnaC-like helicase loader
+janth_28_00044	CDS	375				hypothetical protein
+janth_28_00045	CDS	348		phrog_18669		hypothetical protein
+janth_28_00046	CDS	426				hypothetical protein
+janth_28_00047	CDS	822				hypothetical protein
+janth_28_00048	CDS	417		phrog_497		toxin-antitoxin system HicB-like protein
+janth_28_00049	CDS	165		phrog_353		toxin
+janth_28_00050	CDS	483				hypothetical protein
+janth_28_00051	CDS	549				hypothetical protein
+janth_28_00052	CDS	1287		phrog_38319		hypothetical protein
+janth_28_00053	CDS	1383		phrog_145		portal protein
+janth_28_00054	CDS	1059		phrog_241		head morphogenesis
+janth_28_00055	CDS	408				hypothetical protein
+janth_28_00056	CDS	846		phrog_784		hypothetical protein
+janth_28_00057	CDS	1170		phrog_283		major head protein
+janth_28_00058	CDS	390		phrog_19717		hypothetical protein
+janth_28_00059	CDS	1845				hypothetical protein
+janth_28_00060	CDS	540				hypothetical protein
+janth_28_00061	CDS	513		phrog_477		head-tail adaptor Ad1
+janth_28_00062	CDS	372		phrog_17560		hypothetical protein
+janth_28_00063	CDS	438		phrog_161		head closure Hc1
+janth_28_00064	CDS	405		phrog_169		tail completion or Neck1 protein
+janth_28_00065	CDS	423		phrog_179		tail terminator
+janth_28_00066	CDS	1179		phrog_290		minor tail protein
+janth_28_00067	CDS	462				hypothetical protein
+janth_28_00068	CDS	342		phrog_4966		hypothetical protein
+janth_28_00069	CDS	429		phrog_1388		hypothetical protein
+janth_28_00070	CDS	168				hypothetical protein
+janth_28_00071	CDS	741		phrog_5060		anti-repressor Ant
+janth_28_00072	CDS	399				hypothetical protein
+janth_28_00073	CDS	723		phrog_4792		anti-repressor
+janth_28_00074	CDS	399				hypothetical protein
+janth_28_00075	CDS	4674		phrog_25966		tail length tape measure protein
+janth_28_00076	CDS	1470		phrog_8917		hypothetical protein
+janth_28_00077	CDS	1572				hypothetical protein
+janth_28_00078	CDS	351				hypothetical protein
+janth_28_00079	CDS	828				hypothetical protein
+janth_28_00080	CDS	855		phrog_8610		hypothetical protein
+janth_28_00081	CDS	1188		phrog_7121		tail fiber protein
+janth_28_00082	CDS	429		phrog_1024		hypothetical protein
+janth_28_00083	CDS	438		phrog_894		endolysin
+janth_28_00084	CDS	396				hypothetical protein
+janth_28_00085	CDS	243				hypothetical protein
+janth_28_00086	CDS	915		phrog_17460		hypothetical protein
+janth_28_00087	CDS	549				hypothetical protein
+janth_28_00088	CDS	702		phrog_1599		hypothetical protein
+janth_28_00089	CDS	345				hypothetical protein
+janth_28_00090	CDS	255				hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_29_00001	CDS	249				hypothetical protein
+janth_29_00002	CDS	396				hypothetical protein
+janth_29_00003	CDS	438		phrog_894		endolysin
+janth_29_00004	CDS	429		phrog_1024		hypothetical protein
+janth_29_00005	CDS	1188		phrog_7121		tail fiber protein
+janth_29_00006	CDS	855		phrog_8610		hypothetical protein
+janth_29_00007	CDS	828				hypothetical protein
+janth_29_00008	CDS	351				hypothetical protein
+janth_29_00009	CDS	1572				hypothetical protein
+janth_29_00010	CDS	1470		phrog_8917		hypothetical protein
+janth_29_00011	CDS	5184		phrog_25966		tail length tape measure protein
+janth_29_00012	CDS	474				hypothetical protein
+janth_29_00013	CDS	1203		phrog_290		minor tail protein
+janth_29_00014	CDS	402		phrog_179		tail terminator
+janth_29_00015	CDS	498		phrog_169		tail completion or Neck1 protein
+janth_29_00016	CDS	375		phrog_161		head closure Hc1
+janth_29_00017	CDS	372		phrog_17560		hypothetical protein
+janth_29_00018	CDS	516		phrog_477		head-tail adaptor Ad1
+janth_29_00019	CDS	1845				hypothetical protein
+janth_29_00020	CDS	396				hypothetical protein
+janth_29_00021	CDS	1170		phrog_283		major head protein
+janth_29_00022	CDS	795		phrog_784		hypothetical protein
+janth_29_00023	CDS	204				hypothetical protein
+janth_29_00024	CDS	1221		phrog_241		head morphogenesis
+janth_29_00025	CDS	1365		phrog_145		portal protein
+janth_29_00026	CDS	1287		phrog_38319		hypothetical protein
+janth_29_00027	CDS	549				hypothetical protein
+janth_29_00028	CDS	483				hypothetical protein
+janth_29_00029	CDS	177		phrog_353		toxin
+janth_29_00030	CDS	417		phrog_497		toxin-antitoxin system HicB-like protein
+janth_29_00031	CDS	822				hypothetical protein
+janth_29_00032	CDS	621				hypothetical protein
+janth_29_00033	CDS	426				hypothetical protein
+janth_29_00034	CDS	348		phrog_18669		hypothetical protein
+janth_29_00035	CDS	207				hypothetical protein
+janth_29_00036	CDS	747		phrog_50		DnaC-like helicase loader
+janth_29_00037	CDS	765		phrog_9327		primosomal protein
+janth_29_00038	CDS	876		phrog_67		DNA methyltransferase
+janth_29_00039	CDS	657		phrog_67		DNA methyltransferase
+janth_29_00040	CDS	489		phrog_131		HNH endonuclease
+janth_29_00041	CDS	654				hypothetical protein
+janth_29_00042	CDS	336				hypothetical protein
+janth_29_00043	CDS	426				hypothetical protein
+janth_29_00044	CDS	693				hypothetical protein
+janth_29_00045	CDS	1815		phrog_116		DNA methyltransferase
+janth_29_00046	CDS	756				hypothetical protein
+janth_29_00047	CDS	405				hypothetical protein
+janth_29_00048	CDS	708		phrog_63		anti-repressor Ant
+janth_29_00049	CDS	168				hypothetical protein
+janth_29_00050	CDS	264				hypothetical protein
+janth_29_00051	CDS	216				hypothetical protein
+janth_29_00052	CDS	291				hypothetical protein
+janth_29_00053	CDS	336				hypothetical protein
+janth_29_00054	CDS	678		phrog_4		transcriptional repressor
+janth_29_00055	CDS	657		phrog_22882		hypothetical protein
+janth_29_00056	CDS	153				hypothetical protein
+janth_29_00057	CDS	93				hypothetical protein
+janth_29_00058	CDS	180				hypothetical protein
+janth_29_00059	CDS	141				hypothetical protein
+janth_29_00060	CDS	246				hypothetical protein
+janth_29_00061	CDS	141				hypothetical protein
+janth_29_00062	CDS	894		phrog_561		RecT-like ssDNA annealing protein
+janth_29_00063	CDS	1776		phrog_7655		RecE-like recombination exonuclease
+janth_29_00064	CDS	711		phrog_25176		hypothetical protein
+janth_29_00065	CDS	243		phrog_9165		hypothetical protein
+janth_29_00066	CDS	687		phrog_4657		hypothetical protein
+janth_29_00067	CDS	414		phrog_72		NinB/ Orf homologous recombination mediator
+janth_29_00068	CDS	1473		phrog_724		exonuclease recombination-associated
+janth_29_00069	CDS	528		phrog_2314		hypothetical protein
+janth_29_00070	CDS	954		phrog_874		hypothetical protein
+janth_29_00071	CDS	612		phrog_8514		hypothetical protein
+janth_29_00072	CDS	123				hypothetical protein
+janth_29_00073	CDS	330		phrog_1372		hypothetical protein
+janth_29_00074	CDS	1005		phrog_1		integrase
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_2_00001	CDS	1032		phrog_1		integrase
+janth_2_00002	CDS	225		phrog_8896		excisionase
+janth_2_00003	CDS	615		phrog_12600		hypothetical protein
+janth_2_00004	CDS	240				hypothetical protein
+janth_2_00005	tRNA	88				tRNA-Ser(gga)
+janth_2_00006	CDS	1788		phrog_91		nicking at origin of replication
+janth_2_00007	CDS	354				hypothetical protein
+janth_2_00008	CDS	99				hypothetical protein
+janth_2_00009	CDS	402				hypothetical protein
+janth_2_00010	CDS	264		phrog_603		transcriptional regulator
+janth_2_00011	CDS	195		phrog_9850		hypothetical protein
+janth_2_00012	CDS	198		phrog_4113		hypothetical protein
+janth_2_00013	CDS	390				hypothetical protein
+janth_2_00014	CDS	255				hypothetical protein
+janth_2_00015	CDS	162				hypothetical protein
+janth_2_00016	CDS	852				hypothetical protein
+janth_2_00017	CDS	2907		phrog_25988		hypothetical protein
+janth_2_00018	CDS	1272		phrog_52		tail protein
+janth_2_00019	CDS	609		phrog_76		tail protein
+janth_2_00020	CDS	2871		phrog_5690		hypothetical protein
+janth_2_00021	CDS	114		phrog_6416		tail protein
+janth_2_00022	CDS	309		phrog_103		tail protein
+janth_2_00023	CDS	510		phrog_55		head closure
+janth_2_00024	CDS	1176		phrog_23		tail sheath
+janth_2_00025	CDS	510				hypothetical protein
+janth_2_00026	CDS	2091		phrog_327		tail protein
+janth_2_00027	CDS	621		phrog_48		tail protein
+janth_2_00028	CDS	912		phrog_4226		baseplate protein
+janth_2_00029	CDS	345		phrog_43		baseplate wedge subunit
+janth_2_00030	CDS	672		phrog_9992		baseplate assembly protein
+janth_2_00031	CDS	597		phrog_26526		hypothetical protein
+janth_2_00032	CDS	468		phrog_36427		hypothetical protein
+janth_2_00033	CDS	489		phrog_65		tail terminator
+janth_2_00034	CDS	513		phrog_2466		Rz-like spanin
+janth_2_00035	CDS	561		phrog_12853		hypothetical protein
+janth_2_00036	CDS	372		phrog_1024		hypothetical protein
+janth_2_00037	CDS	216		phrog_46		tail protein
+janth_2_00038	CDS	504		phrog_71		head-tail adaptor Ad1
+janth_2_00039	CDS	717		phrog_74		terminase small subunit
+janth_2_00040	CDS	1020		phrog_70		major head protein
+janth_2_00041	CDS	789		phrog_73		head scaffolding protein
+janth_2_00042	CDS	1905		phrog_5751		terminase large subunit
+janth_2_00043	CDS	1062		phrog_68		portal protein
+janth_2_00044	CDS	216		phrog_54		DksA-like zinc-finger protein
+janth_2_00045	CDS	339				hypothetical protein
+janth_2_00046	CDS	639		phrog_1599		hypothetical protein
+janth_2_00047	CDS	843		phrog_1281		hypothetical protein
+janth_2_00048	CDS	183				hypothetical protein
+janth_2_00049	CDS	684				hypothetical protein
+janth_2_00050	CDS	663				hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_30_00001	CDS	1560		phrog_95		integrase
+janth_30_00002	CDS	213				hypothetical protein
+janth_30_00003	CDS	1008		phrog_26092		hypothetical protein
+janth_30_00004	CDS	699		phrog_1		integrase
+janth_30_00005	CDS	834		phrog_157		transposase
+janth_30_00006	CDS	279		phrog_151		transposase
+janth_30_00007	CDS	468		phrog_12766		hypothetical protein
+janth_30_00008	CDS	183				hypothetical protein
+janth_30_00009	CDS	615		phrog_12600		hypothetical protein
+janth_30_00010	CDS	240				hypothetical protein
+janth_30_00011	CDS	153				hypothetical protein
+janth_30_00012	CDS	1839		phrog_91		nicking at origin of replication
+janth_30_00013	CDS	354				hypothetical protein
+janth_30_00014	CDS	99				hypothetical protein
+janth_30_00015	CDS	402				hypothetical protein
+janth_30_00016	CDS	264		phrog_603		transcriptional regulator
+janth_30_00017	CDS	195		phrog_9850		hypothetical protein
+janth_30_00018	CDS	198		phrog_4113		hypothetical protein
+janth_30_00019	CDS	438				hypothetical protein
+janth_30_00020	CDS	372				hypothetical protein
+janth_30_00021	CDS	627				hypothetical protein
+janth_30_00022	CDS	270				hypothetical protein
+janth_30_00023	CDS	414				hypothetical protein
+janth_30_00024	CDS	1272		phrog_52		tail protein
+janth_30_00025	CDS	609		phrog_76		tail protein
+janth_30_00026	CDS	2871		phrog_5690		hypothetical protein
+janth_30_00027	CDS	114		phrog_6416		tail protein
+janth_30_00028	CDS	309		phrog_103		tail protein
+janth_30_00029	CDS	510		phrog_55		head closure
+janth_30_00030	CDS	1176		phrog_23		tail sheath
+janth_30_00031	CDS	465				hypothetical protein
+janth_30_00032	CDS	1656		phrog_327		tail protein
+janth_30_00033	CDS	621		phrog_48		tail protein
+janth_30_00034	CDS	912		phrog_4226		baseplate protein
+janth_30_00035	CDS	345		phrog_43		baseplate wedge subunit
+janth_30_00036	CDS	654		phrog_9992		baseplate assembly protein
+janth_30_00037	CDS	603				hypothetical protein
+janth_30_00038	CDS	660				hypothetical protein
+janth_30_00039	CDS	468		phrog_36427		hypothetical protein
+janth_30_00040	CDS	489		phrog_65		tail terminator
+janth_30_00041	CDS	513		phrog_2466		Rz-like spanin
+janth_30_00042	CDS	561		phrog_12853		hypothetical protein
+janth_30_00043	CDS	372		phrog_1024		hypothetical protein
+janth_30_00044	CDS	216		phrog_46		tail protein
+janth_30_00045	CDS	504		phrog_71		head-tail adaptor Ad1
+janth_30_00046	CDS	717		phrog_74		terminase small subunit
+janth_30_00047	CDS	1020		phrog_70		major head protein
+janth_30_00048	CDS	789		phrog_73		head scaffolding protein
+janth_30_00049	CDS	1917		phrog_5751		terminase large subunit
+janth_30_00050	CDS	1062		phrog_68		portal protein
+janth_30_00051	CDS	216		phrog_54		DksA-like zinc-finger protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_31_00001	CDS	2046		phrog_11823		hypothetical protein
+janth_31_00002	tRNA	90				tRNA-Ser(tga)
+janth_31_00003	CDS	1182		phrog_1		integrase
+janth_31_00004	CDS	180				hypothetical protein
+janth_31_00005	CDS	168				hypothetical protein
+janth_31_00006	CDS	852		phrog_424		phosphoadenosine phosphosulfate reductase
+janth_31_00007	CDS	615		phrog_12600		hypothetical protein
+janth_31_00008	CDS	240				hypothetical protein
+janth_31_00009	CDS	153				hypothetical protein
+janth_31_00010	CDS	1788		phrog_91		nicking at origin of replication
+janth_31_00011	CDS	378				hypothetical protein
+janth_31_00012	CDS	99				hypothetical protein
+janth_31_00013	CDS	396				hypothetical protein
+janth_31_00014	CDS	264		phrog_603		transcriptional regulator
+janth_31_00015	CDS	189		phrog_9850		hypothetical protein
+janth_31_00016	CDS	204		phrog_4113		hypothetical protein
+janth_31_00017	CDS	204				hypothetical protein
+janth_31_00018	CDS	435				hypothetical protein
+janth_31_00019	CDS	888		phrog_2561		DNA ligase
+janth_31_00020	CDS	825		phrog_25239		hypothetical protein
+janth_31_00021	CDS	867				hypothetical protein
+janth_31_00022	CDS	135				hypothetical protein
+janth_31_00023	CDS	1233		phrog_52		tail protein
+janth_31_00024	CDS	609		phrog_76		tail protein
+janth_31_00025	CDS	2871		phrog_5690		hypothetical protein
+janth_31_00026	CDS	114		phrog_6416		tail protein
+janth_31_00027	CDS	309		phrog_103		tail protein
+janth_31_00028	CDS	510		phrog_55		head closure
+janth_31_00029	CDS	1176		phrog_23		tail sheath
+janth_31_00030	CDS	465				hypothetical protein
+janth_31_00031	CDS	1656		phrog_327		tail protein
+janth_31_00032	CDS	621		phrog_48		tail protein
+janth_31_00033	CDS	912		phrog_4226		baseplate protein
+janth_31_00034	CDS	345		phrog_43		baseplate wedge subunit
+janth_31_00035	CDS	672		phrog_9992		baseplate assembly protein
+janth_31_00036	CDS	1350		phrog_382		minor tail protein with lysin activity
+janth_31_00037	CDS	1350		phrog_8928		hypothetical protein
+janth_31_00038	CDS	468		phrog_26		tail completion or Neck1 protein
+janth_31_00039	CDS	489		phrog_65		tail terminator
+janth_31_00040	CDS	525		phrog_2466		Rz-like spanin
+janth_31_00041	CDS	561		phrog_12853		hypothetical protein
+janth_31_00042	CDS	372		phrog_1024		hypothetical protein
+janth_31_00043	CDS	210		phrog_46		tail protein
+janth_31_00044	CDS	552		phrog_71		head-tail adaptor Ad1
+janth_31_00045	CDS	717		phrog_74		terminase small subunit
+janth_31_00046	CDS	1014		phrog_70		major head protein
+janth_31_00047	CDS	792		phrog_73		head scaffolding protein
+janth_31_00048	CDS	1905		phrog_5751		terminase large subunit
+janth_31_00049	CDS	1077		phrog_68		portal protein
+janth_31_00050	CDS	216		phrog_54		DksA-like zinc-finger protein
+janth_31_00051	CDS	1191		phrog_3333		O-acetyltransferase
+janth_31_00052	CDS	279				hypothetical protein
+janth_31_00053	CDS	753				hypothetical protein
+janth_31_00054	CDS	225				hypothetical protein
+janth_31_00055	CDS	144				hypothetical protein
+janth_31_00056	CDS	279		phrog_151		transposase
+janth_31_00057	CDS	618		phrog_157		transposase
+janth_31_00058	CDS	471				hypothetical protein
+janth_31_00059	CDS	267		phrog_10408		hypothetical protein
+janth_31_00060	CDS	828		phrog_157		transposase
+janth_31_00061	CDS	228				hypothetical protein
+janth_31_00062	CDS	525				hypothetical protein
+janth_31_00063	CDS	462				hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_32_00001	CDS	351				hypothetical protein
+janth_32_00002	CDS	498		phrog_181		endolysin
+janth_32_00003	CDS	429		phrog_1024		hypothetical protein
+janth_32_00004	CDS	1830		phrog_34132		hypothetical protein
+janth_32_00005	CDS	855		phrog_8610		hypothetical protein
+janth_32_00006	CDS	657		phrog_34132		hypothetical protein
+janth_32_00007	CDS	831		phrog_8610		hypothetical protein
+janth_32_00008	CDS	2568				hypothetical protein
+janth_32_00009	CDS	1470		phrog_8917		hypothetical protein
+janth_32_00010	CDS	4542		phrog_24		tail length tape measure protein
+janth_32_00011	CDS	204		phrog_4966		hypothetical protein
+janth_32_00012	CDS	444				hypothetical protein
+janth_32_00013	CDS	1206		phrog_290		minor tail protein
+janth_32_00014	CDS	543				hypothetical protein
+janth_32_00015	CDS	417				hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_33_00001	CDS	765		phrog_19169		endonuclease
+janth_33_00002	CDS	201				hypothetical protein
+janth_33_00003	CDS	291				hypothetical protein
+janth_33_00004	CDS	384				hypothetical protein
+janth_33_00005	CDS	177				hypothetical protein
+janth_33_00006	CDS	2139		phrog_23072		DNA methyltransferase
+janth_33_00007	CDS	696		phrog_4657		hypothetical protein
+janth_33_00008	CDS	297				hypothetical protein
+janth_33_00009	CDS	267				hypothetical protein
+janth_33_00010	CDS	381		phrog_8032		hypothetical protein
+janth_33_00011	CDS	753		phrog_4		transcriptional repressor
+janth_33_00012	CDS	621				hypothetical protein
+janth_33_00013	CDS	537				hypothetical protein
+janth_33_00014	CDS	180				hypothetical protein
+janth_33_00015	CDS	777		phrog_10469		DnaD-like helicase loader
+janth_33_00016	CDS	789		phrog_50		DnaC-like helicase loader
+janth_33_00017	CDS	1158		phrog_1		integrase
+janth_33_00018	CDS	660		phrog_874		hypothetical protein
+janth_33_00019	CDS	243				hypothetical protein
+janth_33_00020	CDS	609				hypothetical protein
+janth_33_00021	CDS	291		phrog_5781		hypothetical protein
+janth_33_00022	CDS	489				hypothetical protein
+janth_33_00023	CDS	213				hypothetical protein
+janth_33_00024	CDS	1974				hypothetical protein
+janth_33_00025	CDS	408		phrog_2323		HNH endonuclease
+janth_33_00026	CDS	471		phrog_641		terminase small subunit
+janth_33_00027	CDS	1689		phrog_2699		terminase large subunit
+janth_33_00028	CDS	1314		phrog_12		portal protein
+janth_33_00029	CDS	852		phrog_1684		head maturation protease
+janth_33_00030	CDS	1287		phrog_10		major head protein
+janth_33_00031	CDS	162		phrog_20183		hypothetical protein
+janth_33_00032	CDS	342		phrog_40		head-tail adaptor Ad1
+janth_33_00033	CDS	354		phrog_25		head closure Hc1
+janth_33_00034	CDS	486		phrog_5		tail completion or Neck1 protein
+janth_33_00035	CDS	255				hypothetical protein
+janth_33_00036	CDS	408				hypothetical protein
+janth_33_00037	CDS	453		phrog_158		major tail protein
+janth_33_00038	CDS	429				hypothetical protein
+janth_33_00039	CDS	417				hypothetical protein
+janth_33_00040	CDS	5142		phrog_3519		tail length tape measure protein
+janth_33_00041	CDS	1470		phrog_8917		hypothetical protein
+janth_33_00042	CDS	1593				hypothetical protein
+janth_33_00043	CDS	282				hypothetical protein
+janth_33_00044	CDS	708				hypothetical protein
+janth_33_00045	CDS	663		phrog_2837		tail protein
+janth_33_00046	CDS	855		phrog_8610		hypothetical protein
+janth_33_00047	CDS	1221		phrog_7121		tail fiber protein
+janth_33_00048	CDS	429		phrog_1024		hypothetical protein
+janth_33_00049	CDS	525		phrog_181		endolysin
+janth_33_00050	CDS	522				hypothetical protein
+janth_33_00051	CDS	435				hypothetical protein
+janth_33_00052	CDS	1254		phrog_1		integrase
+janth_33_00053	CDS	372				hypothetical protein
+janth_33_00054	CDS	189				hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_34_00001	CDS	1167		phrog_1		integrase
+janth_34_00002	CDS	1620		phrog_25246		ABC transporter
+janth_34_00003	CDS	189				hypothetical protein
+janth_34_00004	CDS	414				hypothetical protein
+janth_34_00005	CDS	300				hypothetical protein
+janth_34_00006	CDS	153				hypothetical protein
+janth_34_00007	CDS	1548		phrog_91		nicking at origin of replication
+janth_34_00008	CDS	354				hypothetical protein
+janth_34_00009	CDS	99				hypothetical protein
+janth_34_00010	CDS	402				hypothetical protein
+janth_34_00011	CDS	264		phrog_603		transcriptional regulator
+janth_34_00012	CDS	189		phrog_9850		hypothetical protein
+janth_34_00013	CDS	198		phrog_4113		hypothetical protein
+janth_34_00014	CDS	204				hypothetical protein
+janth_34_00015	CDS	405				hypothetical protein
+janth_34_00016	CDS	990				Endonuclease/Exonuclease/phosphatase family protein
+janth_34_00017	CDS	456				hypothetical protein
+janth_34_00018	CDS	744				Cthe_2314-like HEPN
+janth_34_00019	CDS	1272		phrog_52		tail protein
+janth_34_00020	CDS	609		phrog_76		tail protein
+janth_34_00021	CDS	3087		phrog_5690		hypothetical protein
+janth_34_00022	CDS	309		phrog_103		tail protein
+janth_34_00023	CDS	510		phrog_55		head closure
+janth_34_00024	CDS	1176		phrog_23		tail sheath
+janth_34_00025	CDS	510				hypothetical protein
+janth_34_00026	CDS	1620		phrog_327		tail protein
+janth_34_00027	CDS	621		phrog_48		tail protein
+janth_34_00028	CDS	912		phrog_4226		baseplate protein
+janth_34_00029	CDS	345		phrog_43		baseplate wedge subunit
+janth_34_00030	CDS	672		phrog_9992		baseplate assembly protein
+janth_34_00031	CDS	1134		phrog_164		ParA-like partition protein
+janth_34_00032	CDS	468		phrog_26		tail completion or Neck1 protein
+janth_34_00033	CDS	489		phrog_65		tail terminator
+janth_34_00034	CDS	513		phrog_2466		Rz-like spanin
+janth_34_00035	CDS	561		phrog_12853		hypothetical protein
+janth_34_00036	CDS	372		phrog_1024		hypothetical protein
+janth_34_00037	CDS	210		phrog_46		tail protein
+janth_34_00038	CDS	504		phrog_71		head-tail adaptor Ad1
+janth_34_00039	CDS	717		phrog_74		terminase small subunit
+janth_34_00040	CDS	1020		phrog_70		major head protein
+janth_34_00041	CDS	789		phrog_73		head scaffolding protein
+janth_34_00042	CDS	1920		phrog_5751		terminase large subunit
+janth_34_00043	CDS	1065		phrog_68		portal protein
+janth_34_00044	CDS	216		phrog_54		DksA-like zinc-finger protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_35_00001	CDS	294		phrog_56		DNA methyltransferase
+janth_35_00002	CDS	522				hypothetical protein
+janth_35_00003	CDS	525		phrog_181		endolysin
+janth_35_00004	CDS	429		phrog_1024		hypothetical protein
+janth_35_00005	CDS	537		phrog_34132		hypothetical protein
+janth_35_00006	CDS	1410				hypothetical protein
+janth_35_00007	CDS	621				hypothetical protein
+janth_35_00008	CDS	513		phrog_477		head-tail adaptor Ad1
+janth_35_00009	CDS	738		phrog_241		head morphogenesis
+janth_35_00010	CDS	240				hypothetical protein
+janth_35_00011	CDS	408		phrog_546		hypothetical protein
+janth_35_00012	CDS	636		phrog_513		transposase
+janth_35_00013	CDS	504				hypothetical protein
+janth_35_00014	CDS	228				hypothetical protein
+janth_35_00015	CDS	474				hypothetical protein
+janth_35_00016	CDS	663				hypothetical protein
+janth_35_00017	CDS	159				hypothetical protein
+janth_35_00018	CDS	474				hypothetical protein
+janth_35_00019	CDS	315		phrog_6576		hypothetical protein
+janth_35_00020	CDS	408				hypothetical protein
+janth_35_00021	CDS	630		phrog_874		hypothetical protein
+janth_35_00022	CDS	612		phrog_8514		hypothetical protein
+janth_35_00023	CDS	123				hypothetical protein
+janth_35_00024	CDS	327		phrog_1372		hypothetical protein
+janth_35_00025	CDS	240				hypothetical protein
+janth_35_00026	CDS	615				hypothetical protein
+janth_35_00027	CDS	612				hypothetical protein
+janth_35_00028	CDS	1011		phrog_1		integrase
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_36_00001	CDS	429		phrog_1024		hypothetical protein
+janth_36_00002	CDS	1830		phrog_34132		hypothetical protein
+janth_36_00003	CDS	855		phrog_8610		hypothetical protein
+janth_36_00004	CDS	3348		phrog_34132		hypothetical protein
+janth_36_00005	CDS	831		phrog_8610		hypothetical protein
+janth_36_00006	CDS	705				hypothetical protein
+janth_36_00007	CDS	285				hypothetical protein
+janth_36_00008	CDS	2175				hypothetical protein
+janth_36_00009	CDS	1470		phrog_8917		hypothetical protein
+janth_36_00010	CDS	4599		phrog_24		tail length tape measure protein
+janth_36_00011	CDS	204		phrog_4966		hypothetical protein
+janth_36_00012	CDS	444				hypothetical protein
+janth_36_00013	CDS	1206		phrog_290		minor tail protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_37_00001	CDS	1302		phrog_1268		DNA polymerase
+janth_37_00002	CDS	474		phrog_811		UmuD-like protein
+janth_37_00003	CDS	684		phrog_1599		hypothetical protein
+janth_37_00004	CDS	222				hypothetical protein
+janth_37_00005	CDS	789		phrog_56		DNA methyltransferase
+janth_37_00006	CDS	525				hypothetical protein
+janth_37_00007	CDS	525		phrog_181		endolysin
+janth_37_00008	CDS	429		phrog_1024		hypothetical protein
+janth_37_00009	CDS	495				hypothetical protein
+janth_37_00010	CDS	927		phrog_4209		tail fiber protein
+janth_37_00011	CDS	594		phrog_203		tail protein
+janth_37_00012	CDS	1116		phrog_6		baseplate protein
+janth_37_00013	CDS	447		phrog_180		tail protein
+janth_37_00014	CDS	507				Bacteriophage Mu Gp45 spike protein
+janth_37_00015	CDS	993		phrog_177		tail protein
+janth_37_00016	CDS	564		phrog_184		DNA circularization
+janth_37_00017	CDS	894		phrog_184		DNA circularization
+janth_37_00018	CDS	1938		phrog_2276		tail length tape measure protein
+janth_37_00019	CDS	303		phrog_166		tail protein
+janth_37_00020	CDS	369		phrog_185		tail tube protein
+janth_37_00021	CDS	1482		phrog_165		tail sheath
+janth_37_00022	CDS	201		phrog_208		hypothetical protein
+janth_37_00023	CDS	564		phrog_6774		hypothetical protein
+janth_37_00024	CDS	333		phrog_82		head closure Hc1
+janth_37_00025	CDS	267				hypothetical protein
+janth_37_00026	CDS	1065		phrog_29		major head protein
+janth_37_00027	CDS	417		phrog_49		head decoration
+janth_37_00028	CDS	591		phrog_6382		hypothetical protein
+janth_37_00029	CDS	867		phrog_53		head maturation protease
+janth_37_00030	CDS	1629		phrog_21		portal protein
+janth_37_00031	CDS	267		phrog_75		head-tail adaptor Ad1
+janth_37_00032	CDS	2100		phrog_15		terminase large subunit
+janth_37_00033	CDS	519		phrog_57		terminase small subunit
+janth_37_00034	CDS	678		phrog_1924		minor tail protein
+janth_37_00035	CDS	648		phrog_17923		hypothetical protein
+janth_37_00036	CDS	324				hypothetical protein
+janth_37_00037	CDS	2532		phrog_1313		DNA helicase
+janth_37_00038	CDS	426				hypothetical protein
+janth_37_00039	CDS	471		phrog_101		CII-like transcriptional activator
+janth_37_00040	CDS	681		phrog_4		transcriptional repressor
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_38_00001	CDS	357				hypothetical protein
+janth_38_00002	CDS	222				hypothetical protein
+janth_38_00003	CDS	633		phrog_13799		hypothetical protein
+janth_38_00004	CDS	405		phrog_585		hypothetical protein
+janth_38_00005	CDS	540				hypothetical protein
+janth_38_00006	CDS	225				hypothetical protein
+janth_38_00007	CDS	606				hypothetical protein
+janth_38_00008	CDS	405				hypothetical protein
+janth_38_00009	CDS	417				hypothetical protein
+janth_38_00010	CDS	1398		phrog_2		terminase large subunit
+janth_38_00011	CDS	2226		phrog_12082		portal protein
+janth_38_00012	CDS	354				hypothetical protein
+janth_38_00013	CDS	1056				hypothetical protein
+janth_38_00014	CDS	240				hypothetical protein
+janth_38_00015	CDS	969		phrog_9953		major head protein
+janth_38_00016	CDS	147				hypothetical protein
+janth_38_00017	CDS	522		phrog_20268		hypothetical protein
+janth_38_00018	CDS	708		phrog_6013		tail protein
+janth_38_00019	CDS	1593		phrog_5107		amidase
+janth_38_00020	CDS	471		phrog_4470		acyl-CoA N-acyltransferase
+janth_38_00021	CDS	1398		phrog_6121		virion structural protein
+janth_38_00022	CDS	591				hypothetical protein
+janth_38_00023	CDS	249				hypothetical protein
+janth_38_00024	CDS	1563				hypothetical protein
+janth_38_00025	CDS	2187		phrog_2013		lytic tail protein
+janth_38_00026	CDS	1668		phrog_25788		tail fiber protein
+janth_38_00027	CDS	456				hypothetical protein
+janth_38_00028	CDS	690				hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_39_00001	CDS	639		phrog_1599		hypothetical protein
+janth_39_00002	CDS	339				hypothetical protein
+janth_39_00003	CDS	216		phrog_54		DksA-like zinc-finger protein
+janth_39_00004	CDS	1062		phrog_68		portal protein
+janth_39_00005	CDS	1917		phrog_5751		terminase large subunit
+janth_39_00006	CDS	789		phrog_73		head scaffolding protein
+janth_39_00007	CDS	1020		phrog_70		major head protein
+janth_39_00008	CDS	717		phrog_74		terminase small subunit
+janth_39_00009	CDS	543		phrog_71		head-tail adaptor Ad1
+janth_39_00010	CDS	216		phrog_46		tail protein
+janth_39_00011	CDS	372		phrog_1024		hypothetical protein
+janth_39_00012	CDS	561		phrog_12853		hypothetical protein
+janth_39_00013	CDS	513		phrog_2466		Rz-like spanin
+janth_39_00014	CDS	489		phrog_65		tail terminator
+janth_39_00015	CDS	468		phrog_36427		hypothetical protein
+janth_39_00016	CDS	639				hypothetical protein
+janth_39_00017	CDS	504		phrog_6084		hypothetical protein
+janth_39_00018	CDS	672		phrog_9992		baseplate assembly protein
+janth_39_00019	CDS	345		phrog_43		baseplate wedge subunit
+janth_39_00020	CDS	912		phrog_4226		baseplate protein
+janth_39_00021	CDS	621		phrog_48		tail protein
+janth_39_00022	CDS	1227		phrog_327		tail protein
+janth_39_00023	CDS	492				hypothetical protein
+janth_39_00024	CDS	1176		phrog_23		tail sheath
+janth_39_00025	CDS	510		phrog_55		head closure
+janth_39_00026	CDS	309		phrog_103		tail protein
+janth_39_00027	CDS	3087		phrog_5690		hypothetical protein
+janth_39_00028	CDS	609		phrog_76		tail protein
+janth_39_00029	CDS	1269		phrog_52		tail protein
+janth_39_00030	CDS	441		phrog_2266		hypothetical protein
+janth_39_00031	CDS	690		phrog_6521		membrane protein
+janth_39_00032	CDS	198		phrog_4113		hypothetical protein
+janth_39_00033	CDS	264		phrog_603		transcriptional regulator
+janth_39_00034	CDS	402				hypothetical protein
+janth_39_00035	CDS	99				hypothetical protein
+janth_39_00036	CDS	354				hypothetical protein
+janth_39_00037	CDS	1839		phrog_91		nicking at origin of replication
+janth_39_00038	tRNA	88				tRNA-Ser(gga)
+janth_39_00039	CDS	240				hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_3_00001	CDS	429		phrog_1024		hypothetical protein
+janth_3_00002	CDS	657		phrog_34132		hypothetical protein
+janth_3_00003	CDS	831		phrog_8610		hypothetical protein
+janth_3_00004	CDS	645		phrog_2837		tail protein
+janth_3_00005	CDS	792				hypothetical protein
+janth_3_00006	CDS	285				hypothetical protein
+janth_3_00007	CDS	1071				hypothetical protein
+janth_3_00008	CDS	1470		phrog_8917		hypothetical protein
+janth_3_00009	CDS	4641		phrog_7740		tail length tape measure protein
+janth_3_00010	CDS	204		phrog_4966		hypothetical protein
+janth_3_00011	CDS	444				hypothetical protein
+janth_3_00012	CDS	1206		phrog_290		minor tail protein
+janth_3_00013	CDS	543				hypothetical protein
+janth_3_00014	CDS	417				hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_40_00001	CDS	258				hypothetical protein
+janth_40_00002	CDS	219				hypothetical protein
+janth_40_00003	CDS	216				hypothetical protein
+janth_40_00004	CDS	312				hypothetical protein
+janth_40_00005	CDS	591				hypothetical protein
+janth_40_00006	CDS	762		phrog_1305		DNA binding protein
+janth_40_00007	CDS	264				hypothetical protein
+janth_40_00008	CDS	855				hypothetical protein
+janth_40_00009	CDS	369		phrog_546		hypothetical protein
+janth_40_00010	CDS	309				hypothetical protein
+janth_40_00011	CDS	291				hypothetical protein
+janth_40_00012	CDS	381		phrog_65		tail terminator
+janth_40_00013	CDS	477		phrog_36427		hypothetical protein
+janth_40_00014	CDS	594				hypothetical protein
+janth_40_00015	CDS	708				hypothetical protein
+janth_40_00016	CDS	432		phrog_9992		baseplate assembly protein
+janth_40_00017	CDS	696		phrog_48		tail protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_41_00001	CDS	1206		phrog_290		minor tail protein
+janth_41_00002	CDS	444				hypothetical protein
+janth_41_00003	CDS	204		phrog_4966		hypothetical protein
+janth_41_00004	CDS	3345		phrog_7740		tail length tape measure protein
+janth_41_00005	CDS	1470		phrog_8917		hypothetical protein
+janth_41_00006	CDS	1482		phrog_32308		hypothetical protein
+janth_41_00007	CDS	489		phrog_2837		tail protein
+janth_41_00008	CDS	831		phrog_8610		hypothetical protein
+janth_41_00009	CDS	1038		phrog_35419		tail fiber protein
+janth_41_00010	CDS	258		phrog_24159		tail fiber protein
+janth_41_00011	CDS	429		phrog_1024		hypothetical protein
+janth_41_00012	CDS	498		phrog_181		endolysin
+janth_41_00013	CDS	351				hypothetical protein
+janth_41_00014	CDS	603				hypothetical protein
+janth_41_00015	CDS	1428		phrog_20031		hypothetical protein
+janth_41_00016	CDS	5043		phrog_5594		hypothetical protein
+janth_41_00017	CDS	798				hypothetical protein
+janth_41_00018	CDS	513				hypothetical protein
+janth_41_00019	CDS	618				Bacterial regulatory proteins, tetR family
+janth_41_00020	CDS	1068		phrog_1		integrase
+janth_41_00021	CDS	282		phrog_8896		excisionase
+janth_41_00022	CDS	1404		phrog_14118		hypothetical protein
+janth_41_00023	CDS	243				hypothetical protein
+janth_41_00024	CDS	327		phrog_1372		hypothetical protein
+janth_41_00025	CDS	123				hypothetical protein
+janth_41_00026	CDS	612		phrog_8514		hypothetical protein
+janth_41_00027	CDS	717		phrog_874		hypothetical protein
+janth_41_00028	CDS	510				hypothetical protein
+janth_41_00029	CDS	1224		phrog_724		exonuclease recombination-associated
+janth_41_00030	CDS	414		phrog_72		NinB/ Orf homologous recombination mediator
+janth_41_00031	CDS	267		phrog_9165		hypothetical protein
+janth_41_00032	CDS	711		phrog_25176		hypothetical protein
+janth_41_00033	CDS	1782		phrog_7655		RecE-like recombination exonuclease
+janth_41_00034	CDS	939		phrog_561		RecT-like ssDNA annealing protein
+janth_41_00035	CDS	117				hypothetical protein
+janth_41_00036	CDS	246				hypothetical protein
+janth_41_00037	CDS	141				hypothetical protein
+janth_41_00038	CDS	180				hypothetical protein
+janth_41_00039	CDS	267				hypothetical protein
+janth_41_00040	CDS	279				hypothetical protein
+janth_41_00041	CDS	204				hypothetical protein
+janth_41_00042	CDS	282		phrog_29674		hypothetical protein
+janth_41_00043	CDS	561		phrog_13160		hypothetical protein
+janth_41_00044	CDS	708		phrog_4		transcriptional repressor
+janth_41_00045	CDS	342				hypothetical protein
+janth_41_00046	CDS	480		phrog_1244		hypothetical protein
+janth_41_00047	CDS	291				hypothetical protein
+janth_41_00048	CDS	216				hypothetical protein
+janth_41_00049	CDS	264				hypothetical protein
+janth_41_00050	CDS	150				hypothetical protein
+janth_41_00051	CDS	783		phrog_129		transcriptional regulator
+janth_41_00052	CDS	435				hypothetical protein
+janth_41_00053	CDS	2340		phrog_23072		DNA methyltransferase
+janth_41_00054	CDS	618				hypothetical protein
+janth_41_00055	CDS	426				hypothetical protein
+janth_41_00056	CDS	807		phrog_424		phosphoadenosine phosphosulfate reductase
+janth_41_00057	CDS	651				hypothetical protein
+janth_41_00058	CDS	489		phrog_131		HNH endonuclease
+janth_41_00059	CDS	3612		phrog_16		DNA helicase
+janth_41_00060	CDS	405				hypothetical protein
+janth_41_00061	CDS	873		phrog_16167		replication initiation protein
+janth_41_00062	CDS	816		phrog_6028		hypothetical protein
+janth_41_00063	CDS	333				hypothetical protein
+janth_41_00064	CDS	348		phrog_18669		hypothetical protein
+janth_41_00065	CDS	831				hypothetical protein
+janth_41_00066	CDS	543				hypothetical protein
+janth_41_00067	CDS	327				hypothetical protein
+janth_41_00068	CDS	168				hypothetical protein
+janth_41_00069	CDS	474				hypothetical protein
+janth_41_00070	CDS	639		phrog_513		transposase
+janth_41_00071	CDS	516		phrog_546		hypothetical protein
+janth_41_00072	CDS	1365		phrog_2		terminase large subunit
+janth_41_00073	CDS	474		phrog_1035		endonuclease VII
+janth_41_00074	CDS	1362		phrog_145		portal protein
+janth_41_00075	CDS	243				hypothetical protein
+janth_41_00076	CDS	810		phrog_784		hypothetical protein
+janth_41_00077	CDS	1170		phrog_283		major head protein
+janth_41_00078	CDS	504				hypothetical protein
+janth_41_00079	CDS	405		phrog_14539		hypothetical protein
+janth_41_00080	CDS	372		phrog_17560		hypothetical protein
+janth_41_00081	CDS	645		phrog_14605		hypothetical protein
+janth_41_00082	CDS	819		phrog_13532		hypothetical protein
+janth_41_00083	CDS	183				hypothetical protein
+janth_41_00084	CDS	1524		phrog_23		tail sheath
+janth_41_00085	CDS	468		phrog_99		HNH endonuclease
+janth_41_00086	CDS	432		phrog_12993		hypothetical protein
+janth_41_00087	CDS	381		phrog_20383		hypothetical protein
+janth_41_00088	CDS	477				hypothetical protein
+janth_41_00089	CDS	1770		phrog_28		tail length tape measure protein
+janth_41_00090	CDS	960		phrog_21362		hypothetical protein
+janth_41_00091	CDS	1116		phrog_52		tail protein
+janth_41_00092	CDS	672				hypothetical protein
+janth_41_00093	CDS	402				hypothetical protein
+janth_41_00094	CDS	1125		phrog_6		baseplate protein
+janth_41_00095	CDS	660		phrog_26379		hypothetical protein
+janth_41_00096	CDS	1341		phrog_4209		tail fiber protein
+janth_41_00097	CDS	342				hypothetical protein
+janth_41_00098	CDS	429		phrog_1024		hypothetical protein
+janth_41_00099	CDS	525		phrog_181		endolysin
+janth_41_00100	CDS	522				hypothetical protein
+janth_41_00101	CDS	216				hypothetical protein
+janth_41_00102	CDS	252				hypothetical protein
+janth_41_00103	CDS	195				hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_42_00001	CDS	570		phrog_1740		RNA polymerase sigma factor
+janth_42_00002	CDS	261				hypothetical protein
+janth_42_00003	CDS	663				hypothetical protein
+janth_42_00004	CDS	792		phrog_789		esterase/lipase
+janth_42_00005	CDS	1020				hypothetical protein
+janth_42_00006	CDS	216		phrog_54		DksA-like zinc-finger protein
+janth_42_00007	CDS	1065		phrog_68		portal protein
+janth_42_00008	CDS	1917		phrog_5751		terminase large subunit
+janth_42_00009	CDS	789		phrog_73		head scaffolding protein
+janth_42_00010	CDS	1020		phrog_70		major head protein
+janth_42_00011	CDS	717		phrog_74		terminase small subunit
+janth_42_00012	CDS	543		phrog_71		head-tail adaptor Ad1
+janth_42_00013	CDS	210		phrog_46		tail protein
+janth_42_00014	CDS	372		phrog_1024		hypothetical protein
+janth_42_00015	CDS	561		phrog_12853		hypothetical protein
+janth_42_00016	CDS	513		phrog_2466		Rz-like spanin
+janth_42_00017	CDS	489		phrog_65		tail terminator
+janth_42_00018	CDS	468		phrog_36427		hypothetical protein
+janth_42_00019	CDS	909		phrog_23933		hypothetical protein
+janth_42_00020	CDS	672		phrog_9992		baseplate assembly protein
+janth_42_00021	CDS	345		phrog_43		baseplate wedge subunit
+janth_42_00022	CDS	912		phrog_4226		baseplate protein
+janth_42_00023	CDS	621		phrog_48		tail protein
+janth_42_00024	CDS	1635		phrog_327		tail protein
+janth_42_00025	CDS	501				hypothetical protein
+janth_42_00026	CDS	1176		phrog_23		tail sheath
+janth_42_00027	CDS	510		phrog_55		head closure
+janth_42_00028	CDS	126		phrog_103		tail protein
+janth_42_00029	CDS	162		phrog_103		tail protein
+janth_42_00030	CDS	114		phrog_6416		tail protein
+janth_42_00031	CDS	2871		phrog_5690		hypothetical protein
+janth_42_00032	CDS	609		phrog_76		tail protein
+janth_42_00033	CDS	1272		phrog_52		tail protein
+janth_42_00034	CDS	249				hypothetical protein
+janth_42_00035	CDS	405				hypothetical protein
+janth_42_00036	CDS	369				hypothetical protein
+janth_42_00037	CDS	378				hypothetical protein
+janth_42_00038	CDS	402				hypothetical protein
+janth_42_00039	CDS	219				hypothetical protein
+janth_42_00040	CDS	330				hypothetical protein
+janth_42_00041	CDS	546		phrog_1818		hypothetical protein
+janth_42_00042	CDS	438				hypothetical protein
+janth_42_00043	CDS	204				hypothetical protein
+janth_42_00044	CDS	204		phrog_4113		hypothetical protein
+janth_42_00045	CDS	189		phrog_9850		hypothetical protein
+janth_42_00046	CDS	264		phrog_603		transcriptional regulator
+janth_42_00047	CDS	402				hypothetical protein
+janth_42_00048	CDS	99				hypothetical protein
+janth_42_00049	CDS	354				hypothetical protein
+janth_42_00050	CDS	1839		phrog_91		nicking at origin of replication
+janth_42_00051	tRNA	88				tRNA-Ser(gga)
+janth_42_00052	CDS	303				hypothetical protein
+janth_42_00053	CDS	240				hypothetical protein
+janth_42_00054	CDS	204				hypothetical protein
+janth_42_00055	CDS	330				hypothetical protein
+janth_42_00056	CDS	168				hypothetical protein
+janth_42_00057	CDS	180				hypothetical protein
+janth_42_00058	CDS	1179		phrog_1		integrase
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_43_00001	CDS	315		phrog_4441		HTH DNA binding protein
+janth_43_00002	CDS	375				hypothetical protein
+janth_43_00003	CDS	267				hypothetical protein
+janth_43_00004	CDS	270				hypothetical protein
+janth_43_00005	CDS	2004		phrog_91		nicking at origin of replication
+janth_43_00006	CDS	168				hypothetical protein
+janth_43_00007	CDS	285				hypothetical protein
+janth_43_00008	CDS	447				hypothetical protein
+janth_43_00009	CDS	621		phrog_2666		terminase large subunit
+janth_43_00010	CDS	156				hypothetical protein
+janth_43_00011	CDS	705				hypothetical protein
+janth_43_00012	CDS	249				hypothetical protein
+janth_43_00013	CDS	273				hypothetical protein
+janth_43_00014	CDS	966				hypothetical protein
+janth_43_00015	CDS	714				hypothetical protein
+janth_43_00016	CDS	651		phrog_90		endolysin
+janth_43_00017	CDS	390				hypothetical protein
+janth_43_00018	CDS	378				hypothetical protein
+janth_43_00019	CDS	174				hypothetical protein
+janth_43_00020	CDS	165				hypothetical protein
+janth_43_00021	CDS	120				hypothetical protein
+janth_43_00022	CDS	300				hypothetical protein
+janth_43_00023	CDS	273				hypothetical protein
+janth_43_00024	CDS	147				hypothetical protein
+janth_43_00025	CDS	1419		phrog_15511		hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_44_00001	CDS	765		phrog_5107		amidase
+janth_44_00002	CDS	480		phrog_4470		acyl-CoA N-acyltransferase
+janth_44_00003	CDS	237				hypothetical protein
+janth_44_00004	CDS	1536		phrog_6121		virion structural protein
+janth_44_00005	CDS	756		phrog_424		phosphoadenosine phosphosulfate reductase
+janth_44_00006	CDS	1947				hypothetical protein
+janth_44_00007	CDS	372				hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_45_00001	CDS	501				hypothetical protein
+janth_45_00002	CDS	369				hypothetical protein
+janth_45_00003	CDS	2097		phrog_12082		portal protein
+janth_45_00004	CDS	1461		phrog_2		terminase large subunit
+janth_45_00005	CDS	402				hypothetical protein
+janth_45_00006	CDS	426				hypothetical protein
+janth_45_00007	CDS	315		phrog_10171		hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_46_00001	CDS	1227				hypothetical protein
+janth_46_00002	CDS	1887		phrog_28622		hypothetical protein
+janth_46_00003	CDS	714		phrog_4		transcriptional repressor
+janth_46_00004	CDS	417				hypothetical protein
+janth_46_00005	CDS	543				hypothetical protein
+janth_46_00006	CDS	1206		phrog_290		minor tail protein
+janth_46_00007	CDS	492				hypothetical protein
+janth_46_00008	CDS	204		phrog_4966		hypothetical protein
+janth_46_00009	CDS	4641		phrog_7740		tail length tape measure protein
+janth_46_00010	CDS	1470		phrog_8917		hypothetical protein
+janth_46_00011	CDS	2595				hypothetical protein
+janth_46_00012	CDS	876		phrog_8610		hypothetical protein
+janth_46_00013	CDS	1800		phrog_34132		hypothetical protein
+janth_46_00014	CDS	429		phrog_1024		hypothetical protein
+janth_46_00015	CDS	498		phrog_181		endolysin
+janth_46_00016	CDS	327				hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_47_00001	CDS	225		phrog_4764		excisionase
+janth_47_00002	CDS	234				hypothetical protein
+janth_47_00003	CDS	570		phrog_91		nicking at origin of replication
+janth_47_00004	CDS	696		phrog_48		tail protein
+janth_47_00005	CDS	432		phrog_9992		baseplate assembly protein
+janth_47_00006	CDS	708				hypothetical protein
+janth_47_00007	CDS	594				hypothetical protein
+janth_47_00008	CDS	477		phrog_36427		hypothetical protein
+janth_47_00009	CDS	381		phrog_65		tail terminator
+janth_47_00010	CDS	291				hypothetical protein
+janth_47_00011	CDS	309				hypothetical protein
+janth_47_00012	CDS	369		phrog_546		hypothetical protein
+janth_47_00013	CDS	855				hypothetical protein
+janth_47_00014	CDS	264				hypothetical protein
+janth_47_00015	CDS	762		phrog_1305		DNA binding protein
+janth_47_00016	CDS	591				hypothetical protein
+janth_47_00017	CDS	312				hypothetical protein
+janth_47_00018	CDS	216				hypothetical protein
+janth_47_00019	CDS	219				hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_48_00001	CDS	414				hypothetical protein
+janth_48_00002	CDS	387				hypothetical protein
+janth_48_00003	CDS	630				hypothetical protein
+janth_48_00004	CDS	849				hypothetical protein
+janth_48_00005	CDS	630				hypothetical protein
+janth_48_00006	CDS	579				hypothetical protein
+janth_48_00007	CDS	1659		phrog_23		tail sheath
+janth_48_00008	CDS	447		phrog_4542		tail tube protein
+janth_48_00009	CDS	384				hypothetical protein
+janth_48_00010	CDS	111				hypothetical protein
+janth_48_00011	CDS	513				T4-like virus tail tube protein gp19
+janth_48_00012	CDS	1146				hypothetical protein
+janth_48_00013	CDS	642				Contractile injection system tube protein
+janth_48_00014	CDS	1047		phrog_52		tail protein
+janth_48_00015	CDS	597				Type VI secretion system/phage-baseplate injector OB domain protein
+janth_48_00016	CDS	414				PAAR motif protein
+janth_48_00017	CDS	390		phrog_261		baseplate wedge subunit
+janth_48_00018	CDS	198				hypothetical protein
+janth_48_00019	CDS	3063				hypothetical protein
+janth_48_00020	CDS	1122				hypothetical protein
+janth_48_00021	CDS	978				hypothetical protein
+janth_48_00022	CDS	810				hypothetical protein
+janth_48_00023	CDS	3519		phrog_1980		tail fiber protein
+janth_48_00024	CDS	945				hypothetical protein
+janth_48_00025	CDS	645		phrog_24927		hypothetical protein
+janth_48_00026	CDS	813		phrog_24927		hypothetical protein
+janth_48_00027	CDS	537				Aspartyl/Asparaginyl beta-hydroxylase
+janth_48_00028	CDS	2253		phrog_10401		ATPase
+janth_48_00029	CDS	2838				hypothetical protein
+janth_48_00030	CDS	1170				hypothetical protein
+janth_48_00031	CDS	525				hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_49_00001	CDS	1206		phrog_290		minor tail protein
+janth_49_00002	CDS	444				hypothetical protein
+janth_49_00003	CDS	204		phrog_4966		hypothetical protein
+janth_49_00004	CDS	1314		phrog_24		tail length tape measure protein
+janth_49_00005	CDS	735				hypothetical protein
+janth_49_00006	CDS	2526		phrog_7740		tail length tape measure protein
+janth_49_00007	CDS	1494		phrog_8917		hypothetical protein
+janth_49_00008	CDS	846				hypothetical protein
+janth_49_00009	CDS	615				hypothetical protein
+janth_49_00010	CDS	831		phrog_8610		hypothetical protein
+janth_49_00011	CDS	900		phrog_38058		tail fiber protein
+janth_49_00012	CDS	594		phrog_7121		tail fiber protein
+janth_49_00013	CDS	429		phrog_1024		hypothetical protein
+janth_49_00014	CDS	516		phrog_181		endolysin
+janth_49_00015	CDS	327				hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_4_00001	CDS	657		phrog_34132		hypothetical protein
+janth_4_00002	CDS	855		phrog_8610		hypothetical protein
+janth_4_00003	CDS	1830		phrog_34132		hypothetical protein
+janth_4_00004	CDS	429		phrog_1024		hypothetical protein
+janth_4_00005	CDS	498		phrog_181		endolysin
+janth_4_00006	CDS	351				hypothetical protein
+janth_4_00007	CDS	582				hypothetical protein
+janth_4_00008	CDS	1500		phrog_20031		hypothetical protein
+janth_4_00009	CDS	5043		phrog_5594		hypothetical protein
+janth_4_00010	CDS	402				hypothetical protein
+janth_4_00011	CDS	243				hypothetical protein
+janth_4_00012	CDS	306				hypothetical protein
+janth_4_00013	CDS	279		phrog_4996		hypothetical protein
+janth_4_00014	CDS	273		phrog_603		transcriptional regulator
+janth_4_00015	CDS	444		phrog_4836		CII-like regulator
+janth_4_00016	CDS	2808		phrog_25988		hypothetical protein
+janth_4_00017	CDS	1272		phrog_52		tail protein
+janth_4_00018	CDS	585		phrog_76		tail protein
+janth_4_00019	CDS	516		phrog_6		baseplate protein
+janth_4_00020	CDS	345		phrog_43		baseplate wedge subunit
+janth_4_00021	CDS	672		phrog_9992		baseplate assembly protein
+janth_4_00022	CDS	750		phrog_16016		HNH endonuclease
+janth_4_00023	CDS	1251		phrog_8323		hypothetical protein
+janth_4_00024	CDS	468		phrog_26		tail completion or Neck1 protein
+janth_4_00025	CDS	231				hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_50_00001	CDS	216		phrog_54		DksA-like zinc-finger protein
+janth_50_00002	CDS	1065		phrog_68		portal protein
+janth_50_00003	CDS	1905		phrog_5751		terminase large subunit
+janth_50_00004	CDS	792		phrog_73		head scaffolding protein
+janth_50_00005	CDS	1020		phrog_70		major head protein
+janth_50_00006	CDS	717		phrog_74		terminase small subunit
+janth_50_00007	CDS	495		phrog_71		head-tail adaptor Ad1
+janth_50_00008	CDS	210		phrog_46		tail protein
+janth_50_00009	CDS	372		phrog_1024		hypothetical protein
+janth_50_00010	CDS	561		phrog_12853		hypothetical protein
+janth_50_00011	CDS	513		phrog_2466		Rz-like spanin
+janth_50_00012	CDS	489		phrog_65		tail terminator
+janth_50_00013	CDS	468		phrog_36427		hypothetical protein
+janth_50_00014	CDS	540				hypothetical protein
+janth_50_00015	CDS	654		phrog_9992		baseplate assembly protein
+janth_50_00016	CDS	912		phrog_4226		baseplate protein
+janth_50_00017	CDS	621		phrog_48		tail protein
+janth_50_00018	CDS	177		phrog_327		tail protein
+janth_50_00019	CDS	1803		phrog_11518		tail fiber protein
+janth_50_00020	CDS	504				hypothetical protein
+janth_50_00021	CDS	1176		phrog_23		tail sheath
+janth_50_00022	CDS	510		phrog_55		head closure
+janth_50_00023	CDS	309		phrog_103		tail protein
+janth_50_00024	CDS	2796		phrog_5690		hypothetical protein
+janth_50_00025	CDS	609		phrog_76		tail protein
+janth_50_00026	CDS	1272		phrog_52		tail protein
+janth_50_00027	CDS	738				hypothetical protein
+janth_50_00028	CDS	1020		phrog_27603		hypothetical protein
+janth_50_00029	CDS	204		phrog_3431		Arc-like repressor
+janth_50_00030	CDS	204		phrog_4113		hypothetical protein
+janth_50_00031	CDS	189		phrog_9850		hypothetical protein
+janth_50_00032	CDS	264		phrog_603		transcriptional regulator
+janth_50_00033	CDS	402				hypothetical protein
+janth_50_00034	CDS	99				hypothetical protein
+janth_50_00035	CDS	354				hypothetical protein
+janth_50_00036	CDS	1839		phrog_91		nicking at origin of replication
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_51_00001	CDS	1812		phrog_857		hypothetical protein
+janth_51_00002	CDS	3513		phrog_857		hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_5_00001	CDS	474		phrog_811		UmuD-like protein
+janth_5_00002	CDS	582		phrog_1599		hypothetical protein
+janth_5_00003	CDS	519				hypothetical protein
+janth_5_00004	CDS	789		phrog_56		DNA methyltransferase
+janth_5_00005	CDS	480				hypothetical protein
+janth_5_00006	CDS	636		phrog_181		endolysin
+janth_5_00007	CDS	252				hypothetical protein
+janth_5_00008	CDS	363				hypothetical protein
+janth_5_00009	CDS	1821				hypothetical protein
+janth_5_00010	CDS	2733		phrog_469		tail protein
+janth_5_00011	CDS	369				hypothetical protein
+janth_5_00012	CDS	516		phrog_396		minor tail protein
+janth_5_00013	CDS	489		phrog_384		virion structural protein
+janth_5_00014	CDS	2670		phrog_2854		tail length tape measure protein
+janth_5_00015	CDS	291				hypothetical protein
+janth_5_00016	CDS	348		phrog_344		tail assembly chaperone
+janth_5_00017	CDS	654		phrog_584		major tail protein
+janth_5_00018	CDS	390				hypothetical protein
+janth_5_00019	CDS	429		phrog_5		tail completion or Neck1 protein
+janth_5_00020	CDS	336		phrog_25		head closure Hc1
+janth_5_00021	CDS	558		phrog_442		head-tail adaptor
+janth_5_00022	CDS	435				hypothetical protein
+janth_5_00023	CDS	1317		phrog_10		major head protein
+janth_5_00024	CDS	687		phrog_80		head maturation protease
+janth_5_00025	CDS	1284		phrog_12		portal protein
+janth_5_00026	CDS	1755		phrog_9		terminase large subunit
+janth_5_00027	CDS	537		phrog_83		terminase small subunit
+janth_5_00028	CDS	372		phrog_2323		HNH endonuclease
+janth_5_00029	CDS	639		phrog_17923		hypothetical protein
+janth_5_00030	CDS	282				hypothetical protein
+janth_5_00031	CDS	198				hypothetical protein
+janth_5_00032	CDS	2856		phrog_2249		DNA primase
+janth_5_00033	CDS	447				hypothetical protein
+janth_5_00034	CDS	471		phrog_101		CII-like transcriptional activator
+janth_5_00035	CDS	690		phrog_4		transcriptional repressor
+janth_5_00036	CDS	171				hypothetical protein
+janth_5_00037	CDS	318				hypothetical protein
+janth_5_00038	CDS	204				hypothetical protein
+janth_5_00039	CDS	2169		phrog_4715		ParB-like partition protein
+janth_5_00040	CDS	612		phrog_28211		hypothetical protein
+janth_5_00041	CDS	246				hypothetical protein
+janth_5_00042	CDS	228		phrog_4764		excisionase
+janth_5_00043	CDS	1206		phrog_1		integrase
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_6_00001	CDS	1818				hypothetical protein
+janth_6_00002	tRNA	87				tRNA-Leu(taa)
+janth_6_00003	CDS	1008		phrog_1		integrase
+janth_6_00004	CDS	396				hypothetical protein
+janth_6_00005	CDS	1116		phrog_3333		O-acetyltransferase
+janth_6_00006	CDS	339				hypothetical protein
+janth_6_00007	CDS	216		phrog_54		DksA-like zinc-finger protein
+janth_6_00008	CDS	567		phrog_68		portal protein
+janth_6_00009	CDS	207		phrog_14867		major head protein
+janth_6_00010	CDS	717		phrog_74		terminase small subunit
+janth_6_00011	CDS	495		phrog_71		head-tail adaptor Ad1
+janth_6_00012	CDS	216		phrog_46		tail protein
+janth_6_00013	CDS	372		phrog_1024		hypothetical protein
+janth_6_00014	CDS	561		phrog_12853		hypothetical protein
+janth_6_00015	CDS	510		phrog_2466		Rz-like spanin
+janth_6_00016	CDS	489		phrog_65		tail terminator
+janth_6_00017	CDS	474		phrog_36427		hypothetical protein
+janth_6_00018	CDS	4167		phrog_10385		hypothetical protein
+janth_6_00019	CDS	444				hypothetical protein
+janth_6_00020	CDS	669		phrog_9992		baseplate assembly protein
+janth_6_00021	CDS	345		phrog_43		baseplate wedge subunit
+janth_6_00022	CDS	903		phrog_4226		baseplate protein
+janth_6_00023	CDS	720		phrog_48		tail protein
+janth_6_00024	CDS	2262		phrog_327		tail protein
+janth_6_00025	CDS	1476		phrog_23		tail sheath
+janth_6_00026	CDS	492				hypothetical protein
+janth_6_00027	CDS	588				hypothetical protein
+janth_6_00028	tRNA	74				tRNA-Gly(ccc)
+janth_6_00029	CDS	1545		phrog_13260		hypothetical protein
+janth_6_00030	CDS	288		phrog_10171		hypothetical protein
+janth_6_00031	CDS	462				hypothetical protein
+janth_6_00032	CDS	531				hypothetical protein
+janth_6_00033	CDS	294				hypothetical protein
+janth_6_00034	CDS	237				hypothetical protein
+janth_6_00035	CDS	1350		phrog_382		minor tail protein with lysin activity
+janth_6_00036	CDS	192				hypothetical protein
+janth_6_00037	CDS	1044				Peptidase family S41
+janth_6_00038	CDS	759		phrog_16442		hypothetical protein
+janth_6_00039	CDS	177				hypothetical protein
+janth_6_00040	CDS	441				hypothetical protein
+janth_6_00041	CDS	345				hypothetical protein
+janth_6_00042	CDS	303				hypothetical protein
+janth_6_00043	CDS	291				hypothetical protein
+janth_6_00044	CDS	396				hypothetical protein
+janth_6_00045	CDS	1140		phrog_1		integrase
+janth_6_00046	CDS	2190		phrog_1156		DNA primase
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_7_00001	CDS	798		phrog_56		DNA methyltransferase
+janth_7_00002	CDS	339				hypothetical protein
+janth_7_00003	CDS	495		phrog_188		tail fiber assembly protein
+janth_7_00004	CDS	969		phrog_4209		tail fiber protein
+janth_7_00005	CDS	573		phrog_203		tail protein
+janth_7_00006	CDS	1059		phrog_6		baseplate protein
+janth_7_00007	CDS	351		phrog_180		tail protein
+janth_7_00008	CDS	627				Bacteriophage Mu Gp45 spike protein
+janth_7_00009	CDS	210				hypothetical protein
+janth_7_00010	CDS	954		phrog_177		tail protein
+janth_7_00011	CDS	1362		phrog_184		DNA circularization
+janth_7_00012	CDS	1962		phrog_794		tail length tape measure protein
+janth_7_00013	CDS	657				hypothetical protein
+janth_7_00014	CDS	387		phrog_185		tail tube protein
+janth_7_00015	CDS	1422		phrog_165		tail sheath
+janth_7_00016	CDS	252		phrog_208		hypothetical protein
+janth_7_00017	CDS	594		phrog_490		portal protein
+janth_7_00018	CDS	492		phrog_195		head-tail adaptor
+janth_7_00019	CDS	192				hypothetical protein
+janth_7_00020	CDS	942		phrog_1005		major head protein
+janth_7_00021	CDS	423		phrog_673		head scaffolding protein
+janth_7_00022	CDS	486		phrog_976		head maturation protease
+janth_7_00023	CDS	663		phrog_976		head maturation protease
+janth_7_00024	CDS	372		phrog_532		late transcriptional activator
+janth_7_00025	CDS	483		phrog_286		hypothetical protein
+janth_7_00026	CDS	624		phrog_846		hypothetical protein
+janth_7_00027	CDS	273				hypothetical protein
+janth_7_00028	CDS	330		phrog_2113		hypothetical protein
+janth_7_00029	CDS	567		phrog_2161		hypothetical protein
+janth_7_00030	CDS	426				hypothetical protein
+janth_7_00031	CDS	312				hypothetical protein
+janth_7_00032	CDS	414				hypothetical protein
+janth_7_00033	CDS	903		phrog_296		DNA transposition protein
+janth_7_00034	CDS	339				hypothetical protein
+janth_7_00035	CDS	1206		phrog_310		transposase
+janth_7_00036	CDS	270				hypothetical protein
+janth_7_00037	CDS	588		phrog_1748		hypothetical protein
+janth_7_00038	CDS	279		phrog_1748		hypothetical protein
+janth_7_00039	CDS	312		phrog_1368		transcriptional regulator
+janth_7_00040	CDS	387				hypothetical protein
+janth_7_00041	CDS	234		phrog_925		HTH DNA binding protein
+janth_7_00042	CDS	486				hypothetical protein
+janth_7_00043	CDS	360		phrog_6201		hypothetical protein
+janth_7_00044	CDS	222				hypothetical protein
+janth_7_00045	CDS	438				hypothetical protein
+janth_7_00046	CDS	420		phrog_7		endolysin
+janth_7_00047	CDS	234				hypothetical protein
+janth_7_00048	CDS	525		phrog_2466		Rz-like spanin
+janth_7_00049	CDS	348		phrog_462		lipoprotein
+janth_7_00050	CDS	309		phrog_436		hypothetical protein
+janth_7_00051	CDS	219				hypothetical protein
+janth_7_00052	CDS	519		phrog_426		terminase small subunit
+janth_7_00053	CDS	1494		phrog_11208		hypothetical protein
+janth_7_00054	CDS	1557		phrog_113		portal protein
+janth_7_00055	CDS	864		phrog_220		head morphogenesis
+janth_7_00056	CDS	240				hypothetical protein
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_8_00001	CDS	240		phrog_54		DksA-like zinc-finger protein
+janth_8_00002	CDS	468		phrog_68		portal protein
+janth_8_00003	CDS	1002		phrog_67		DNA methyltransferase
+janth_8_00004	CDS	324				hypothetical protein
+janth_8_00005	CDS	252		phrog_1373		transcriptional regulator
+janth_8_00006	CDS	216		phrog_54		DksA-like zinc-finger protein
+janth_8_00007	CDS	870		phrog_68		portal protein
+janth_8_00008	CDS	1905		phrog_5751		terminase large subunit
+janth_8_00009	CDS	405		phrog_73		head scaffolding protein
+janth_8_00010	CDS	327				Phage capsid scaffolding protein (GPO) serine peptidase
+janth_8_00011	CDS	1020		phrog_70		major head protein
+janth_8_00012	CDS	717		phrog_74		terminase small subunit
+janth_8_00013	CDS	543		phrog_71		head-tail adaptor Ad1
+janth_8_00014	CDS	210		phrog_46		tail protein
+janth_8_00015	CDS	372		phrog_1024		hypothetical protein
+janth_8_00016	CDS	561		phrog_12853		hypothetical protein
+janth_8_00017	CDS	513		phrog_2466		Rz-like spanin
+janth_8_00018	CDS	489		phrog_65		tail terminator
+janth_8_00019	CDS	468		phrog_36427		hypothetical protein
+janth_8_00020	CDS	618		phrog_8440		hypothetical protein
+janth_8_00021	CDS	978				hypothetical protein
+janth_8_00022	CDS	252				hypothetical protein
+janth_8_00023	CDS	672		phrog_9992		baseplate assembly protein
+janth_8_00024	CDS	345		phrog_43		baseplate wedge subunit
+janth_8_00025	CDS	912		phrog_4226		baseplate protein
+janth_8_00026	CDS	621		phrog_48		tail protein
+janth_8_00027	CDS	1398		phrog_327		tail protein
+janth_8_00028	CDS	477				hypothetical protein
+janth_8_00029	CDS	771		phrog_23		tail sheath
+janth_8_00030	CDS	303		phrog_13288		hypothetical protein
+janth_8_00031	CDS	510		phrog_55		head closure
+janth_8_00032	CDS	378		phrog_103		tail protein
+janth_8_00033	CDS	114		phrog_6416		tail protein
+janth_8_00034	CDS	2871		phrog_5690		hypothetical protein
+janth_8_00035	CDS	609		phrog_76		tail protein
+janth_8_00036	CDS	1272		phrog_52		tail protein
+janth_8_00037	CDS	453				hypothetical protein
+janth_8_00038	CDS	198		phrog_4113		hypothetical protein
+janth_8_00039	CDS	195		phrog_9850		hypothetical protein
+janth_8_00040	CDS	264		phrog_603		transcriptional regulator
+janth_8_00041	CDS	402				hypothetical protein
+janth_8_00042	CDS	99				hypothetical protein
+janth_8_00043	CDS	378				hypothetical protein
+janth_8_00044	CDS	1839		phrog_91		nicking at origin of replication
+janth_8_00045	tRNA	88				tRNA-Ser(gga)
+janth_8_00046	CDS	240				hypothetical protein
+janth_8_00047	CDS	198				hypothetical protein
+janth_8_00048	CDS	252		phrog_4764		excisionase
+janth_8_00049	CDS	1059		phrog_1		integrase
+janth_8_00050	CDS	543				hypothetical protein
+janth_8_00051	CDS	978		phrog_8463		transposase
+janth_8_00052	CDS	408		phrog_3767		nucleoid associated protein
+janth_8_00053	CDS	936		phrog_1		integrase
+janth_8_00054	CDS	705		phrog_2284		hypothetical protein
+janth_8_00055	CDS	270				hypothetical protein
+janth_8_00056	CDS	396				hypothetical protein
+janth_8_00057	CDS	465		phrog_894		endolysin
+janth_8_00058	CDS	429		phrog_1024		hypothetical protein
+janth_8_00059	CDS	156				hypothetical protein
+janth_8_00060	CDS	1143		phrog_4492		tail fiber protein
+janth_8_00061	CDS	831		phrog_8610		hypothetical protein
+janth_8_00062	CDS	738				hypothetical protein
+janth_8_00063	CDS	285				hypothetical protein
+janth_8_00064	CDS	1011				hypothetical protein
+janth_8_00065	CDS	1476		phrog_8917		hypothetical protein
+janth_8_00066	CDS	5187		phrog_3519		tail length tape measure protein
+janth_8_00067	CDS	390				hypothetical protein
+janth_8_00068	CDS	426				hypothetical protein
+janth_8_00069	CDS	546		phrog_158		major tail protein
+janth_8_00070	CDS	342		phrog_5060		anti-repressor Ant
+janth_8_00071	CDS	222				hypothetical protein
+janth_8_00072	CDS	486		phrog_5		tail completion or Neck1 protein
+janth_8_00073	CDS	348		phrog_25		head closure Hc1
+janth_8_00074	CDS	156				hypothetical protein
+janth_8_00075	CDS	222				hypothetical protein
+janth_8_00076	CDS	162		phrog_20183		hypothetical protein
+janth_8_00077	CDS	375		phrog_15928		major head protein
+janth_8_00078	CDS	573		phrog_10		major head protein
+janth_8_00079	CDS	234				hypothetical protein
+janth_8_00080	CDS	849		phrog_1684		head maturation protease
+janth_8_00081	CDS	1314		phrog_12		portal protein
+janth_8_00082	CDS	1377		phrog_2699		terminase large subunit
+janth_8_00083	CDS	315		phrog_11206		hypothetical protein
+janth_8_00084	CDS	468		phrog_641		terminase small subunit
+janth_8_00085	CDS	411		phrog_2323		HNH endonuclease
+janth_8_00086	CDS	1743				hypothetical protein
+janth_8_00087	CDS	213				hypothetical protein
+janth_8_00088	CDS	495				hypothetical protein
+janth_8_00089	CDS	387				hypothetical protein
+janth_8_00090	CDS	291		phrog_5781		hypothetical protein
+janth_8_00091	CDS	312		phrog_28528		hypothetical protein
+janth_8_00092	CDS	240				hypothetical protein
+janth_8_00093	CDS	1605		phrog_1		integrase
+janth_8_00094	CDS	768		phrog_109		P-like helicase loader
+janth_8_00095	CDS	738		phrog_10469		DnaD-like helicase loader
+janth_8_00096	CDS	423				hypothetical protein
+janth_8_00097	CDS	225				hypothetical protein
+janth_8_00098	CDS	621				hypothetical protein
+janth_8_00099	CDS	642		phrog_4		transcriptional repressor
+janth_8_00100	CDS	489		phrog_2320		hypothetical protein
+janth_8_00101	CDS	663		phrog_4245		hypothetical protein
+janth_8_00102	CDS	297				hypothetical protein
+janth_8_00103	CDS	348				hypothetical protein
+janth_8_00104	CDS	1101		phrog_7674		hypothetical protein
+janth_8_00105	CDS	462		phrog_72		NinB/ Orf homologous recombination mediator
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+janth_9_00001	CDS	198				hypothetical protein
+janth_9_00002	CDS	1185		phrog_4492		tail fiber protein
+janth_9_00003	CDS	831		phrog_8610		hypothetical protein
+janth_9_00004	CDS	738				hypothetical protein
+janth_9_00005	CDS	285				hypothetical protein
+janth_9_00006	CDS	828				hypothetical protein
+janth_9_00007	CDS	1674		phrog_8917		hypothetical protein
+janth_9_00008	CDS	5346		phrog_24		tail length tape measure protein
+janth_9_00009	CDS	219		phrog_680		tail length tape measure protein
+janth_9_00010	CDS	342		phrog_569		tail length tape measure protein
+janth_9_00011	CDS	513		phrog_5060		anti-repressor Ant
+janth_9_00012	CDS	642		phrog_584		major tail protein
+janth_9_00013	CDS	435				hypothetical protein
+janth_9_00014	CDS	351		phrog_347		tail terminator
+janth_9_00015	CDS	459		phrog_5		tail completion or Neck1 protein
+janth_9_00016	CDS	336		phrog_25		head closure Hc1
+janth_9_00017	CDS	567		phrog_442		head-tail adaptor
+janth_9_00018	CDS	1503				hypothetical protein
+janth_9_00019	CDS	186				hypothetical protein
+janth_9_00020	CDS	1404		phrog_10		major head protein
+janth_9_00021	CDS	687		phrog_80		head maturation protease
+janth_9_00022	CDS	1215		phrog_12		portal protein
+janth_9_00023	CDS	1527		phrog_9		terminase large subunit
+janth_9_00024	CDS	456		phrog_12559		terminase small subunit
+janth_9_00025	CDS	354		phrog_2323		HNH endonuclease
+janth_9_00026	CDS	207				hypothetical protein
+janth_9_00027	CDS	144				hypothetical protein
+janth_9_00028	CDS	213				hypothetical protein
+janth_9_00029	CDS	285				hypothetical protein
+janth_9_00030	CDS	228				hypothetical protein
+janth_9_00031	CDS	183				hypothetical protein
+janth_9_00032	CDS	489				hypothetical protein
+janth_9_00033	CDS	291		phrog_5781		hypothetical protein
+janth_9_00034	CDS	312		phrog_28528		hypothetical protein
+janth_9_00035	CDS	240				hypothetical protein
+janth_9_00036	CDS	1605		phrog_1		integrase
+janth_9_00037	CDS	768		phrog_109		P-like helicase loader
+janth_9_00038	CDS	732		phrog_10469		DnaD-like helicase loader
+janth_9_00039	CDS	423				hypothetical protein
+janth_9_00040	CDS	225				hypothetical protein
+janth_9_00041	CDS	273				hypothetical protein
+janth_9_00042	CDS	444		phrog_101		CII-like transcriptional activator
+janth_9_00043	CDS	216		phrog_35		transcriptional repressor
+janth_9_00044	CDS	249		phrog_4		transcriptional repressor

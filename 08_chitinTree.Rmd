@@ -1,0 +1,169 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+```{r}
+#if (!require("BiocManager", quietly = TRUE))
+#   install.packages("BiocManager")
+
+#BiocManager::install("ggtree")
+
+
+### if ggtree / ggplot are not playing nicely, update to ggplot 4.0.0 and ggtree dev version 
+
+#install.packages("ggplot2")  # to restore 4.0.0
+#remotes::install_github("YuLab-SMU/ggtree")
+
+
+
+```
+
+```{r}
+library("tidyverse")
+library("PNWColors")
+library("ape")
+library("Biostrings")
+library("ggplot2")
+library("ggtree")
+library("ape")
+library("rio")
+library("TreeTools")
+library("treeio")
+library("tidytree")
+
+here::here()
+
+fig_dir <- here("figs") 
+supp_dir <- here("figs", "supp") 
+raw_dir <- here("data", "08_chitintree", "08_raw")  ## raw output from programs like vs2, vibrant, checkv
+out_dir <- here("data", "08_chitintree", "08_out") ## output from R
+
+pal20=pnw_palette("Sailboat",9, type = "continuous") 
+
+t<-as.data.frame(pal20)
+
+pal30=pnw_palette("Sailboat",14, type = "continuous") 
+
+pal2=pnw_palette("Sailboat",2, type = "continuous") 
+
+
+info <- read.csv(here("data", "03_funcCleaning", "03_out", "final_phagelist.csv"), row.names=1)
+
+```
+
+
+##RAXML TREE
+
+
+
+
+```{r}
+#amph.info <- read.csv("janthino_enviro/data/03_func/ncbi_janthino_detailed_chithits.csv", row.names=1, header=TRUE) ## just amphibian isolate chit
+ipr <- read.csv(here("data", "03_funcCleaning", "03_raw", "ipr_chit_confirmed.csv"), row.names=1)
+amph <- read.csv(here("data", "03_funcCleaning", "03_out", "detailed_chithits.csv"), row.names=1)
+ref <-  read.csv(here(raw_dir, "chitin_ref_metadata.csv"))
+
+key1 <- read.delim2(here(raw_dir, "amphibian_chitinaseRenamedKey.txt"), header=FALSE)
+key2 <- read.csv(here(raw_dir, "FinalRenameList_EndoChtinase.csv"))
+key2 <- key2[,c(1,3)]
+colnames(key2) <- c("V1", "V2")
+
+key <- rbind(key1, key2)
+
+colnames(key) <- c("Prot", "Tip")
+
+
+
+
+info <- full_join(amph, ref)
+
+
+##add ipr data to amph info
+amph.info <- merge(info, ipr, by.x="protein", by.y="prot", all.x=TRUE, all.y=FALSE)
+
+amph.info<- merge(key, amph.info, by.y="protein", by.x="Prot", all.x=TRUE, all.y=TRUE)
+
+
+
+amph.t <- read.raxml(here(raw_dir, "RAxML_bipartitionsBranchLabels.amphchitref-withstop.tree"))
+
+
+#amph.t
+
+#tip.label(amph.t)
+#ggtree(amph.t)
+
+
+tip.label <- tip.label(amph.t)
+amph.df2 <- as.data.frame(tip.label)
+
+
+
+amph.tab <- merge(amph.info, amph.df2, by.y="tip.label", by.x="Tip", all.y=TRUE)
+names(amph.tab)[names(amph.tab) == "Tip"] <- "tip.label"
+      
+```
+
+```{r}
+
+
+amph.tab$newprot <- ifelse(amph.tab$nogname=="Chitinase, GH19 family", "GH19", amph.tab$newprot)
+amph.tab$newprot <- ifelse(amph.tab$nogname=="Chitinase, GH18 family", "GH18", amph.tab$newprot)
+amph.tab$newprot <- ifelse(amph.tab$nogname=="Peptidoglycan/xylan/chitin deacetylase, PgdA/NodB/CDA1 family", "Chitin deacetylase", amph.tab$newprot)
+amph.tab$Source[is.na(amph.tab$Source)] <- "Reference"
+amph.tab$Genus2 <- ifelse(amph.tab$Source=="Reference", "Reference", amph.tab$Genus)
+amph.tab$ipr.confirm[is.na(amph.tab$ipr.confirm)] <- ""
+amph.tab$ipr.confirm <- ifelse(amph.tab$ipr.confirm=="ipr.chit.domain", "*", "")
+
+
+
+amph.tab$whitespace <- "   "
+
+amph.tab <- unite(amph.tab, "Lab.Prot.Strain.Host", c("Prot", "Sequencing.ID", "Genus"), sep = ", ", remove=FALSE)
+amph.tab <- unite(amph.tab, "Lab.Prot_Host", c("Prot", "Genus"), sep = ", ", remove=FALSE)
+amph.tab <- unite(amph.tab, "Lab.Iso_Host", c("Genus", "Sequencing.ID"), sep = ", ", remove=FALSE)
+amph.tab <- unite(amph.tab, "Lab.Prot.Gen", c("newprot", "Genus"), sep = ", ", remove=FALSE)
+amph.tab <- unite(amph.tab, "Lab.Prot.Gen", c("newprot", "Genus"), sep = ", ", remove=FALSE)
+amph.tab <- unite(amph.tab, "Strain.Genus", c("Genus", "Sequencing.ID"), sep = ", ", remove=FALSE)
+amph.tab <- unite(amph.tab, "Strain.Genus.IPR", c("Strain.Genus", "ipr.confirm"), sep = "", remove=FALSE)
+amph.tab <- unite(amph.tab, "gap.Strain.Genus.IPR", c("whitespace", "Strain.Genus.IPR"), sep = "  ", remove=FALSE)
+
+
+
+
+amph.tab <- unique(amph.tab)
+
+
+
+
+
+auxcolors <- c("Agrobacterium" ="#6E7CB9", "Hafnia"="#77A9CD", "Janthinobacterium" ="#9FCCC4", "Massilia"="#D5E1AB", "Pedobacter"="#EFDB9C", "Pseudomonas" ="#EDB78B", "Sphingomonas"="#E19584",  "Stenotrophomonas" = "#D2848D", "Reference"="#000000")
+
+```
+
+
+
+```{r}
+
+packageVersion("ggplot2")
+packageVersion("ggtree")
+packageVersion("treeio")
+
+
+amph.t2 <- drop.tip(amph.t, c("rC_10", "rE_1", "rE_2","rE_3"))
+
+
+ggt <- ggtree(amph.t2, branch.length="branch.length") %<+% amph.tab +geom_tiplab(aes(label = gap.Strain.Genus.IPR, color=Genus), align = TRUE, linesize = 0.2)  + theme_tree2() + geom_tippoint(mapping = aes(color = Genus2, shape = newprot), size = 3.25) + geom_tree(mapping=aes(color=Genus), size=1)  + scale_color_manual(values = auxcolors)   +  scale_shape_manual(values = c(17, 15, 16, 18))+ geom_nodelab(
+        mapping = aes(
+          x = branch,
+          label = bootstrap
+        ),
+        nudge_y = 0.3,
+        nudge_x = -0.05,
+      ) +ggplot2::scale_x_continuous(limits=c(0,5),  breaks=c(0,2))+ theme(legend.title = element_blank(), legend.position = "bottom", legend.text=element_text(size=12), text = element_text(size=12)) +guides(color = "none") 
+
+ggt 
+
+#ggsave(here(fig_dir, "F4.pdf"), width=10, height=8)
+#ggsave(here(fig_dir, "F4.png"), width=10, height=8)
+```

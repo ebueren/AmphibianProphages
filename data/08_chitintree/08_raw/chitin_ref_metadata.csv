@@ -1,0 +1,19 @@
+protein,nogname,Genus,Sequencing.ID,newprot
+BifuncLysoChit_Ecoli_1,Bifunctional Lysozyme/Endochitinase,Escherichia coli,P13656,GH18
+chitodextrinase_endolysin_Vibrio_1,Chitodextrinase,Vibrio furnissi,P96156,GH18
+ChiA_Serratia_1,ChiA,Serratia marcescens,P07254,GH18
+ChiB_Serratia_1,ChiB,Serratia marcescens,P11797,GH18
+ChiC_Strep_1,ChiC,Streptomyces lividans,P36909,GH18
+GH18_FlavobacteriumJohnCOG_1,ChiA,Flavobacterium johnsoniae,A5FB63,GH18
+GH19_HaemophilusInfluCOG_1,GH19 protein,Haemophilus influenzae,P44187,GH19
+ViralChit_OrgyiapseudotsugataMNPV_1,Chitinase,Autographa california nuclear polyhedrosis virus,P41684,GH18
+chitinaselike_ralstoniapjumbohage_1,Holin,Rasltonia phage phiRSL1,B2ZY60,GH18
+chitinaselike_ralstoniapjumbohage_2,Chitinase-like protein,Rasltonia phage phiRSL1,B2ZY61,GH19
+LysL,Lysozyme,Lactoccocus lactis prophage,xx,Endolysin
+LysP,Peptidase,Lactoccocus lactis prophage,xx,Endolysin
+LysT,Tail-type lysozyme,Lactoccocus lactis prophage,xx,Endolysin
+Endolysin_T7phage1,Endolysin,Escherichia T7 phage,P00806,Endolysin
+endolysin_Bacillus_phageSPP11,Endolysin,Bacillus phage SPP1,O48471,Endolysin
+endolysin_SPN1S1,Endolysin,Salmonella phage SPN1S,H2D0G4,Endolysin
+endolysin_mycobacterium_phageD291,Endolysin,Mycobacterium phage D29,O64205,Endolysin
+lysozyme_T41,Endolysin,Enterobacteria phage T4,P00720,Endolysin

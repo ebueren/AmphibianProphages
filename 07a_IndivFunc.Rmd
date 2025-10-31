@@ -1,0 +1,202 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+```{r}
+
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+library(cowplot)
+library(PNWColors)
+library(tidyverse)
+library(ggtext)
+library(here)
+
+here::here()
+
+fig_dir <- here("figs") 
+supp_dir <- here("figs", "supp") 
+
+##default phage hmmm (all (cryptic + intact)
+hmm <- read.csv(here("data","03_funcCleaning","03_out", "rd3_hmm_FINAL_with_nophage.csv"), row.names = 1)
+
+hmm <- subset(hmm, hmm$Source=="Amphibian")
+
+##subset list of all isolates which had NO phage (at all)
+nophage <- subset(hmm,hmm$phage_seq=="no_phage")
+nophage <- select(nophage, Sequencing.ID, phage_seq, Genus, BD.Inhibition)
+nophage$ignore <- "ignoreme!"
+colnames(nophage) <- c("Sequencing.ID2", "phage_seq2", "Genus2", "BD.Inhibition_v2", "ignore")
+
+## remove no_phage hits from hmm 
+hmm <- subset(hmm,hmm$phage_seq!="no_phage")
+
+##load bacterial isolate metadata
+isos <- read.csv(here("data", "00_metadata", "Isolates.csv"))
+
+#### classify R COG as Unknown
+hmm$aux <- ifelse(hmm$deets=="General function (R)", "Unknown (S, No Hits)", hmm$aux)
+
+### set color scheme
+auxcolors2 <- c("Unknown (S, No Hits)" ="#b4b4b4", "Phage-associated"="#D4D4D4", "Amino acid (E)" ="#DDFFA0", "Carbohydrate (G)"="#BDEC6F", "Coenzyme (H)"="#97CE2F", "Energy (C)" ="#4E7705", "Information processing (ALBY)"="#A3E4D7",  "Information Processing (ALBY)" = "#A3E4D7", "Inorganic ion (P)"="#43BA8F", "Lipid (I)" ="#148F77", "Membrane (MW)"="#E7F4FF", "Nucleotide (F)"="#BCE1FF", "Phage_moron, auxiliary metabolic gene and host takeover"="#7DCCFF", "Phage takeover or host defense"="#7DCCFF", "Predicted Chitinase" ="#7D3560", "chitinase" ="#7D3560", "Chitinase" ="#7D3560", "Secondary metabolite (Q)"="#098BD9", "Signaling (DTNZU)"="#FCB076", "Transcription (K)"="#F09163", "Translation (JO)"="#C16654", "Weaker predicted chitinase"="#9D654C", "Predicted_AMG"="#FC0FC0", "phosphoadenosine phosphosulfate reductase"="#FC0FC0", "Serine protease"="#FFF200", "Metal protease"="#636363", "ABC Transporters"="#FFFDD0", "No Prophage"="#000000",  "Chitinase, GH18 family" = "#9D654C", "Chitinase, GH19 family"= "#7D3560") 
+
+### set order on legend
+desired_order <- c("ABC Transporters", "Metal protease", "Serine protease", "phosphoadenosine phosphosulfate reductase", "Chitinase", "chitinase", "Predicted Chitinase", "Weaker predicted chitinase", "Chitinase, GH18 family", "Chitinase, GH19 family", "Translation (JO)", "Transcription (K)", "Signaling (DTNZU)", "Defense (V)", "Secondary metabolite (Q)", "Nucleotide (F)", "Membrane (MW)", "Lipid (I)", "Inorganic ion (P)", "Information Processing (ALBY)", "Information processing (ALBY)", "Energy (C)", "Coenzyme (H)", "Carbohydrate (G)", "Amino acid (E)", "Predicted_AMG", "Phage takeover or host defense", "Phage-associated", "Unknown (S, No Hits)", "No Prophage")
+
+
+##set fig theme
+theme2 <- theme_light() +
+  theme(
+      legend.title = element_blank(),
+      legend.position="bottom",
+      legend.text = element_text(size=15),
+      plot.title = element_text(size=15),
+      axis.text.x = element_text(size=15),
+      axis.text.y = element_text(size=15),
+      axis.title.y = element_text(size=15),
+      axis.title.x = element_text(size=15),
+      axis.ticks.length = unit(.3, "cm"),
+      plot.margin=unit(c(1,1,1,1),"cm"),
+    strip.background = element_rect(fill = "white", color = "black"),
+    strip.text = element_text(color = "black", size = 15),)
+
+```
+###all FACET
+
+
+## INDIV Isos
+
+```{r}
+
+hmm.indiv <- hmm
+###create tally
+hmm.indiv$tally <- 1
+
+
+###Calculate functional distribution for INDIVIDUAL phages
+
+###count number of ORFS per phage
+prot.phage <- hmm.indiv %>%
+  group_by(phage_seq, intact_est2) %>%
+  summarise(TotalORF.perPhage = sum(tally))
+
+### count number of ORFs per phage by functional category (+ keep track of genus, intact estimates)
+indiv.phage <- hmm.indiv %>%
+  group_by(aux, COG.broad, deets, xtremedeets, phrog_category, nogname, Nog.abbrev, comp, Genus, Sequencing.ID, phage_seq, BD.Inhibition, intact_est2) %>%
+  summarise(new.freq = sum(tally))
+
+##combine count data from above
+indiv.phage.freq <- merge(prot.phage, indiv.phage, by="phage_seq", all=TRUE)
+
+###remove any categories with NA for now 
+indiv.phage.freq <- subset(indiv.phage.freq, indiv.phage.freq$phage_seq!="NA")
+
+### calc the percentage a category takes up that portin of the phage genome (e.g. total genome is 20 genomes, 2 of which are carbon metabolism (2/20 = 10% of genome))
+indiv.phage.freq$perc.fq <- indiv.phage.freq$new.freq/indiv.phage.freq$TotalORF.perPhage*100
+
+### add bacterial isolates that did not have any phages back into dataset and set all categories to 0 / uses the columns ending in 2 from the no_phage set to repopulate the original columns
+indiv.phage.freq <- merge(indiv.phage.freq, nophage, by.x="phage_seq", by.y="phage_seq2", all=TRUE)
+indiv.phage.freq$perc.fq[is.na(indiv.phage.freq$perc.fq)] <- 0
+indiv.phage.freq$new.freq[is.na(indiv.phage.freq$new.freq)] <- 0
+indiv.phage.freq[is.na(indiv.phage.freq)] <- "NA"
+
+indiv.phage.freq$Genus <- ifelse(indiv.phage.freq$ignore=="ignoreme!", indiv.phage.freq$Genus2, indiv.phage.freq$Genus)
+indiv.phage.freq$BD.Inhibition <- ifelse(indiv.phage.freq$ignore=="ignoreme!", indiv.phage.freq$BD.Inhibition_v2, indiv.phage.freq$BD.Inhibition)
+
+phage.func.indiv <- indiv.phage.freq
+
+###Calculate functional distribution for all phages of a Bacterial host
+
+### count number of ORFS per bacterial host
+prot.iso <- hmm.indiv %>%
+  group_by(Sequencing.ID, intact_est2) %>%
+  summarise(TotalORF.perIso = sum(tally))
+
+prot.iso <- unite(prot.iso, iso_phage, Sequencing.ID, intact_est2, sep = "_", remove=TRUE)
+
+
+### count number of hits to a Category per bacterial host
+indiv.iso <- hmm.indiv %>%
+  group_by(aux, COG.broad, deets, xtremedeets, phrog_category, nogname, Nog.abbrev, comp, Genus, Sequencing.ID, BD.Inhibition, intact_est2) %>%
+  summarise(new.freq = sum(tally))
+
+indiv.iso <- unite(indiv.iso, iso_phage, Sequencing.ID, intact_est2, sep = "_", remove=FALSE)
+
+
+### merge count data
+indiv.iso.freq <- merge(prot.iso, indiv.iso, by="iso_phage", all=TRUE)
+indiv.iso.freq <- subset(indiv.iso.freq, indiv.iso.freq$Sequencing.ID!="NA")
+
+### find percentage of ORF Category that contributes to a bacterial host's "phage pangenome"
+indiv.iso.freq$perc.fq <- indiv.iso.freq$new.freq/indiv.iso.freq$TotalORF.perIso*100
+
+## add in no isolates again
+indiv.iso.freq <- merge(indiv.iso.freq, nophage, by.x="Sequencing.ID", by.y="Sequencing.ID2", all=TRUE)
+indiv.iso.freq$perc.fq[is.na(indiv.iso.freq$perc.fq)] <- 0
+indiv.iso.freq$new.freq[is.na(indiv.iso.freq$new.freq)] <- 0
+indiv.iso.freq[is.na(indiv.iso.freq)] <- "NA"
+
+indiv.iso.freq$Genus <- ifelse(indiv.iso.freq$ignore=="ignoreme!", indiv.iso.freq$Genus2, indiv.iso.freq$Genus)
+indiv.iso.freq$BD.Inhibition <- ifelse(indiv.iso.freq$ignore=="ignoreme!", indiv.iso.freq$BD.Inhibition_v2, indiv.iso.freq$BD.Inhibition)
+
+phage.func.iso <- indiv.iso.freq
+```
+
+```{r}
+phage.func.iso$facet1 <- "Genes"
+### for isos with no phage, set the "intact" status to degraded so they are not lost when graphing
+phage.func.iso$intact_est2 <- ifelse(phage.func.iso$intact_est2=="NA", "Degraded", phage.func.iso$intact_est2)
+
+
+aux.iso.meta <- subset(phage.func.iso, phage.func.iso$aux!="Unknown (S, No Hits)" & phage.func.iso$aux!="Phage-associated")
+aux.iso.meta$facet1 <- "Auxillary Genes"
+
+test_phage.func.iso_facet <- rbind(phage.func.iso, aux.iso.meta)
+
+```
+
+
+###MEGA GRAPH by Genus host
+
+
+```{r}
+
+iso.func <- unite(test_phage.func.iso_facet, label, Genus, Sequencing.ID, sep = ", ", remove=FALSE)
+iso.func$label_word <-"Prophage"
+iso.func <- unite(iso.func, intact_nice, intact_est2, label_word, sep = " ", remove=FALSE)
+iso.func <- unite(iso.func, facet_group, intact_nice, facet1,  sep = " ", remove=FALSE)
+
+
+##creates invisible placeholder in graph for isolates w/ no phage
+iso.func$perc.fq <- ifelse(iso.func$aux=="NA", 0.0, iso.func$perc.fq)
+## label letters are for composite figure
+iso.func$facet_group <- factor(iso.func$facet_group,
+  levels = c('Intact Prophage Genes', 'Intact Prophage Auxillary Genes', 'Degraded Prophage Genes', 'Degraded Prophage Auxillary Genes'),
+  labels = c( 'A. Intact Genes', 'B. Intact Auxillary Genes', 'C. Degraded Genes', 'D. Degraded Auxillary Genes'))
+
+
+gg.isofunc <- ggplot(data=iso.func, aes(fill=aux, x = label, y=perc.fq)) + geom_bar(stat="identity")+ coord_flip() +xlab("")+ylab("Percent of Total Prophage Genes")+theme2 + scale_fill_manual(values = auxcolors2) + guides(fill=guide_legend(ncol=4))+ theme(axis.text.y = element_text(size=16)) + facet_wrap(~ facet_group, ncol = 4, scales = "free_x") 
+gg.isofunc
+
+ggsave(here(fig_dir, "F3.pdf"), width=16, height=17)
+ggsave(here(fig_dir, "F3.png"), width=16, height=17)
+
+```
+
+### 2 by 2 of visualization
+
+iso.func$facet_group <- factor(iso.func$facet_group, levels = c('Genes of Degraded Prophages', 'Genes of Intact Prophages','Aux Genes of Degraded Prophages', 'Aux Genes of Intact Prophages'))
+
+
+#iso.func$aux <- ifelse(iso.func$aux=="NA", "Unknown (S, No Hits)", iso.func$aux)
+
+
+gg.isofunc2 <- ggplot(data=iso.func, aes(fill=aux, x = label, y=perc.fq)) + geom_bar(stat="identity") + coord_flip() +xlab("")+ylab("Percent of Prophage Genes") +theme2 + scale_fill_manual(values = auxcolors2) + guides(fill=guide_legend(ncol=1))+ theme(axis.text.y = element_markdown()) + facet_wrap(~ facet_group, ncol = 2, scales = "free_x") + theme(legend.position = "right", legend.text = element_text(size=10), axis.text = element_text(size=10))
+
+
+gg.isofunc2
+
+
+
+

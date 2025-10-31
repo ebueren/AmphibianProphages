@@ -1,0 +1,188 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+#library(hrbrthemes)
+library(ggpubr)
+library(tidyverse)
+library(cowplot)
+library(PNWColors)
+library(here)
+
+here::here()
+
+fig_dir <- here("figs") 
+supp_dir <- here("figs", "supp") 
+
+
+
+pal2=pnw_palette("Sailboat",19, type = "continuous")
+
+
+theme_set(theme_classic(base_family = "sans"))
+ 
+vertheme <- theme_bw()+theme( 
+      legend.position="none", 
+      plot.title = element_text(size=11),
+      axis.text.x = element_text(size= 11, angle=0, vjust=0.5),
+      axis.text.y = element_text(size=11,  face="italic"),
+      axis.title.y = element_text(size=11),
+      axis.title.x = element_text(size=11),
+      axis.ticks.length = unit(.3, "cm")
+    ) 
+
+
+```
+
+```{r}
+
+all.stats <- read.csv(here("data", "04_descStats", "04_out", "Isolates_NumAll.csv"), row.names=1)
+
+int.stats <- read.csv(here("data", "04_descStats", "04_out", "Isolates_NumIntact.csv"), row.names=1)
+
+int.stats <- int.stats[,c(6,7,10)]
+colnames(int.stats)[2:3] = c("NumIntPhage", "PercIntPhage")
+
+
+phage <- merge(all.stats, int.stats, by="iso_name", all=TRUE)
+phage[is.na(phage)] <- 0
+phage$tax_f <- phage$Family
+phage$Family <- NULL
+
+phage$IntBin_VLP3 <- ifelse(phage$NumIntPhage>0, "One or More Intact Prophage", "No Intact Prophage")
+
+#phage <- merge(phage, bd, by="iso_name", all.x=TRUE, all.y=FALSE)
+
+phage$Genus <- factor(phage$Genus, levels = c( 'Achromobacter/Advenella', 'Agrobacterium', 'Bacillus', 'Flavobacterium', 'Hafnia', 'Iodobacter', 'Janthinobacterium', 'Massilia', 'Microbacterium', 'Pedobacter', 'Pseudomonas',  'Serratia', 'Sphingomonas', 'Sphingobacterium', 'Streptomyces', 'Stenotrophomonas', 'Unknown Comamonadaceae', 'Unknown Cellulomonadaceae'),ordered = TRUE)
+
+phage$NumCryp <- phage$Num_of_phage - phage$NumIntPhage
+#phage$PercCryp <- phage$percent - phage$IntPerc
+phage$PercCryp <- 0
+
+phage$PercCryp <- ifelse(round(phage$percent, 2)==round(phage$PercIntPhage,2), 0, phage$percent-phage$PercIntPhage)
+
+
+phage2 <- select(phage, iso_name, Genus, NumCryp, PercCryp, NumIntPhage, PercIntPhage, bac.size)
+colnames(phage2)[3:6] = c("B. Degraded Prophage", "D. Degraded Prophage Composition", "A. Intact Prophage", "C. Intact Prophage Composition")
+
+phage.long <- phage2 %>%
+  pivot_longer(
+    cols = c("B. Degraded Prophage", "A. Intact Prophage", "D. Degraded Prophage Composition", "C. Intact Prophage Composition"), 
+    names_to = "Type", 
+    values_to = "Number",
+    values_drop_na = TRUE
+  )
+
+
+phage.num <- phage2[,c(1,2,3,5)]
+phage.perc <- phage2[,c(1,2,4,6)]
+phage.num <- phage.num %>%
+  pivot_longer(
+    cols = c("A. Intact Prophage", "B. Degraded Prophage"), 
+    names_to = "Type", 
+    values_to = "Number",
+    values_drop_na = TRUE
+  )
+
+phage.perc <- phage.perc %>%
+  pivot_longer(
+    cols = c("C. Intact Prophage Composition", "D. Degraded Prophage Composition"), 
+    names_to = "Type", 
+    values_to = "Percent",
+    values_drop_na = TRUE
+  )
+
+
+```
+
+
+```{r}
+
+num_phage <- ggplot(phage.num, aes(x = Genus, y = Number, fill=Genus  )) + geom_boxplot(outlier.size = 0) +scale_fill_manual(values=pal2) +  geom_point(pch = 21, size= 2.25, position=position_dodge2(width=.5)) + scale_y_continuous(limits=c(0, 7), breaks=seq(0,7,1)) + ylab("Predicted Prophage") + xlab("Host Genus") + vertheme + coord_flip()+facet_wrap(~ Type, ncol = 2)+ theme(strip.text = element_text(size = 12))
+
+num_phage
+
+
+perc_phage <- ggplot(phage.perc, aes(x = Genus, y = Percent, fill=Genus  )) + geom_boxplot(outlier.size = 0) +scale_fill_manual(values=pal2) +  geom_point(pch = 21, size= 2.25, position=position_dodge2(width=.5)) + scale_y_continuous(limits=c(0, 5), breaks=seq(0,5,1)) + ylab("Prophage Composition") +xlab("Host Genus") +vertheme  + coord_flip()+facet_wrap(~ Type, ncol = 2)+ theme(strip.text = element_text(size = 12))
+
+perc_phage
+
+plot_grid(num_phage, perc_phage, ncol=1)
+
+ggsave(here(fig_dir, "F1.pdf"), width=8, height=7)
+ggsave(here(fig_dir, "F1.png"), width=8, height=7)
+```
+
+```{r}
+
+## No relationship between bacterial genome size and number of phage / phage composition
+library(ggpubr)
+theme_set(theme_classic(base_family = "sans"))
+
+# Spearman correlation without internal cor.coef bug
+bac.num <- ggscatter(
+  phage, x = "bac.size", y = "Num_of_phage",
+ # add = "reg.line", conf.int = TRUE,  ##not stat sig, no reg line
+  cor.coef = FALSE,
+  xlab = "Bacterial Size (bp)", ylab = "Number of Phage"
+) +
+  stat_cor(method = "spearman",
+           label.x.npc = "left", label.y.npc = "top",
+           color = "black")
+
+bac.comp <- ggscatter(
+  phage, x = "bac.size", y = "percent",
+  #add = "reg.line", conf.int = TRUE, ##not stat sig, no reg line
+  cor.coef = FALSE,
+  xlab = "Bacterial Size (bp)", ylab = "Phage Composition"
+) +
+  stat_cor(method = "spearman",
+           label.x.npc = "left", label.y.npc = "top",
+           color = "black")
+
+ggarrange(
+  bac.num, bac.comp,
+  ncol = 1, nrow = 2,
+  labels = c("A", "B"),
+  align = "v"
+)
+
+
+ggsave(here(supp_dir, "S1.pdf"), width=7, height=7)
+ggsave(here(supp_dir, "S1.png"), width=7, height=7)
+
+```
+
+
+
+```{r}
+
+### BF kruskal test of how genus impacts prophage distribution
+pvals <- c(
+  kruskal.test(phage$Num_of_phage ~ phage$Genus)$p.value,
+  kruskal.test(phage$percent ~ phage$Genus)$p.value,
+  kruskal.test(phage$PercIntPhage ~ phage$Genus)$p.value,
+  kruskal.test(phage$NumIntPhage ~ phage$Genus)$p.value,
+  kruskal.test(phage$NumCryp ~ phage$Genus)$p.value,
+  kruskal.test(phage$PercCryp ~ phage$Genus)$p.value
+)
+
+tests <- c("Num_of_phage", "percent", "PercIntPhage", "NumIntPhage", "NumCryp", "PercCryp")
+
+# Build data frame with raw and adjusted p-values
+pvals_df <- data.frame(
+  Test = tests,
+  P_value = pvals,
+  Adj_P_value = p.adjust(pvals, method = "BH")
+)
+
+
+pvals_df
+
+```
+

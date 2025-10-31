@@ -1,0 +1,68 @@
+Sequencing.ID,Isolate.ID,Genus,Closest.ID,BD.Inhibition,Source,Size,Isolation,DetailedIsolation,Name
+JWS02,HP11K,Agrobacterium,,NA,Amphibian,161664,Amphibian,Amphibian,JWS02
+JWS06,HP6A,Janthinobacterium,Janthinobacterium lividum strain DSM 1522,1.03,Amphibian,6238595,Amphibian,Amphibian,JWS06
+JWS07,HP4R,Massilia,Massilia aurea strain AP13,0.84,Amphibian,5210595,Amphibian,Amphibian,JWS07
+JWS09,CC15Q1,Unknown Cellulomonadaceae,Oerskovia paurometabola strain DSM 14281 16S,0.56,Amphibian,3639348,Amphibian,Amphibian,JWS09
+JWS11,CC11G,Pseudomonas,Pseudomonas flavescens strain NBRC 103044,0.83,Amphibian,5597247,Amphibian,Amphibian,JWS11
+JWS12,PRE13A,Serratia,Hafnia alvei strain JCM 1666,1,Amphibian,4712681,Amphibian,Amphibian,JWS12
+JWS14,BFE40O,Stenotrophomonas,Stenotrophomonas rhizophila strain e-p10,0.89,Amphibian,4535529,Amphibian,Amphibian,JWS14
+JWS15,CC1V,Streptomyces,Streptomyces gardneri strain NBRC 12865,0.94,Amphibian,6456491,Amphibian,Amphibian,JWS15
+LBS02,HP11E,Agrobacterium,Agrobacterium rubi strain W2/73,0.91,Amphibian,4688830,Amphibian,Amphibian,LBS02
+LBS04,HP5J1,Agrobacterium,Agrobacterium rubi strain W2/73,0.1,Amphibian,4683883,Amphibian,Amphibian,LBS04
+LBS05,CC6U,Bacillus,Bacillus megaterium strain FDU301,0.08,Amphibian,6147021,Amphibian,Amphibian,LBS05
+LBS06,HP5F1,Bacillus,Bacillus simplex NBRC 15720,0.9,Amphibian,5660893,Amphibian,Amphibian,LBS06
+LBS07,HP5K2,Bacillus,Bacillus simplex NBRC 15720,0.15,Amphibian,5663361,Amphibian,Amphibian,LBS07
+LBS08,PRE21G,Bacillus,Bacillus megaterium strain FDU301,-0.08,Amphibian,6119460,Amphibian,Amphibian,LBS08
+LBS09,CC8A2,Flavobacterium,Flavobacterium sp strain LC2016-12,0.58,Amphibian,5345135,Amphibian,Amphibian,LBS09
+LBS10,HP3BB,Flavobacterium,Flavobacterium sp HYN0086,0.62,Amphibian,4827149,Amphibian,Amphibian,LBS10
+LBS11,HP3M,Flavobacterium,Flavobacterium sp HYN0086,0.92,Amphibian,4826828,Amphibian,Amphibian,LBS11
+LBS12,BFE23D,Hafnia,Hafnia alvei,0.85,Amphibian,4761345,Amphibian,Amphibian,LBS12
+LBS13,BFE501,Hafnia,Hafnia paralvei,0.94,Amphibian,5076382,Amphibian,Amphibian,LBS13
+LBS14,PRE11D1,Hafnia,Hafnia paralvei,0.82,Amphibian,5069997,Amphibian,Amphibian,LBS14
+LBS15,PRE7B,Hafnia,Hafnia paralvei,0.94,Amphibian,5071470,Amphibian,Amphibian,LBS15
+LBS16,PRE7G,Hafnia,Hafnia paralvei,0.99,Amphibian,5070609,Amphibian,Amphibian,LBS16
+LBS20,CC11P,Janthinobacterium,Janthinobacterium lividum strain EIF1,0.98,Amphibian,6325103,Amphibian,Amphibian,LBS20
+LBS21,CC130,Janthinobacterium,Janthinobacterium lividum strain EIF1,0.57,Amphibian,7787708,Amphibian,Amphibian,LBS21
+LBS22,HP12P2,Janthinobacterium,Janthinobacterium lividum strain EIF1,1.01,Amphibian,6081024,Amphibian,Amphibian,LBS22
+LBS23,CC14D,Janthinobacterium,Janthinobacterium sp. HH102,0.36,Amphibian,6276716,Amphibian,Amphibian,LBS23
+LBS27,HP1M,Massilia,masillia oculi strain CCUG 43427,1.06,Amphibian,5767644,Amphibian,Amphibian,LBS27
+LBS28,HP4P,Massilia,masillia oculi strain CCUG 43427,0.96,Amphibian,5177753,Amphibian,Amphibian,LBS28
+LBS29,HP6N,Massilia,masillia oculi strain CCUG 43427,0.83,Amphibian,5515830,Amphibian,Amphibian,LBS29
+LBS30,CC8G,Microbacterium,microbacterium foliorum strain 122,-0.21,Amphibian,3752593,Amphibian,Amphibian,LBS30
+LBS31,CC3Q,Microbacterium,microbacterium sp BH-3-3-3,0.04,Amphibian,3661248,Amphibian,Amphibian,LBS31
+LBS32,HP3T,Microbacterium,Microbacterium esteraromaticum strain B24,1,Amphibian,2848428,Amphibian,Amphibian,LBS32
+LBS33,HP4V,Microbacterium,Microbacterium sp. 1S1,0.97,Amphibian,3859991,Amphibian,Amphibian,LBS33
+LBS34,HP10H,Pedobacter,pedobacter steynii strain DX 4,0.81,Amphibian,7804239,Amphibian,Amphibian,LBS34
+LBS35,HP3C,Pedobacter,Peodbacter sp. D749,-0.02,Amphibian,6009023,Amphibian,Amphibian,LBS35
+LBS36,HP3Q1,Pedobacter,Pedobacter sp. G11,0.06,Amphibian,5152741,Amphibian,Amphibian,LBS36
+LBS37,HP3S,Pedobacter,Pedobacter sp. G11,-0.18,Amphibian,5192781,Amphibian,Amphibian,LBS37
+LBS38,HP6J,Pedobacter,Pedobacter suwonensis strain Fj_001,1,Amphibian,5392608,Amphibian,Amphibian,LBS38
+LBS39,CC7Q,Pseudomonas,Pseudomonas fulva 12-X,0.51,Amphibian,5909532,Amphibian,Amphibian,LBS39
+LBS41,CC9C,Serratia,Serratia sp. HC3,0.81,Amphibian,4671295,Amphibian,Amphibian,LBS41
+LBS42,HP4T,Sphingomonas,Sphingomonas sp. PDD-68b-1,-0.02,Amphibian,4066677,Amphibian,Amphibian,LBS42
+LBS43,HP5L,Sphingomonas,Sphingomonas sp. HMP9,-0.09,Amphibian,3757838,Amphibian,Amphibian,LBS43
+LBS44,HP7F,Sphingomonas,Sphingomoans taxi strain ATCC 55669,0.93,Amphibian,4239816,Amphibian,Amphibian,LBS44
+LBS45,HP7Q,Sphingomonas,Sphingomonas sp. PAMC26645,-0.3,Amphibian,4262143,Amphibian,Amphibian,LBS45
+LBS46,HP9M,Sphingomonas,Sphingomonas sp. AAP5,-0.11,Amphibian,4049855,Amphibian,Amphibian,LBS46
+LBS47,CC4G1,Stenotrophomonas,Stenotrophomonas rhizophila strain QL-P4,0.73,Amphibian,4216474,Amphibian,Amphibian,LBS47
+LBS48,CC3C,Streptomyces,Streptomyces sp. RLB1-8,0.01,Amphibian,8912289,Amphibian,Amphibian,LBS48
+LBS50,CC6O,Streptomyces,Streptomyces sp. ICC4,0.31,Amphibian,8530115,Amphibian,Amphibian,LBS50
+GCA_000632025,RIT308,Janthinobacterium,Janthinobacterium lividum,NA,NCBI,6212741,Host_non,Willow_NY,Plant2
+GCA_000783415,MTR,Janthinobacterium,Janthinobacterium lividum,NA,NCBI,6535606,Enviro,WetSoil_Chile,Soil4
+GCA_001758635,H-24,Janthinobacterium,Janthinobacterium lividum,NA,NCBI,6709653,Enviro,SoilPlantMaybe_Michigan,Soil2
+GCA_001854915,MEG1,Janthinobacterium,Janthinobacterium lividum,NA,NCBI,6598564,Enviro,Soil_Japan,Soil3
+GCA_006152155,UCD_MED1,Janthinobacterium,Janthinobacterium lividum,NA,NCBI,6382737,Enviro,TapwaterTofu_CA,Tofu1
+GCA_008757015,SLB01,Janthinobacterium,Janthinobacterium lividum,NA,NCBI,6467981,Host_non,LubomirskiaBaikalensis_SpongeRussia,Sponge2
+GCA_011601275,HSC-65S10,Janthinobacterium,Janthinobacterium lividum,NA,NCBI,6370320,Enviro,PondShore_CA,Water3
+GCA_013372045,EIF1,Janthinobacterium,Janthinobacterium lividum,NA,NCBI,6373589,Enviro,Pond_Germany,Water1
+GCA_013372065,EIF2,Janthinobacterium,Janthinobacterium lividum,NA,NCBI,6756191,Enviro,Pond_Germany,Water2
+GCA_017356645,PLB02,Janthinobacterium,Janthinobacterium lividum,NA,NCBI,6417505,Host_non,LubomirskiaBaikalensis_SpongeRussia,Sponge1
+GCA_018138675,ID1246,Janthinobacterium,Janthinobacterium lividum,NA,NCBI,6351292,Enviro,FreshwaterBiofilm_Idaho,Water4
+GCA_020208155,HSC-3S05,Janthinobacterium,Janthinobacterium lividum,NA,NCBI,6235214,Enviro,CookedRice_CA,Rice1
+GCA_020858175,ATCC_12473,Janthinobacterium,Janthinobacterium lividum,NA,NCBI,6691629,Enviro,Soil_MI_ATCC_TypeStrain,Soil1
+GCA_023509035,ERMR3:09,Janthinobacterium,Janthinobacterium lividum,NA,NCBI,6262430,Enviro,Glacier_India,Glacier1
+GCA_030908825,AMJK,Janthinobacterium,Janthinobacterium lividum,NA,NCBI,6380747,Enviro,Sediment_SouthKorea,Soil5
+GCA_030909085,AMRM,Janthinobacterium,Janthinobacterium lividum,NA,NCBI,6380870,Enviro,Sediment_SouthKorea,Soil6
+GCA_030909125,AMJM,Janthinobacterium,Janthinobacterium lividum,NA,NCBI,6381259,Enviro,Sediment_SouthKorea,Soil7
+GCA_900119665,NFR18,Janthinobacterium,Janthinobacterium lividum,NA,NCBI,6300551,Host_non,RootEndophyte_NA,Plant1
+GCA_900451145,NCTC9796,Janthinobacterium,Janthinobacterium lividum,NA,NCBI,6760367,Enviro,Enviro_NA,Enviro1

@@ -1,0 +1,316 @@
+---
+title: "01_Phage_Confidence_Filtering"
+output: html_notebook
+---
+
+Takes original output from virsorter2, checkv, vibrant across amphibian isolate and ncbi janthinobacteirum datasets and cleans/quality control filters phages. Additionally, creates a master list of quality controlled phages with shorter sequence renames and relevant metadata.
+
+
+```{r}
+
+library(dplyr)
+library(tidyverse)
+library(here)
+
+
+## set directory and paths
+here::here()
+
+#setwd(here()) 
+
+raw_dir <- here("data", "01_cleaning", "01_raw")  ## raw output from programs like vs2, vibrant, checkv
+out_dir <- here("data", "01_cleaning", "01_output") ## output from R
+rename_dir <- here("data", "01_cleaning", "01_assoc_data")  ## data associated with R code (python scripts, etc)
+meta_dir <- here("data","00_metadata") ## metadata about sequences
+
+## load files
+
+read_and_combine.csv <- function(file1, file2) {
+  df1 <- read.csv(file1)
+  df2 <- read.csv(file2)
+  combined_df <- rbind(df1, df2)
+  return(combined_df)
+}
+
+read_and_combine.delim <- function(file1, file2) {
+  df1 <- read.delim(file1)
+  df2 <- read.delim(file2)
+  combined_df <- rbind(df1, df2)
+  return(combined_df)
+}
+
+
+## load metadata of the original bacterial isolates (amphibian and janthino from NCBI)
+isos <- read.csv(here(meta_dir, "Isolates.csv")) #used much later in code, but helpful to have at top for reference
+
+```
+
+
+### Amphibian Isolate Prophages
+
+```{r}
+
+## load vs2 output
+
+vs2a <- read.delim(here(raw_dir, "vs2_amphall_rd1_vs2_viral_score.tsv")) 
+vs2a$source <- "amphibian"  ### specify origin of bacterial isolate
+
+## recreate original isolate each viral contig comes from by removing various ||s and _
+vs2a$iso_name <- gsub("\\|\\|.*$", "", vs2a$seqname)
+vs2a$iso_name <- gsub("(_[^_]*)$", "", vs2a$iso_name)
+vs2a$iso_name <- gsub("LB_S", "LBS", vs2a$iso_name)
+
+
+
+
+vs2j <- read.delim(here(raw_dir, "vs2_jantino_score.tsv")) 
+vs2j$source <- "NCBI"
+
+vs2j$iso_name <- gsub("\\|\\|.*$", "", vs2j$seqname)
+vs2j$iso_name <- gsub("(_[^_]*)$", "", vs2j$iso_name)
+vs2j$iso_name <- gsub("\\..*$", "", vs2j$iso_name)
+
+vs2j$source <- "NCBI"
+
+vs2 <- rbind(vs2a, vs2j)
+
+## recreate original vs2 input by removing the _# that comes after trimming. because all vs2 outputs end with l (full, partial), you can quickly remove the underscores of any checkv trimming by changing the underscores that follow l to a different symbol. this may only work in my code, where l is otherwise never preceeds an underscore. but you could probably do the same thing for gsub full_ and partial_, respectively. 
+
+### load checkv data
+checkv<- read_and_combine.csv(here(raw_dir, "amphall_vs2_trimmed_CHECKV_headers.csv"), here(raw_dir, "en_janthrd1vs2_trimmed_checkvLengths_headers.csv"))
+
+#checkv <- read_delim(here(raw_dir, "amph_trimmed_checkv_lengths_080924.txt"), col_names=TRUE)
+
+checkv$input_vs2 <- gsub("l_", "l!", checkv$checkv_name)
+checkv$input_vs2 <- gsub("(![^_]*)$", "", checkv$input_vs2)
+  
+
+checkv$checkv_trimmed <- ifelse(checkv$input_vs2==checkv$checkv_name, "same_as_vs2", "trimmed_by_checkv")  ##checkv changes the name if it trims it all
+checkv$checkv.contigs <- 1  ##to keep track of any sequences that checkv splits into more than 1 contig
+
+
+## see if checkv splits any vs2 predictions into more than one virus
+checkv.ag <- aggregate(checkv[,c(5)], by=list(checkv$input_vs2), FUN=sum)
+checkv.ag$checkv_split <- ifelse(checkv.ag$x >1, "split_by_checkv", "no")
+
+colnames(checkv.ag)[1:2] = c("input_vs2", "checkv.contigs")
+
+
+## merge information about checkv trimming and splitting w/ checkv name and vs2 input name
+checkv<- checkv[,c(1:4)]
+checkv<-merge(checkv, checkv.ag, by="input_vs2")
+
+ 
+### load vibrant data
+vib<- read_and_combine.delim(here(raw_dir, "VIBRANT_genome_quality_amphall_rd1_vs2_trimmed.tsv"), here(raw_dir, "VIBRANT_janthino_genomequal.tsv"))
+
+
+vib <- vib %>%
+  separate(scaffold, into = c("checkv_input", "delete"), sep = " ", remove=FALSE)
+vib <- vib[,c(1,2,4,5)]
+vib <- vib %>% rename(scaffold_vib=scaffold)
+
+
+vib$checkv_input <- gsub("_fragment_1", "", vib$checkv_input) ##fixes one exception to the rename scaffold above
+
+
+vib$prediction <- "virus"  ### lytic vs. lysogenic are not relevant here as they all came from bacterial genomes (prophages)
+
+vib$frags <-1  ##keep track of any sequences that vib splits into more than 1 contig
+vib.ag <- aggregate(vib[,c(6)], by=list(vib$checkv_input, vib$prediction), FUN=sum)
+
+vib.ag$vib_split <- ifelse(vib.ag$x>1, "split_by_vibrant", "no")
+
+colnames(vib.ag)[1:3] = c("checkv.contigs", "prediction", "vib.fragments")
+
+vib.ag<- vib.ag[,c(1:3)]
+
+
+
+## combine vs2, checkv and vibrant datasets
+combined <- merge(checkv, vs2, by.y="seqname", by.x="input_vs2", all=TRUE)
+combined <- merge(combined, vib.ag, by.x="checkv_name", by.y="checkv.contigs", all=TRUE)
+combined$prediction[is.na(combined$prediction)] <- "vibrant_not_run_or_didn't_like_it"
+
+
+```
+
+
+## Filter phages
+```{r}
+
+### rename combined to phage, to keep clean copy of original data (combined)
+phage <- combined
+
+### remove all non-dsDNA phages
+phage <- subset(phage, phage$max_score_group=="dsDNAphage" )
+
+
+phage$phage_filt <- 0  ##create dummy variable for filtering
+
+### apply filtering method
+## phages > 5000bp & either 0.9 > vs2 scores or predicted by both vs2 & vibrant
+phage$size.check <- ifelse(phage$length.checkv<5000, "too_small", "ok")  ##11 too small, 100 okay
+
+### keep track of what type of filtering each 5000bp+ phage passed (0 is a placeholder)
+phage$rd <- 0
+
+## phage with >0.9 vs2 scores are rd1 (first round pass)
+phage$rd <- ifelse(phage$max_score>=0.9 & phage$size.check=="ok", "rd1", phage$rd) ##82
+### phage with <0.9 vs2 scores but also classified as virus by vibrant are rd2
+phage$rd <- ifelse(phage$max_score<0.9 & phage$prediction=="virus" & phage$size.check=="ok", "rd2", phage$rd) ##10
+
+##classify any phages which are still 0 (i.e. not rd1 or rd2) as not passing, but keep them in the dataset for now.
+phage$phage_filt <- ifelse(phage$rd!=0, "phage_pass", "no_phage")
+
+```
+
+
+```{r}
+
+#phage$checkv_name[is.na(phage$checkv_name)] <- "no_phage"
+#phage$phage_filt[is.na(phage$phage_filt)] <- "no_phage"
+
+phage$phage_seq <- 0  ## create column for seqnames of only high qual phages
+phage$phage_seq <- ifelse(phage$phage_filt=="no_phage", "no_phage", phage$checkv_name)
+
+
+phage<- phage[,c(24,1:23)]
+
+## create list of only phage hits
+phage.pos <- subset(phage, phage_seq!="no_phage")
+
+
+### create list of high qual phages for amph and NCBI datasets with .fna extensions
+phage.pos$out <- "fna"
+phage.pos <- phage.pos %>% unite(fullname, checkv_name, out, sep=".")
+
+amph.pos <- subset(phage.pos, phage.pos$source=="amphibian")
+amph.pos <- as.data.frame(amph.pos[,c(2)])
+
+
+janth.pos <- subset(phage.pos, phage.pos$source=="NCBI")
+janth.pos <- as.data.frame(janth.pos[,c(2)])
+
+
+##filenames to use for renaming
+#write.table(amph.pos, here(rename_dir, "amph_rd3_filenames.txt"), sep="\t", quote= FALSE, row.names=FALSE, col.names=FALSE)
+
+#write.table(janth.pos, here(rename_dir, "NCBIjanth_rd3_filenames.txt"), sep="\t", quote= FALSE, row.names=FALSE, col.names=FALSE)
+```
+
+
+## At this point, high confidence phage were subsetted from the sequences and renamed amPh_# for downstream analysis process using the python script in 01_cleaning/01_assoc_data/
+
+```{r}
+##
+
+key <- read_and_combine.delim(here(rename_dir, "amphall_rd3_dc068_renamed_Key.txt"), here(rename_dir, "janthino_highconf_renameKey.txt"))
+
+
+## merge rename key with pos phage output.
+phage <- merge(phage.pos, key, by.x="phage_seq", by.y="phage_seq", all.x=TRUE, all.y=TRUE)
+
+
+#### note that this dataset was originally run with sequences which we later decided to remove. this step removes these and provides brief explanation as to why they were removed.
+### Seq GCA_945864765, GCA_001678745, GCA_023512775, GCA_000242815, were flagged as unreliable quality by NCBI refseq. 
+### Sequence GCA_900451225 was removed because NCBI sample isolation (environment, host, etc) could not be undetermined. 
+### "LBS01-lw", JWS07", "JWS02", "JWS03", "JWS04", "JWS05", "JWS10", "JWS13" were determined to be contaminants not from the amphibian microbiome, as their original 16s sequencing no longer matched their WGS species. 
+
+phage <- subset(phage, phage$iso_name!="GCA_945864765" & phage$iso_name!="GCA_001678745" & phage$iso_name!="GCA_023512775" & phage$iso_name!="GCA_000242815" & phage$iso_name!="GCA_900451225")  ### NCBI janthino quality removals 
+
+phage <- phage[!phage$iso_name %in% c("LBS01-lw", "JWS07", "JWS02", "JWS03", "JWS04", "JWS05", "JWS10", "JWS13"), ] ##LR contaminants
+
+
+phage$rename[is.na(phage$rename)] <- "no_phage"
+names(phage)[names(phage) == 'phage_seq'] <- 'og_phage_seq'
+names(phage)[names(phage) == 'rename'] <- 'phage_seq'
+
+
+```
+
+
+## add in bacterial isolate information
+
+```{r}
+
+## combine bacterial metadata with phage results
+phage.bac <- merge(isos, phage, by.x="Sequencing.ID", by.y="iso_name", all.x=TRUE, all.y=TRUE)
+
+
+phage.bac$phage_filt[is.na(phage.bac$phage_filt)] <- "no_phage"  ## this identifies any bacterial isolates which had 0 phages pass qual control
+
+
+## bd inhib values not known for NCBI isolates
+phage.bac$BD.Inhibition[is.na(phage.bac$BD.Inhibition)] <- "NA" 
+
+
+
+## if any row contains "no_phage", set the following columns to no_phage
+columns_to_set <- c("phage_seq", "max_score_group", "prediction", "rd", "og_phage_seq", "phage_filt" )
+
+phage.bac <- phage.bac %>%
+  mutate(across(all_of(columns_to_set), ~ if_else(phage_filt == "no_phage", "no_phage", .)))
+
+## if any row contains "no_phage", set the following columns to 0
+data_to_set <- c("max_score", "length.checkv", "hallmark", "viral", "cellular")
+
+phage.bac<- phage.bac%>%
+  mutate(across(all_of(data_to_set), ~ if_else(phage_filt == "no_phage", 0, .)))
+
+
+
+## isolates without any phage (for curiosity sake // easy reference)
+isos.without.phage <- subset(phage.bac, phage.bac$phage_filt=="no_phage")
+
+
+
+### keep relevant columns + reogranize dataframe
+order <- c("Source", "Isolation", "DetailedIsolation", "Genus", "Isolate.ID", 
+                "Sequencing.ID", "Closest.ID", "Size", "BD.Inhibition",
+                "phage_seq", "length.checkv", "max_score", "max_score_group", 
+                "hallmark", "viral", "cellular", "prediction", "rd", "phage_filt", 
+                "og_phage_seq")
+
+
+phage_final <- phage.bac[, order]
+  
+
+phage_final<- rename(phage_final, Bac.size = Size)
+
+
+```
+
+
+```{r}
+
+### for downstream use later, it was helpful to have a .fna text list of  amphibian / ncbi isolates
+
+phage_final$out <- "fna"
+phage_final <- phage_final %>% unite(fullseq, phage_seq, out, sep=".", remove=FALSE)
+phage_final <- phage_final[-c(22)]
+
+write.csv(phage_final, here(out_dir, "all_phagelist.csv"))
+
+
+## create .fna subsetted lists of aall amphibian and all janth sequences (just for ease during bioinfo file moving around)
+phage_subset <- subset(phage_final, phage_final$phage_filt!="no_phage")
+
+amph.list <- subset(phage_subset, phage_subset$Source=="Amphibian")
+amph.list<- as.data.frame(amph.list$fullseq)
+#write.table(amph.list, here(rename_dir, "all_amphibian_phage_list.txt"), sep="\t", quote= FALSE, row.names=FALSE, col.names=FALSE)
+
+
+janth.list <- subset(phage_subset, phage_subset$Genus=="Janthinobacterium")
+janth.list<- as.data.frame(janth.list$fullseq)
+#write.table(janth.list, here(rename_dir, "all_janthino_phage_list.txt"), sep="\t", quote= FALSE, row.names=FALSE, col.names=FALSE)
+
+
+ncbi.list <- subset(phage_subset, phage_subset$Source=="NCBI")
+ncbi.list<- as.data.frame(ncbi.list$fullseq)
+#write.table(janth.list, here(rename_dir, "all_NCBI_phage_list.txt"), sep="\t", quote= FALSE, row.names=FALSE, col.names=FALSE)
+
+```
+
+
+

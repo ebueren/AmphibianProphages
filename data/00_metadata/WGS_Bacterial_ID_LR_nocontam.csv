@@ -1,0 +1,47 @@
+﻿Isolate ID,Sequencing ID,Phylum,Class,Order,Family,Genus,Species,Closest match based on 16S rRNA gene,BD Inhibition
+HP11E,LBS02,Proteobacteria,Alphaproteobacteria,Hyphomicrobiales,Rhizobiaceae,Agrobacterium,,Agrobacterium rubi strain W2/73,0.91
+HP5J1,LBS04,Proteobacteria,Alphaproteobacteria,Hyphomicrobiales,Rhizobiaceae,Agrobacterium,,Agrobacterium rubi strain W2/73,0.1
+CC6U,LBS05,Firmicutes,Bacilli,Bacillales,Bacillaceae,Bacillus,,Bacillus megaterium strain FDU301,0.08
+HP5F1,LBS06,Firmicutes,Bacilli,Bacillales,Bacillaceae,Bacillus,,Bacillus simplex NBRC 15720,0.9
+HP5K2,LBS07,Firmicutes,Bacilli,Bacillales,Bacillaceae,Bacillus,,Bacillus simplex NBRC 15720,0.15
+PRE21G,LBS08,Firmicutes,Bacilli,Bacillales,Bacillaceae,Bacillus,,Bacillus megaterium strain FDU301,-0.08
+CC8A2,LBS09,Bacteroidetes,Flavobacteriia,Flavobacteriales,Flavobacteriaceae,Flavobacterium,NA,Flavobacterium sp strain LC2016-12,0.58
+HP3BB,LBS10,Bacteroidetes,Flavobacteriia,Flavobacteriales,Flavobacteriaceae,Flavobacterium,,Flavobacterium sp HYN0086,0.62
+HP3M,LBS11,Bacteroidetes,Flavobacteriia,Flavobacteriales,Flavobacteriaceae,Flavobacterium,,Flavobacterium sp HYN0086,0.92
+BFE23D,LBS12,Proteobacteria,Gammaproteobacteria,Enterobacteriales,Enterobacteriaceae,Hafnia,NA,Hafnia alvei,0.85
+BFE501,LBS13,Proteobacteria,Gammaproteobacteria,Enterobacteriales,Enterobacteriaceae,Hafnia,NA,Hafnia paralvei,0.94
+PRE11D1,LBS14,Proteobacteria,Gammaproteobacteria,Enterobacteriales,Enterobacteriaceae,Hafnia,NA,Hafnia paralvei,0.82
+PRE7B,LBS15,Proteobacteria,Gammaproteobacteria,Enterobacteriales,Enterobacteriaceae,Hafnia,NA,Hafnia paralvei,0.94
+PRE7G,LBS16,Proteobacteria,Gammaproteobacteria,Enterobacteriales,Enterobacteriaceae,Hafnia,NA,Hafnia paralvei,0.99
+CC11P,LBS20,Proteobacteria,Betaproteobacteria,Burkholderiales,Oxalobacteraceae,Janthinobacterium,lividum,Janthinobacterium lividum strain EIF1,0.98
+CC130,LBS21,Proteobacteria,Betaproteobacteria,Burkholderiales,Oxalobacteraceae,Janthinobacterium,lividum,Janthinobacterium lividum strain EIF1,0.57
+HP12P2,LBS22,Proteobacteria,Betaproteobacteria,Burkholderiales,Oxalobacteraceae,Janthinobacterium,lividum,Janthinobacterium lividum strain EIF1,1.01
+CC14D,LBS23,Proteobacteria,Betaproteobacteria,Burkholderiales,Oxalobacteraceae,Janthinobacterium,NA,Janthinobacterium sp. HH102,0.36
+HP1M,LBS27,Proteobacteria,Betaproteobacteria,Burkholderiales,Oxalobacteraceae,Massilia,aurea ,masillia oculi strain CCUG 43427,1.06
+HP4P,LBS28,Proteobacteria,Betaproteobacteria,Burkholderiales,Oxalobacteraceae,Massilia,aurea ,masillia oculi strain CCUG 43427,0.96
+HP6N,LBS29,Proteobacteria,Betaproteobacteria,Burkholderiales,Oxalobacteraceae,Massilia,aurea ,masillia oculi strain CCUG 43427,0.83
+CC8G,LBS30,Actinobacteria,Actinobacteria,Actinomycetales,Microbacteriaceae,Microbacterium,maritypicum,microbacterium foliorum strain 122,-0.21
+CC3Q,LBS31,Actinobacteria,Actinobacteria,Actinomycetales,Microbacteriaceae,Microbacterium,NA,microbacterium sp BH-3-3-3,0.04
+HP3T,LBS32,Actinobacteria,Actinobacteria,Actinomycetales,Microbacteriaceae,Microbacterium,NA,Microbacterium esteraromaticum strain B24,1
+HP4V,LBS33,Actinobacteria,Actinobacteria,Actinomycetales,Microbacteriaceae,Microbacterium,NA,Microbacterium sp. 1S1,0.97
+HP10H,LBS34,Bacteroidetes,Sphingobacteriia,Sphingobacteriales,Sphingobacteriaceae,Pedobacter,,pedobacter steynii strain DX 4,0.81
+HP3C,LBS35,Bacteroidetes,Sphingobacteriia,Sphingobacteriales,Sphingobacteriaceae,Pedobacter,,Peodbacter sp. D749,-0.02
+HP3Q1,LBS36,Bacteroidetes,Sphingobacteriia,Sphingobacteriales,Sphingobacteriaceae,Pedobacter,,Pedobacter sp. G11,0.06
+HP3S,LBS37,Bacteroidetes,Sphingobacteriia,Sphingobacteriales,Sphingobacteriaceae,Pedobacter,,Pedobacter sp. G11,-0.18
+HP6J,LBS38,Bacteroidetes,Sphingobacteriia,Sphingobacteriales,Sphingobacteriaceae,Pedobacter,,Pedobacter suwonensis strain Fj_001,1
+CC7Q,LBS39,Proteobacteria,Gammaproteobacteria,Pseudomonadales,Pseudomonadaceae,Pseudomonas,NA,Pseudomonas fulva 12-X,0.51
+CC9C,LBS41,Proteobacteria,Gammaproteobacteria,Enterobacteriales,Enterobacteriaceae,Serratia,NA,Serratia sp. HC3,0.81
+HP4T,LBS42,Proteobacteria,Alphaproteobacteria,Sphingomonadales,Sphingomonadaceae,Sphingomonas,,Sphingomonas sp. PDD-68b-1,-0.02
+HP5L,LBS43,Proteobacteria,Alphaproteobacteria,Sphingomonadales,Sphingomonadaceae,Sphingomonas,,Sphingomonas sp. HMP9,-0.09
+HP7F,LBS44,Proteobacteria,Alphaproteobacteria,Sphingomonadales,Sphingomonadaceae,Sphingomonas,,Sphingomoans taxi strain ATCC 55669,0.93
+HP7Q,LBS45,Proteobacteria,Alphaproteobacteria,Sphingomonadales,Sphingomonadaceae,Sphingomonas,,Sphingomonas sp. PAMC26645,-0.3
+HP9M,LBS46,Proteobacteria,Alphaproteobacteria,Sphingomonadales,Sphingomonadaceae,Sphingomonas,,Sphingomonas sp. AAP5,-0.11
+CC4G1,LBS47,Proteobacteria,Gammaproteobacteria,Xanthomonadales,Xanthomonadaceae,Stenotrophomonas,rhizophila ,Stenotrophomonas rhizophila strain QL-P4,0.73
+CC3C,LBS48,Actinobacteria,Actinobacteria,Actinomycetales,Streptomycetaceae,Streptomyces,NA,Streptomyces sp. RLB1-8,0.01
+CC6O,LBS50,Actinobacteria,Actinobacteria,Actinomycetales,Streptomycetaceae,Streptomyces,,Streptomyces sp. ICC4,0.31
+HP6A,JWS06,Proteobacteria,Betaproteobacteria,Burkholderiales,Oxalobacteraceae,Janthinobacterium,lividum,Janthinobacterium lividum strain DSM 1522,1.03
+CC15Q1,JWS09,Actinobacteria,Actinobacteria,Actinomycetales,Cellulomonadaceae,Unknown Cellulomonadaceae,NA,Oerskovia paurometabola strain DSM 14281 16S,0.56
+CC11G,JWS11,Proteobacteria,Gammaproteobacteria,Pseudomonadales,Pseudomonadaceae,Pseudomonas,NA,Pseudomonas flavescens strain NBRC 103044,0.83
+PRE13A,JWS12,Proteobacteria,Gammaproteobacteria,Enterobacteriales,Enterobacteriaceae,Serratia,NA,Hafnia alvei strain JCM 1666,1
+BFE40O,JWS14,Proteobacteria,Gammaproteobacteria,Xanthomonadales,Xanthomonadaceae,Stenotrophomonas,rhizophila,Stenotrophomonas rhizophila strain e-p10,0.89
+CC1V,JWS15,Actinobacteria,Actinobacteria,Actinomycetales,Streptomycetaceae,Streptomyces,NA,Streptomyces gardneri strain NBRC 12865,0.94
