@@ -39,6 +39,8 @@ vertheme <- theme_bw()+theme(
 
 ```
 
+
+
 ```{r}
 
 all.stats <- read.csv(here("data", "04_descStats", "04_out", "Isolates_NumAll.csv"), row.names=1)
@@ -103,12 +105,59 @@ phage.perc <- phage.perc %>%
 
 ```{r}
 
+### BF kruskal test of how genus impacts prophage distribution
+pvals <- c(
+  kruskal.test(phage$Num_of_phage ~ phage$Genus)$p.value,
+  kruskal.test(phage$percent ~ phage$Genus)$p.value,
+  kruskal.test(phage$PercIntPhage ~ phage$Genus)$p.value,
+  kruskal.test(phage$NumIntPhage ~ phage$Genus)$p.value,
+  kruskal.test(phage$NumCryp ~ phage$Genus)$p.value,
+  kruskal.test(phage$PercCryp ~ phage$Genus)$p.value
+)
+
+tests <- c("Num_of_phage", "percent", "C. Intact Prophage Composition", "A. Intact Prophage", "B. Degraded Prophage", "D. Degraded Prophage Composition")
+
+# Build data frame with raw and adjusted p-values
+pvals_df <- data.frame(
+  Test = tests,
+  P_value = pvals,
+  Adj_P_value = p.adjust(pvals, method = "BH")
+)
+
+facet_labels <- pvals_df |>
+  mutate(Type = Test,
+         label = paste0("p = ", signif(Adj_P_value, 1)),
+         x = 1, y = 6.5)
+
+
+num_labels <- subset(facet_labels, facet_labels$Test=="A. Intact Prophage" |  facet_labels$Test=="B. Degraded Prophage")
+perc_labels <- subset(facet_labels, facet_labels$Test=="C. Intact Prophage Composition" |  facet_labels$Test=="D. Degraded Prophage Composition")
+
+```
+
+```{r}
+
 num_phage <- ggplot(phage.num, aes(x = Genus, y = Number, fill=Genus  )) + geom_boxplot(outlier.size = 0) +scale_fill_manual(values=pal2) +  geom_point(pch = 21, size= 2.25, position=position_dodge2(width=.5)) + scale_y_continuous(limits=c(0, 7), breaks=seq(0,7,1)) + ylab("Predicted Prophage") + xlab("Host Genus") + vertheme + coord_flip()+facet_wrap(~ Type, ncol = 2)+ theme(strip.text = element_text(size = 12))
+
+num_phage <- num_phage +
+  geom_text(
+    data = num_labels,
+    aes(x = 1.2, y = y, label = label),
+    inherit.aes = FALSE,
+    size = 4
+  )
 
 num_phage
 
-
 perc_phage <- ggplot(phage.perc, aes(x = Genus, y = Percent, fill=Genus  )) + geom_boxplot(outlier.size = 0) +scale_fill_manual(values=pal2) +  geom_point(pch = 21, size= 2.25, position=position_dodge2(width=.5)) + scale_y_continuous(limits=c(0, 5), breaks=seq(0,5,1)) + ylab("Prophage Composition") +xlab("Host Genus") +vertheme  + coord_flip()+facet_wrap(~ Type, ncol = 2)+ theme(strip.text = element_text(size = 12))
+
+perc_phage <- perc_phage  +
+  geom_text(
+    data = perc_labels,
+    aes(x = 1.2, y = 4.5, label = label),
+    inherit.aes = FALSE,
+    size = 4
+  )
 
 perc_phage
 
@@ -118,18 +167,39 @@ ggsave(here(fig_dir, "F1.pdf"), width=8, height=7)
 ggsave(here(fig_dir, "F1.png"), width=8, height=7)
 ```
 
+
+
 ```{r}
 
 ## No relationship between bacterial genome size and number of phage / phage composition
 library(ggpubr)
 theme_set(theme_classic(base_family = "sans"))
+#phage$bac.size <- log(phage$bac.size)
+
+phage$bac.size<- log10(phage$bac.size)
+
+
+### JWS02 has an incredibly small genome and is removed from correlation testing to prevent artifical skew
+
+lq <- quantile(phage$bac.size, 0.25)
+uq <- quantile(phage$bac.size, 0.75)
+iqr <- uq - lq
+lq.lim <- lq -3*iqr
+uq.lim <- uq + 3*iqr
+lq.lim
+
+phage <- subset(phage, phage$bac.size>lq.lim)
+phage <- subset(phage, phage$bac.size<uq.lim)
+
+
+
 
 # Spearman correlation without internal cor.coef bug
 bac.num <- ggscatter(
   phage, x = "bac.size", y = "Num_of_phage",
  # add = "reg.line", conf.int = TRUE,  ##not stat sig, no reg line
   cor.coef = FALSE,
-  xlab = "Bacterial Size (bp)", ylab = "Number of Phage"
+  xlab = "log10(Bacterial Size (bp))", ylab = "Number of Phage"
 ) +
   stat_cor(method = "spearman",
            label.x.npc = "left", label.y.npc = "top",
@@ -139,7 +209,7 @@ bac.comp <- ggscatter(
   phage, x = "bac.size", y = "percent",
   #add = "reg.line", conf.int = TRUE, ##not stat sig, no reg line
   cor.coef = FALSE,
-  xlab = "Bacterial Size (bp)", ylab = "Phage Composition"
+  xlab = "log10(Bacterial Size (bp))", ylab = "Phage Composition"
 ) +
   stat_cor(method = "spearman",
            label.x.npc = "left", label.y.npc = "top",
@@ -153,36 +223,75 @@ ggarrange(
 )
 
 
-ggsave(here(supp_dir, "S1.pdf"), width=7, height=7)
-ggsave(here(supp_dir, "S1.png"), width=7, height=7)
+#ggsave(here(supp_dir, "S1.pdf"), width=7, height=7)
+#ggsave(here(supp_dir, "S1.png"), width=7, height=7)
 
 ```
 
 
 
 ```{r}
+##checking intact and crypt only
+# Spearman correlation without internal cor.coef bug
+int.bac.num <- ggscatter(
+  phage, x = "bac.size", y = "NumIntPhage",
+ add = "reg.line", conf.int = TRUE,  ##not stat sig, no reg line
+  cor.coef = FALSE,
+  xlab = "log10(Bacterial Size (bp))", ylab = "Number of Intact Phage"
+) +
+  stat_cor(method = "spearman",
+           label.x.npc = "left", label.y.npc = "top",
+           color = "black")
 
-### BF kruskal test of how genus impacts prophage distribution
-pvals <- c(
-  kruskal.test(phage$Num_of_phage ~ phage$Genus)$p.value,
-  kruskal.test(phage$percent ~ phage$Genus)$p.value,
-  kruskal.test(phage$PercIntPhage ~ phage$Genus)$p.value,
-  kruskal.test(phage$NumIntPhage ~ phage$Genus)$p.value,
-  kruskal.test(phage$NumCryp ~ phage$Genus)$p.value,
-  kruskal.test(phage$PercCryp ~ phage$Genus)$p.value
+int.bac.comp <- ggscatter(
+  phage, x = "bac.size", y = "PercIntPhage",
+  add = "reg.line", conf.int = TRUE, ##not stat sig, no reg line
+  cor.coef = FALSE,
+  xlab = "log10(Bacterial Size (bp))", ylab = "Intact Phage Composition"
+) +
+  stat_cor(method = "spearman",
+           label.x.npc = "left", label.y.npc = "top",
+           color = "black")
+
+
+
+```
+
+
+```{r}
+
+##Statistically signficant (Weak) correlation among degraded phages, but this appears to be due to the one very small genome that has no phages.
+
+deg.bac.num <- ggscatter(
+  phage, x = "bac.size", y = "NumCryp",
+ add = "reg.line", conf.int = TRUE,  ##not stat sig, no reg line
+  cor.coef = FALSE,
+  xlab = "log10(Bacterial Size (bp))", ylab = "Number of Degraded Phage"
+) +
+  stat_cor(method = "spearman",
+           label.x.npc = "left", label.y.npc = "top",
+           color = "black")
+
+deg.bac.comp <- ggscatter(
+  phage, x = "bac.size", y = "PercCryp",
+  add = "reg.line", conf.int = TRUE, ##not stat sig, no reg line
+  cor.coef = FALSE,
+  xlab = "log10(Bacterial Size (bp))", ylab = "Degraded Phage Composition"
+) +
+  stat_cor(method = "spearman",
+           label.x.npc = "left", label.y.npc = "top",
+           color = "black")
+
+ggarrange(
+  int.bac.num, int.bac.comp, deg.bac.num, deg.bac.comp,
+  ncol = 2, nrow = 2,
+  labels = c("A", "B", "C", "D"),
+  align = "v"
 )
 
-tests <- c("Num_of_phage", "percent", "PercIntPhage", "NumIntPhage", "NumCryp", "PercCryp")
 
-# Build data frame with raw and adjusted p-values
-pvals_df <- data.frame(
-  Test = tests,
-  P_value = pvals,
-  Adj_P_value = p.adjust(pvals, method = "BH")
-)
-
-
-pvals_df
+ggsave(here(supp_dir, "S1.pdf"), width=7, height=7)
+ggsave(here(supp_dir, "S1.png"), width=7, height=7)
 
 ```
 

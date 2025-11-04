@@ -302,15 +302,17 @@ hmm.all$comp <- ifelse(hmm.all$phrog_num %in% c(61,249,293,424,883,887,1238,1601
 
 ## Create second comp column which has interesting proteins overwritting metabolism
 hmm.all$comp2 <- hmm.all$comp
-hmm.all$comp2 <- ifelse(hmm.all$interest=="interest", hmm.all$int.class, hmm.all$comp2)
+hmm.all$comp2 <- ifelse(hmm.all$comp=="Metablism" | hmm.all$comp=="Predicted_AMG" , "Metabolism", hmm.all$comp2)
 
 
-###create column highlighting auxillary genes
+###create column highlighting auxillary genes w/ (aux) and w/out (aux2) consideration for putative antifungal proteins
 hmm.all$aux <- hmm.all$deets
 
 ## rename moron_hosttakeover_aux
 hmm.all$aux <- ifelse(hmm.all$comp=="Phage_Takeover", "Phage_Takeover", hmm.all$aux)
 hmm.all$aux <- ifelse(hmm.all$comp=="Predicted_AMG", hmm.all$comp, hmm.all$aux)
+
+hmm.all$aux2 <- hmm.all$aux
 hmm.all$aux <- ifelse(hmm.all$interest=="interest", hmm.all$int.class, hmm.all$aux)
 
 

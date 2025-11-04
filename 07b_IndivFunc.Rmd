@@ -84,7 +84,7 @@ prot.phage <- hmm.indiv %>%
 
 ### count number of ORFs per phage by functional category (+ keep track of Isolation, intact estimates)
 indiv.phage <- hmm.indiv %>%
-  group_by(aux, COG.broad, deets, xtremedeets, phrog_category, nogname, Nog.abbrev, comp, Isolation, Sequencing.ID, phage_seq, intact_est2) %>%
+  group_by(aux, aux2, COG.broad, comp, comp2,, deets, xtremedeets, phrog_category, nogname, Nog.abbrev, Isolation, Sequencing.ID, phage_seq, intact_est2) %>%
   summarise(new.freq = sum(tally))
 
 ##combine count data from above
@@ -118,7 +118,7 @@ prot.iso <- unite(prot.iso, iso_phage, Sequencing.ID, intact_est2, sep = "_", re
 
 ### count number of hits to a Category per bacterial host
 indiv.iso <- hmm.indiv %>%
-  group_by(aux, COG.broad, deets, xtremedeets, phrog_category, nogname, Nog.abbrev, comp, Isolation, Sequencing.ID, intact_est2) %>%
+  group_by(aux, aux2, COG.broad, comp, comp2, deets, xtremedeets, phrog_category, nogname, Nog.abbrev, Isolation, Sequencing.ID, intact_est2) %>%
   summarise(new.freq = sum(tally))
 
 indiv.iso <- unite(indiv.iso, iso_phage, Sequencing.ID, intact_est2, sep = "_", remove=FALSE)
@@ -188,12 +188,57 @@ gg.isofunc.jan
 
 
 ## save gg image to be used in composite figure later (see 09_.rmd)
-saveRDS(gg.isofunc.jan, file="data/07_indivFunc/07_out/gg_isofunc.rds")
+#saveRDS(gg.isofunc.jan, file="data/07_indivFunc/07_out/gg_isofunc.rds")
 ## save RDS was not working well with here() package, regular path used instead.        
 #ggsave(here(fig_dir, "F3.pdf"), width=15, height=11)
 
 ```
 
+```{r}
+### to summarize hits
+phage.func.iso <- subset(phage.func.iso, phage.func.iso$iso_phage!="NA")
+
+##aux category used to calc descp statistics in paper, as that is what the figure represents
+
+##METABOLISM aux (antifungals in own categories) summary
+aux.summ <- phage.func.iso %>%
+  group_by(aux, intact_est2) %>%
+  summarise(cat.hits.per.genera = sum(new.freq), .groups = "drop") %>%
+  pivot_wider(
+    names_from = intact_est2,
+    values_from = cat.hits.per.genera,
+    values_fill = 0
+  )
+a.intsum <- sum(aux.summ$Intact) #1747
+a.degsum <- sum(aux.summ$Degraded) #479
+aux.summ$int.perc <- aux.summ$Intact/a.intsum * 100
+aux.summ$deg.perc <- aux.summ$Degraded/a.degsum * 100
+
+
+
+aux.summ$perc <- aux.summ$cat.hits.per.genera/sum.hits*100
+
+##METABOLISM aux2 (antifungals in original categories) summary
+aux2.summ <- phage.func.iso %>%
+  group_by( aux2) %>%
+  summarise(cat.hits.per.genera = sum(new.freq))
+aux2.summ$perc <- aux2.summ$cat.hits.per.genera/sum.hits*100
+
+
+##METABOLISM summary
+metabcomp.summ <- phage.func.iso %>%
+  group_by(comp) %>%
+  summarise(cat.hits.per.genera = sum(new.freq))
+metabcomp.summ$perc <- metabcomp.summ$cat.hits.per.genera/sum.hits*100
+
+
+##METABOLISM summary
+metabcomp2.summ <- phage.func.iso %>%
+  group_by(comp2) %>%
+  summarise(cat.hits.per.genera = sum(new.freq))
+metabcomp2.summ$perc <- metabcomp2.summ$cat.hits.per.genera/sum.hits*100
+
+```
 ### 2 by 2 of visualization
 
 iso.func$facet_group <- factor(iso.func$facet_group, levels = c('Genes of Degraded Prophages', 'Genes of Intact Prophages','Aux Genes of Degraded Prophages', 'Aux Genes of Intact Prophages'))

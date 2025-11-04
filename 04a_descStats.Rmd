@@ -454,3 +454,23 @@ IntFract$PercentDegGenome <- IntFract$Num_Isolates_With_Degraded/IntFract$Genus.
 
 
 ```
+
+```{r}
+
+## Create Table 1 for publication
+AmphIsoCount <- read.csv(here(out_dir, "Amph_IsoCount.csv"), row.names=1)
+
+Table1 <- AmphIsoCount %>%
+  mutate(across(
+    where(is.numeric),
+    ~ paste0("(n = ", ., ")")
+  ))
+
+Table1 <- unite(Table1, Phylum, Phylum, Phylum.size, sep = " ", remove=TRUE)
+Table1 <- unite(Table1, Class, Class, Class.size, sep = " ", remove=TRUE)
+Table1 <- unite(Table1, Order, Order, Order.size, sep = " ", remove=TRUE)
+Table1 <- unite(Table1, Family, Family, Family.size, sep = " ", remove=TRUE)
+Table1 <- unite(Table1, Genus, Genus, Genus.size, sep = " ", remove=TRUE)
+
+#write.csv(Table1, here(out_dir, "Table1_unmerged.csv"))
+```

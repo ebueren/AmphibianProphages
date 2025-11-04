@@ -23,13 +23,14 @@ hmm <- read.csv(here("data","03_funcCleaning","03_out", "rd3_hmm_FINAL_with_noph
 
 hmm <- subset(hmm, hmm$Source=="Amphibian")
 
+
 ##subset list of all isolates which had NO phage (at all)
-nophage <- subset(hmm,hmm$phage_seq=="no_phage")
+nophage <- subset(hmm, hmm$phage_seq=="no_phage")
 nophage <- select(nophage, Sequencing.ID, phage_seq, Genus, BD.Inhibition)
 nophage$ignore <- "ignoreme!"
 colnames(nophage) <- c("Sequencing.ID2", "phage_seq2", "Genus2", "BD.Inhibition_v2", "ignore")
 
-## remove no_phage hits from hmm 
+## remove no_phage hits from hmm and keep only rep phages
 hmm <- subset(hmm,hmm$phage_seq!="no_phage")
 
 ##load bacterial isolate metadata
@@ -83,7 +84,7 @@ prot.phage <- hmm.indiv %>%
 
 ### count number of ORFs per phage by functional category (+ keep track of genus, intact estimates)
 indiv.phage <- hmm.indiv %>%
-  group_by(aux, COG.broad, deets, xtremedeets, phrog_category, nogname, Nog.abbrev, comp, Genus, Sequencing.ID, phage_seq, BD.Inhibition, intact_est2) %>%
+  group_by(aux, aux2, COG.broad, deets, xtremedeets, phrog_category, phrog_annot, nogname, Nog.abbrev, comp, comp2, Genus, Sequencing.ID, phage_seq, BD.Inhibition, intact_est2) %>%
   summarise(new.freq = sum(tally))
 
 ##combine count data from above
@@ -118,7 +119,7 @@ prot.iso <- unite(prot.iso, iso_phage, Sequencing.ID, intact_est2, sep = "_", re
 
 ### count number of hits to a Category per bacterial host
 indiv.iso <- hmm.indiv %>%
-  group_by(aux, COG.broad, deets, xtremedeets, phrog_category, nogname, Nog.abbrev, comp, Genus, Sequencing.ID, BD.Inhibition, intact_est2) %>%
+  group_by(aux, aux2, COG.broad, deets, xtremedeets, phrog_category, nogname, phrog_annot, Nog.abbrev, comp, comp2, Genus, Sequencing.ID, BD.Inhibition, intact_est2) %>%
   summarise(new.freq = sum(tally))
 
 indiv.iso <- unite(indiv.iso, iso_phage, Sequencing.ID, intact_est2, sep = "_", remove=FALSE)
@@ -179,10 +180,48 @@ iso.func$facet_group <- factor(iso.func$facet_group,
 gg.isofunc <- ggplot(data=iso.func, aes(fill=aux, x = label, y=perc.fq)) + geom_bar(stat="identity")+ coord_flip() +xlab("")+ylab("Percent of Total Prophage Genes")+theme2 + scale_fill_manual(values = auxcolors2) + guides(fill=guide_legend(ncol=4))+ theme(axis.text.y = element_text(size=16)) + facet_wrap(~ facet_group, ncol = 4, scales = "free_x") 
 gg.isofunc
 
-ggsave(here(fig_dir, "F3.pdf"), width=16, height=17)
-ggsave(here(fig_dir, "F3.png"), width=16, height=17)
+#ggsave(here(fig_dir, "F3.pdf"), width=16, height=17)
+#ggsave(here(fig_dir, "F3.png"), width=16, height=17)
 
 ```
+
+```{r}
+### to summarize hits
+phage.func.iso <- subset(phage.func.iso, phage.func.iso$iso_phage!="NA")
+
+##aux category used to calc descp statistics in paper, as that is what the figure represents
+
+##METABOLISM aux (antifungals in own categories) summary
+aux.summ <- phage.func.iso %>%
+  group_by(aux) %>%
+  summarise(cat.hits.per.genera = sum(new.freq))
+
+sum.hits <- sum(aux.summ$cat.hits.per.genera)
+
+aux.summ$perc <- aux.summ$cat.hits.per.genera/sum.hits*100
+
+##METABOLISM aux2 (antifungals in original categories) summary
+aux2.summ <- phage.func.iso %>%
+  group_by( aux2) %>%
+  summarise(cat.hits.per.genera = sum(new.freq))
+aux2.summ$perc <- aux2.summ$cat.hits.per.genera/sum.hits*100
+
+
+##METABOLISM summary
+metabcomp.summ <- phage.func.iso %>%
+  group_by(comp) %>%
+  summarise(cat.hits.per.genera = sum(new.freq))
+metabcomp.summ$perc <- metabcomp.summ$cat.hits.per.genera/sum.hits*100
+
+
+##METABOLISM summary
+metabcomp2.summ <- phage.func.iso %>%
+  group_by(comp2) %>%
+  summarise(cat.hits.per.genera = sum(new.freq))
+metabcomp2.summ$perc <- metabcomp2.summ$cat.hits.per.genera/sum.hits*100
+
+```
+
 
 ### 2 by 2 of visualization
 
