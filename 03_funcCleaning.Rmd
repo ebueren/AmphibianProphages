@@ -499,7 +499,6 @@ phage.intact[is.na(phage.intact)] <- "no_phage"
 ### add in intact estimates
 hmm.final <- merge(hmm.all, phage.intact, by.x="phage_seq", by.y="phage_seq", all.x=TRUE, all.y=TRUE)
 
-hmm.final[is.na(hmm.final)] <- "NA"
 
 #write.csv(hmm.final, here(out_dir,"rd3_hmm_FINAL_with_nophage.csv"))
 
@@ -522,5 +521,21 @@ chit.faa <-as.data.frame(chit.hit[,c(3)])
 ##write.table(chit.fna, here(out_dir, "amphChitFNAlist.txt"), sep="\t", quote= FALSE, row.names=FALSE, col.names=FALSE)
 ##write.table(chit.faa, here(out_dir, "amphChitFAAlist.txt") , sep="\t", quote= FALSE, row.names=FALSE, col.names=FALSE)
 ##write.csv(chit.hit, here(out_dir, "detailed_chithits.csv"))
+```
+
+
+### list of janthinobacterium phages (dereplicated)
+```{r}
+phage <- read.csv(here(out_dir,"final_phagelist.csv"))
+
+amph.ref <- subset(phage, phage$Genus=="Janthinobacterium" & phage$representative=="reference_phage")
+
+#write.csv(amph.ref, here(out_dir, "vcontact_alljanthino_metadata.csv"))
+amph.ref2<- amph.ref[,c(2)]
+
+
+#write.table(amph.ref2, here(out_dir, "allJanthinophage_nofna_list.txt"), sep="\t", quote= FALSE, row.names=FALSE, col.names=FALSE)
+
+
 ```
 

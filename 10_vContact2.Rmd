@@ -1,0 +1,43 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+library(dplyr)
+library(tidyverse)
+library(here)
+
+
+## set directory and paths
+here::here()
+raw_dir <- here("data", "03_funcCleaning", "03_raw")  ## raw output from programs like vs2, vibrant, checkv
+out_dir <- here("data", "03_funcCleaning", "03_out") ## output from R
+
+
+
+```
+### list of janthinobacterium phages (dereplicated)
+```{r}
+
+##load bacterial isolate metadata
+isos <- read.csv(here("data", "00_metadata", "Isolates.csv"))
+#isos <- isos[,c(1,8:10)]
+
+phage <-  read.csv(here("data", "03_funcCleaning", "03_out", "final_phagelist.csv"), row.names=1)
+phage <- subset(phage, phage$Genus=="Janthinobacterium" & phage$representative=="reference_phage")
+
+#write.csv(phage, here("data","10_vcontact", "vContact2_janthino_g2g.csv"))
+
+```
+
+
+
+hmm.final[is.na(hmm.final)] <- "NA"
+
+hmm.final2 <- subset(hmm.final, hmm.final$Genus=="Janthinobacterium" & hmm.final$representative=="reference_phage")
+hmm.final2<- hmm.final2[,c(2)]
+
+
+#write.table(hmm.final2, here(out_dir, "amphjanth_protlist.txt"), sep="\t", quote= FALSE, row.names=FALSE, col.names=FALSE)

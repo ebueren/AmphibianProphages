@@ -33,7 +33,7 @@ theme1 <- theme_classic() +
   theme(
       legend.position="left", 
       plot.title = element_text(size=11),
-      axis.text.x = element_text(angle = 270, size= 12, vjust=1, hjust=0),
+      axis.text.x = element_text(size= 12),
       axis.text.y = element_text(size=11),
       axis.title.y = element_text(size=11),
       legend.text=element_text(size=10),

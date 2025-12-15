@@ -1,7 +1,13 @@
 
-Code walkthrough:
+## Repo walkthrough:
 
-#### Cleaning
+- genomic_sequences/ contains all original bacterial sequences, predicted prophage sequences, and all prophage nucleic and amino acid proteins
+- figs/ contains all figures made in R
+- data/ contains all data relevant to the code below
+
+## Code
+
+#### Data Cleaning
 
 01_Phage_Confidence_Filtering: Phage identification pipeline (merging phage datasets, confidence filtering.
 
